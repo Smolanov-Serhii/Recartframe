@@ -261,197 +261,6 @@ function register_post_types()
         'rewrite'=> true,
         'query_var' => true,
     ]);
-    register_post_type('photomade', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Фотосъёмка', // основное название для типа записи
-            'singular_name' => 'Фотосъёмка', // название для одной записи этого типа
-            'add_new' => 'Добавить фото', // для добавления новой записи
-            'add_new_item' => 'Добавление фото', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование фото', // для редактирования типа записи
-            'new_item' => 'Новое фото', // текст новой записи
-            'view_item' => 'Смотреть фото', // для просмотра записи этого типа.
-            'search_items' => 'Искать фото', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Фотосъёмка', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title','editor','thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'with_front'=>'true',
-        'rewrite'=> array('with_front'=>'true'),
-        'query_var' => true,
-    ]);
-    register_post_type('videoomade', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Видеосъемка', // основное название для типа записи
-            'singular_name' => 'Видеосъемка', // название для одной записи этого типа
-            'add_new' => 'Добавить видео', // для добавления новой записи
-            'add_new_item' => 'Добавление видео', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование видео', // для редактирования типа записи
-            'new_item' => 'Новое видео', // текст новой записи
-            'view_item' => 'Смотреть видео', // для просмотра записи этого типа.
-            'search_items' => 'Искать видео', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Видеосъемка', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title','editor','thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'rewrite' => true,
-        'query_var' => true,
-    ]);
-    register_post_type('dopservice', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Доп. услуги', // основное название для типа записи
-            'singular_name' => 'Доп. услуги', // название для одной записи этого типа
-            'add_new' => 'Добавить услугу', // для добавления новой записи
-            'add_new_item' => 'Добавление услуги', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование услуги', // для редактирования типа записи
-            'new_item' => 'Новая услуги', // текст новой записи
-            'view_item' => 'Смотреть услугу', // для просмотра записи этого типа.
-            'search_items' => 'Искать услугу', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Доп. услуги', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title','editor','thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'rewrite' => true,
-        'query_var' => true,
-    ]);
-    register_post_type('litemusic', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Светомузыка', // основное название для типа записи
-            'singular_name' => 'Светомузыка', // название для одной записи этого типа
-            'add_new' => 'Добавить услугу', // для добавления новой записи
-            'add_new_item' => 'Добавление услуги', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование услуги', // для редактирования типа записи
-            'new_item' => 'Новая услуги', // текст новой записи
-            'view_item' => 'Смотреть услугу', // для просмотра записи этого типа.
-            'search_items' => 'Искать услугу', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Светомузыка', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title','editor','thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'rewrite' => true,
-        'query_var' => true,
-    ]);
-    register_post_type('technic', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Техника', // основное название для типа записи
-            'singular_name' => 'Техника', // название для одной записи этого типа
-            'add_new' => 'Добавить технику', // для добавления новой записи
-            'add_new_item' => 'Добавление техники', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование техники', // для редактирования типа записи
-            'new_item' => 'Новая техника', // текст новой записи
-            'view_item' => 'Смотреть технику', // для просмотра записи этого типа.
-            'search_items' => 'Искать технику', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Техника', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'rewrite' => true,
-        'query_var' => true,
-    ]);
 }
 if ( function_exists( 'add_image_size' ) ) {
     add_image_size( 'videogalery-thumb', 410, 391, true ); // Кадрирование изображения
@@ -611,9 +420,6 @@ if( function_exists('acf_add_options_page') ) {
 
 /*
  * "Хлебные крошки" для WordPress
- * автор: Dimox
- * версия: 2019.03.03
- * лицензия: MIT
 */
 function dimox_breadcrumbs() {
 
@@ -826,3 +632,10 @@ function dimox_breadcrumbs() {
 
     }
 } // end of dimox_breadcrumbs()
+
+function mytheme_add_woocommerce_support(){
+    add_theme_support('woocommerce');
+}
+add_action('after_setup_theme','mytheme_add_woocommerce_support');
+
+

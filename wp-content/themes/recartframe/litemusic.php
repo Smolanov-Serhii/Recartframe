@@ -31,34 +31,97 @@ get_header();
                     </div>
                     <div class="rent__inner" data-aos="fade-up">
                         <?php
+                        $taxonomy = 'product_cat';
+                        $orderby = 'name';
+                        $show_count = 0;      // 1 for yes, 0 for no
+                        $pad_counts = 0;      // 1 for yes, 0 for no
+                        $hierarchical = 1;      // 1 for yes, 0 for no
+                        $title = '';
+                        $empty = 1;
+
                         $args = array(
-                            'post_type' => 'technic',
-                            'showposts' => "", //сколько показать статей
-                            'orderby' => "menu_order", //сортировка по дате
-                            'caller_get_posts' => 1);
-                        $my_query = new wp_query($args);
-                        if ($my_query->have_posts()) {
-                            while ($my_query->have_posts()) {
-                                $my_query->the_post();
-                                ?>
-                                <div class="rent__item">
-                                    <div class="left">
-                                        <div class="thumb">
-                                            <img src="<?php echo the_field('kartinka_dlya_tehniki');?>" alt="<?php the_title();?>">
-                                        </div>
-                                        <div class="titles">
-                                            <h4><?php the_title();?></h4>
-                                            <p><?php the_field('opisanie_tehniki');?></p>
-                                        </div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="price"><?php the_field('czena_za_tehniku');?> / <?php the_field('edinicza_vremeni_dlya_arendy');?></div>
-                                        <a href="#" class="rent__order--button">Заказать</a>
-                                    </div>
+                        'taxonomy' => $taxonomy,
+                        'orderby' => $orderby,
+                        'show_count' => $show_count,
+                        'pad_counts' => $pad_counts,
+                        'hierarchical' => $hierarchical,
+                        'title_li' => $title,
+                        'hide_empty' => $empty
+                        );
+                        $all_categories = get_categories($args); ?>
+
+                        <?php foreach ($all_categories as $cat): ?>
+                            <?php if ($cat->category_parent == 0): ?>
+                                <h2 class="products-section__title"><?php echo $cat->name; ?></h2>
+                                <div class="bs-products-loops">
+                                    <?php
+                                    $products = new WP_Query([
+                                        'post_type' => 'product',
+                                        'posts_per_page' => 5,
+                                        'product_cat' => 'arenda',
+                                    ]);
+                                    ?>
+
+                                    <?php if ($products->have_posts()): ?>
+
+                                        <?php while ($products->have_posts()): ?><?php $products->the_post(); ?>
+
+                                            <?php do_action('woocommerce_product_loop_start'); ?>
+
+                                            <?php wc_get_template_part('content', 'product'); ?>
+
+                                            <?php do_action('woocommerce_product_loop_end'); ?>
+
+                                        <?php endwhile; ?><?php wp_reset_postdata(); ?>
+
+                                    <?php endif; ?>
                                 </div>
-                            <?php }
-                        }
-                        wp_reset_query(); ?>
+                            <?php else: ?>
+                                <?php $category_parent = $cat->category_parent; ?>
+                                <?php
+                                $args2 = array(
+                                    'taxonomy' => $taxonomy,
+                                    'child_of' => 0,
+                                    'parent' => $category_parent,
+                                    'orderby' => $orderby,
+                                    'show_count' => $show_count,
+                                    'pad_counts' => $pad_counts,
+                                    'hierarchical' => $hierarchical,
+                                    'title_li' => $title,
+                                    'hide_empty' => $empty
+                                );
+                                $sub_cats = get_categories($args2); ?>
+                                <?php if ($sub_cats): ?>
+                                    <?php foreach ($sub_cats as $sub_category): ?>
+                                        <h3><?php echo $sub_category->name; ?></h3>
+                                        <div class="bs-products-loops">
+                                            <?php
+                                            $products = new WP_Query([
+                                                'post_type' => 'product',
+                                                'posts_per_page' => 5,
+                                                'product_cat' => $sub_category->slug
+                                            ]);
+                                            ?>
+
+                                            <?php if ($products->have_posts()): ?>
+
+                                                <?php while ($products->have_posts()): ?><?php $products->the_post(); ?>
+
+                                                    <?php do_action('woocommerce_product_loop_start'); ?>
+
+                                                    <?php wc_get_template_part('content', 'product'); ?>
+
+                                                    <?php do_action('woocommerce_product_loop_end'); ?>
+
+                                                <?php endwhile; ?><?php wp_reset_postdata(); ?>
+
+                                            <?php else: ?><?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
+
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

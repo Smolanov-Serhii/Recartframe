@@ -65,17 +65,53 @@ get_header();
         <p class="uppertitle"><?php the_field('nadzagolovok_bloka_fotografiya', 13); ?></p>
         <h4 class="block__title"><?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?></h4>
     </div>
-    <div class="fourth__inner">
-        <div class="left" data-aos="fade-right">
-            <div class="description">
-                <?php the_field('opisanie_bloka_fotografiya', 13); ?>
-            </div>
-            <a href="<?php the_field('ssylka_na_knopku_fotografii', 13); ?>" class="more__works--button"><?php echo the_field('pokazat_bolshe', 'options'); ?></a>
+    <div class="">
+        <div class="fourth__inner__container">
+            <?php
+
+            // Check rows exists.
+            if( have_rows('slajder_dlya_fotografiya') ):
+
+                // Loop through rows.
+                while( have_rows('slajder_dlya_fotografiya') ) : the_row();
+
+                    // Load sub field value.
+                    $sub_text = get_sub_field('opisanie_bloka_fotografiya');
+                    $imagebig = get_sub_field('bolshoe_izobrazhenie_bloka_fotografiya');
+                    $imagesmall = get_sub_field('malenkaya_fotografiya_blokka_fotografiya');
+                    $imagetext = get_sub_field('izobrazhenie_teksta_bloka_fotografiya');
+                    $imagelink = get_sub_field('ssylka_na_knopku_fotografii');
+                    // Do something...
+                    ?>
+                    <div class="fourth__inner__slide fourth__inner">
+                        <div class="left">
+                            <div class="description">
+                                <?php echo $sub_text; ?>
+                            </div>
+                            <a href="<?php echo $imagelink; ?>" class="more__works--button"><?php echo the_field('pokazat_bolshe', 'options'); ?></a>
+                        </div>
+                        <div class="right">
+                            <img src="<?php echo $imagebig; ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="photo__image">
+                            <img src="<?php echo $imagesmall; ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="small__image">
+                            <img src="<?php echo $imagetext; ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="word__image">
+                        </div>
+                    </div>
+                <?php
+                    // End loop.
+                endwhile;
+
+            else :
+                // Do something...
+            endif;
+            ?>
         </div>
-        <div class="right" data-aos="fade-left">
-            <img src="<?php the_field('bolshoe_izobrazhenie_bloka_fotografiya', 13); ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="photo__image">
-            <img src="<?php the_field('malenkaya_fotografiya_blokka_fotografiya', 13); ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="small__image">
-            <img src="<?php the_field('izobrazhenie_teksta_bloka_fotografiya', 13); ?>" alt="<?php the_field('zagolovok_dlya_bloka_fotografii', 13); ?>" class="word__image">
+        <div class="fourth__inner__navigate">
+            <div class="left">
+
+            </div>
+            <div class="right">
+
+            </div>
         </div>
     </div>
 </section>

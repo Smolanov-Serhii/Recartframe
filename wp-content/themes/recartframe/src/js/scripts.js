@@ -198,4 +198,13 @@ jQuery(document).ready(function($) {
             return false;
     });
 
+    $(document).ready(function(){
+        $('.fourth__inner__container').owlCarousel({
+            items: 1,
+            nav: false,
+            autoPlay: true,
+            stagePadding: 0,
+        });
+    });
+
 });

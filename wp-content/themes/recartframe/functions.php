@@ -181,6 +181,72 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+register_activation_hook(__FILE__, function() {
+    // проверяем права пользователя на установку плагинов
+    if (!current_user_can('activate_plugins')) {
+        return;
+    }
+});
+
+register_deactivation_hook(__FILE__, function() {
+    // проверяем права пользователя на деактивацию плагинов
+    if (!current_user_can('deactivate_plugins')) {
+        return;
+    }
+});
+// Тип данных артисты
+function my_photogalery() {
+    $labels = array(
+        'name'          => 'Фотогалерея',               // основное название для типа записи
+        'singular_name'     => 'Фотогалерея',            // название для одной записи этого типа
+        'add_new'       => 'Добавить фото',                   // для добавления новой записи
+        'add_new_item'      => 'Добавление нового фото',     // заголовка у вновь создаваемой записи в админ-панели
+        'edit_item'     => 'Редактирование данных фото', // для редактирования типа записи
+        'new_item'      => 'Новая фотогалерея',          // текст новой записи
+        'all_items'     => 'Все фотогалереи',           // все записи
+        'view_item'     => 'Смотреть данные фотогалереи',       // для просмотра записи этого типа
+        'search_items'      => 'Найти фотогалерею',         // для поиска по этим типам записи
+        'not_found'     => 'Фотогалереи не найдены',        // если в результате поиска ничего не было найдено
+        'not_found_in_trash'    => 'В корзине ничего нет',      // если не было найдено в корзине
+        'parent_item_colon' => '',                  // для родителей (у древовидных типов)
+        'menu_name'     => 'Фотогалерея'                // название меню
+    );
+    $args = array(
+        'labels'    => $labels,
+        'description'   => 'Фотогалерея',
+        'public'    => true,
+        // 'publicly_queryable'  => null,   // зависит от public
+        // 'exclude_from_search' => null,   // зависит от public
+        // 'show_ui'             => null,   // зависит от public
+        // 'show_in_nav_menus'   => null,   // зависит от public
+        'show_in_menu'        => true,      // показывать ли в меню админки
+        // 'show_in_admin_bar'   => null,   // зависит от show_in_menu
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-groups',
+        'supports'  => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'hierarchical'        => false,
+//      'show_ui'             => true,
+//      'show_in_nav_menus'   => true,
+        'has_archive'         => false,
+        'can_export'          => true,
+        'exclude_from_search' => false,
+//          'yarpp_support'       => true,
+        'taxonomies'          => ['type-photogalery'],
+        'capability_type'     => 'post',
+        'rewrite'             => true,
+        'query_var'           => true,
+    );
+    register_taxonomy( 'type-photogalery', 'photogalery',
+        array(
+            'hierarchical' => true,
+            'label' => __( 'Типы фотогалереи' ),
+            'rewrite' => array( 'slug' => 'type-photogalery' ),
+        )
+    );
+    register_post_type( 'photogalery', $args );
+}
+add_action( 'init', 'my_photogalery' );
+// Тип данных артисты END
 
 add_action( 'init', 'register_post_types' );
 function register_post_types()
@@ -223,44 +289,7 @@ function register_post_types()
         'rewrite' => true,
         'query_var' => true,
     ]);
-    register_post_type('photogalery', [
-        'label' => null,
-        'labels' => [
-            'name' => 'Фотогалерея', // основное название для типа записи
-            'singular_name' => 'Фотогалерея', // название для одной записи этого типа
-            'add_new' => 'Добавить фото', // для добавления новой записи
-            'add_new_item' => 'Добавление фото', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item' => 'Редактирование фото', // для редактирования типа записи
-            'new_item' => 'Новое фото', // текст новой записи
-            'view_item' => 'Смотреть фото', // для просмотра записи этого типа.
-            'search_items' => 'Искать фото', // для поиска по этим типам записи
-            'not_found' => 'Не найдено', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
-            'parent_item_colon' => '', // для родителей (у древовидных типов)
-            'menu_name' => 'Фотогалерея', // название меню
-        ],
-        'description' => '',
-        'public' => true,
-        // 'publicly_queryable'  => null, // зависит от public
-        // 'exclude_from_search' => null, // зависит от public
-        // 'show_ui'             => null, // зависит от public
-        // 'show_in_nav_menus'   => null, // зависит от public
-        'show_in_menu' => null, // показывать ли в меню адмнки
-        // 'show_in_admin_bar'   => null, // зависит от show_in_menu
-        'show_in_rest' => null, // добавить в REST API. C WP 4.7
-        'rest_base' => null, // $post_type. C WP 4.7
-        'menu_position' => null,
-        'menu_icon' => 'dashicons-businessman',
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
-        'has_archive' => true,
-        'rewrite'=> true,
-        'query_var' => true,
-    ]);
+
 }
 if ( function_exists( 'add_image_size' ) ) {
     add_image_size( 'videogalery-thumb', 410, 391, true ); // Кадрирование изображения
@@ -638,4 +667,14 @@ function mytheme_add_woocommerce_support(){
 }
 add_action('after_setup_theme','mytheme_add_woocommerce_support');
 
+add_filter('woocommerce_add_to_cart_fragments', 'header_add_to_cart_fragment');
 
+function header_add_to_cart_fragment( $fragments ) {
+    global $woocommerce;
+    ob_start();
+    ?>
+    <span class="basket-btn__counter"> <?php echo sprintf($woocommerce->cart->cart_contents_count); ?> </span>
+    <?php
+    $fragments['.basket-btn__counter'] = ob_get_clean();
+    return $fragments;
+}

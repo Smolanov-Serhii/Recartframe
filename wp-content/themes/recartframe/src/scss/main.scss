@@ -92,6 +92,28 @@ picture {
 }
 
 header {
+  .market-icons{
+    position: relative;
+    margin-right: 20px;
+    svg{
+      width: 40px;
+      height: auto;
+    }
+    .basket-btn__counter{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e42a2b;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      top: -8px;
+      right: 6px;
+    }
+  }
   background-color: #e42a2b;
   padding: 45px 0;
   position: relative;
@@ -535,7 +557,7 @@ header {
     display: flex!important;
     .owl-item{
       .photo__image{
-        transform: translateY(110%);
+        transform: translateY(-110%);
         opacity: 0;
         transition-delay: 0.2s;
         transition-duration: 0.5s ;
@@ -1038,8 +1060,30 @@ footer {
 
 //INNER PAGES
 body {
+  .market-icons{
+    .basket-btn__counter{
+      background-color: white;
+      color: #e42a2b;
+    }
+    svg{
+      path{
+        fill: white;
+      }
+    }
+  }
   &:not(.home) {
     header {
+      .market-icons{
+        .basket-btn__counter{
+          background-color: #e42a2b;
+          color: white;
+        }
+        svg{
+          path{
+            fill: black;
+          }
+        }
+      }
       background: #fff;
       .header--logo {
         .main__logo {
@@ -1406,6 +1450,9 @@ body {
 .lights__rent--catalog {
   padding: 160px 0;
   position: relative;
+  .added_to_cart.wc-forward{
+    display: none;
+  }
   &:before {
     display: block;
     content:'';
@@ -1451,10 +1498,12 @@ body {
             font-family: $base-font-family;
             font-size: 24px;
             margin-bottom: 10px;
+            color: black;
           }
           p {
             font-weight: 500;
             line-height: 1.5;
+            color: black;
           }
         }
       }
@@ -1467,7 +1516,7 @@ body {
           color: #e42a2b;
           margin-right: 35px;
         }
-        .rent__order--button {
+        .rent__order--button, .ajax_add_to_cart {
           display: block;
           width: 165px;
           padding: 20px 0;
@@ -2665,7 +2714,7 @@ body {
   margin: 0 auto;
   margin-bottom: 160px;
   @extend .flex;
-  align-items: center;
+  align-items: flex-start;
   .left {
     width: 58%;
     margin-right: 100px;
@@ -2712,6 +2761,7 @@ body {
       }
       input[type='number'] {
         -moz-appearance:textfield;
+        max-width: 40px;
       }
 
       input::-webkit-outer-spin-button,
@@ -2742,8 +2792,14 @@ body {
 .lSSlideOuter {
   .product__slider {
     .slider__item {
+      a{
+        width: 100%;
+        display: block;
+      }
       img {
         object-fit: cover;
+        height: 100%;
+        width: 100%;
       }
     }
   }
@@ -3053,6 +3109,15 @@ body {
   background-color: #1c1c1c;
   .wpcf7-response-output{
     color: white;
+  }
+  .market-icons{
+    svg{
+      width: 40px;
+      height: auto;
+      path{
+        fill: white!important;
+      }
+    }
   }
   header {
     background-color: #1c1c1c !important;

@@ -17,8 +17,8 @@ get_header();
         <div class="row">
             <div class="col-md-12">
                 <div class="main__titles" data-aos="fade-up">
-                    <h1><?php the_field('zagolovok_v_shapke_straniczy',13); ?></h1>
-                    <p><?php the_field('zagolovok_v_shapke_straniczy', 13); ?></p>
+                    <h1><?php the_field('zagolovok_dlya_verhnego_banera'); ?></h1>
+                    <p><?php the_field('podzagolovok_dlya_banera'); ?></p>
                 </div>
             </div>
         </div><!-- /.row -->
@@ -27,21 +27,21 @@ get_header();
 
 <section class="second__block" id="second__block">
     <div class="block__titles--wrap" data-aos="fade-up">
-        <p class="uppertitle"><?php the_field('nadzagolovok_filmografiya', 13); ?></p>
-        <h4 class="block__title"><?php the_field('zagoolvok_bloka_filmografiya', 13); ?></h4>
+        <p class="uppertitle"><?php the_field('nadzagolovok_filmografiya'); ?></p>
+        <h4 class="block__title"><?php the_field('zagoolvok_bloka_filmografiya'); ?></h4>
     </div>
     <div class="second__wrap">
         <div class="left" data-aos="fade-right">
-            <div class="video__wrap fresco" href="<?php echo the_field('ssylka_na_video', 13); ?>">
-                <img src="<?php echo the_field('kartinka_dlya_zastavki_v_bloke_filmografiya', 13); ?>" alt="<?php the_field('zagolovok_v_shapke_straniczy', 13); ?>" class="film__banner">
+            <div class="video__wrap fresco" href="<?php echo the_field('ssylka_na_video'); ?>">
+                <img src="<?php echo the_field('kartinka_dlya_zastavki_v_bloke_filmografiya'); ?>" alt="<?php the_field('zagolovok_v_shapke_straniczy'); ?>" class="film__banner">
                 <div class="play__film--video"></div>
             </div>
         </div>
         <div class="right" data-aos="fade-left">
             <div class="description">
-                <?php echo the_field('opisanie_bloka_filmografiya', 13); ?>
+                <?php echo the_field('opisanie_bloka_filmografiya'); ?>
             </div>
-            <a href="<?php the_field('ssylka_na_knopku_filmografii', 13); ?>" class="more__works--button"><?php echo the_field('pokazat_bolshe', 'options'); ?></a>
+            <a href="<?php the_field('ssylka_na_knopku_filmografii'); ?>" class="more__works--button"><?php echo the_field('nadpis_na_knopke_pokazat_bolshe'); ?></a>
         </div>
     </div>
 </section>
@@ -53,7 +53,7 @@ get_header();
                 <div class="third__inner">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg.jpg" alt="image" class="desk__image">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg-mobile.jpg" alt="image" class="mob__image">
-                    <h4 class="third__title"><?php echo the_field('tekst_v_blok_tyomnyj_blok', 13); ?></h4>
+                    <h4 class="third__title"><?php echo the_field('tekst_v_blok_tyomnyj_blok'); ?></h4>
                 </div>
             </div>
         </div>

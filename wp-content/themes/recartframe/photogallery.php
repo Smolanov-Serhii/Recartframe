@@ -50,7 +50,7 @@ get_header();
                             <?php
                                 if( get_field('otkryvat_li_otdelnuyu_straniczu') ) {
                                     ?>
-                                    <a href="<?php the_permalink();?>>" class="more"><?php the_field('podrobnee','options');?></a>
+                                    <a href="<?php the_permalink();?>" class="more"><?php the_field('podrobnee','options');?></a>
                                     <?php
                                 }
                             ?>

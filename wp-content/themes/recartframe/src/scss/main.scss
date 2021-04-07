@@ -171,12 +171,40 @@ header {
     position: relative;
     margin-right: 50px;
     z-index: 99;
+    .trp-language-switcher{
+      &:hover{
+        .trp-ls-shortcode-current-language{
+          visibility: visible;
+        }
+      }
+    }
     &.active {
       opacity: 0;
     }
     &:hover {
       .hidden__lang {
         display: block;
+      }
+    }
+    .trp-ls-shortcode-current-language{
+      background-color: transparent;
+      background-image: none;
+      border: none;
+      &:hover{
+        visibility: visible!important;
+      }
+      a{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: $heading-font-family;
+        cursor: pointer;
+      }
+    }
+    .trp-ls-shortcode-language{
+      .trp-ls-shortcode-disabled-language{
+        display: none;
       }
     }
     .lang__holder {
@@ -187,16 +215,19 @@ header {
       font-family: $heading-font-family;
       cursor: pointer;
     }
-    .hidden__lang {
+    .hidden__lang, .trp-ls-shortcode-language{
       display: none;
       position: absolute;
       background-color: #fff;
-      left: -20px;
-      width: 75px;
+      left: -20px!important;
+      width: 75px!important;
       padding: 15px 10px;
       border-radius: 5px;
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3);
       z-index: 99;
+      background-image: none;
+      text-align: center;
+      //top: 20px!important;
       ul {
         li {
           text-align: center;
@@ -774,6 +805,9 @@ header {
       border-radius: 50%;
       overflow: hidden;
       margin-right: 50px;
+      .wpmtst-testimonial-image{
+        height: 100%;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -3112,7 +3146,7 @@ body {
   }
   .market-icons{
     svg{
-      width: 40px;
+      width: 35px;
       height: auto;
       path{
         fill: white!important;

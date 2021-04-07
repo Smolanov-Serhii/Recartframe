@@ -27,5 +27,6 @@ do_action( 'wpmtst_before_view' );
                 </div>
             </div>
         <?php endwhile; ?>
+
 </div>
 

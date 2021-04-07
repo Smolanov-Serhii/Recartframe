@@ -53,6 +53,7 @@ if ( ! function_exists( 'recartframe_setup' ) ) :
 				'PageMenu' => esc_html__( 'Меню страниц', 'recartframe' ),
                 'BurgerMenu' => esc_html__( 'Бургер меню', 'recartframe' ),
                 'FooterMenu' => esc_html__( 'Меню подвал', 'recartframe' ),
+                'Language' => esc_html__( 'Языки', 'recartframe' ),
 			)
 
 		);
@@ -103,6 +104,7 @@ if ( ! function_exists( 'recartframe_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
 	}
 endif;
 add_action( 'after_setup_theme', 'recartframe_setup' );
@@ -136,6 +138,13 @@ function recartframe_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'language', 'recartframe' ),
+            'id'            => 'language',
+            'description'   => esc_html__( 'Добавте языковые єлементы', 'recartframe' ),
+        )
+    );
 }
 add_action( 'widgets_init', 'recartframe_widgets_init' );
 
@@ -678,3 +687,13 @@ function header_add_to_cart_fragment( $fragments ) {
     $fragments['.basket-btn__counter'] = ob_get_clean();
     return $fragments;
 }
+
+
+add_filter('acf/prepare_field', 'my_translatable_acf_fields');
+function my_translatable_acf_fields($field){
+    if (strpos($field['wrapper']['class'], 'translatable') !== false){
+        $field['class'] = 'translatable';
+    }
+    return $field;
+}
+

@@ -1389,6 +1389,11 @@ body {
         @extend .flex;
         align-items: center;
         justify-content: center;
+        &.non-before{
+          &:before{
+            display: none;
+          }
+        }
         @extend .transition;
         &:hover {
           &:before  {

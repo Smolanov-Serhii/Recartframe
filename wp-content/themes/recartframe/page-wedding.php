@@ -209,10 +209,22 @@ get_header();
                         $title = get_sub_field('zagolovok_na_odnu_zapis');
                         $image = get_sub_field('kartinka_na_odnu_zapis');
                         $link = get_sub_field('ssylka_na_odnu_zapis');
+                        $itemlnk = get_field('podrobnee', 'options');
                         ?>
                         <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="<?php echo $link;?>" class="item__link"><?php the_field('podrobnee', 'options'); ?></a>
+                            <?php
+                            $newclass = "";
+                            if (!$link){
+                                $newclass = 'non-before';
+                            }
+                            ?>
+                            <div class="thumb__wrap <?php echo $newclass?>">
+                                <?php
+                                if ($link){
+                                    echo '<a href="' . $link .  '" class="item__link">' . $itemlnk . '</a>';
+                                }
+                                ?>
+
                                 <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
                             </div>
                             <a href="<?php echo $link;?>" class="description">

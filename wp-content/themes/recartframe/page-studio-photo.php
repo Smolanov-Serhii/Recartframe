@@ -14,8 +14,8 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="main__titles" data-aos="fade-right">
-                        <h1>Студийная фотосъемка</h1>
-                        <p>Безграничный простор для творчества и воплощение самых смелых замыслов в реальность</p>
+                        <h1><?php the_field('zagolovok_svadebnaya_fotosemka', 306); ?></h1>
+                        <p><?php the_field('podzagolovok_v_shapku', 306); ?></p>
                     </div>
                 </div>
             </div><!-- /.row -->
@@ -27,53 +27,36 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">Студийная фотосъемка</p>
-                        <h4 class="block__title">Полное раскрытие образа</h4>
+                        <p class="uppertitle"><?php the_field('zagolovok_studijnaya_fotosemka', 306); ?></p>
+                        <h4 class="block__title"><?php the_field('podzagolovok_studijnaya_fotosemka', 306); ?></h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="events__wrap">
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/studio1.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Секрет взрывного портфолио</h4>
-                    <div class="descr">
-                        <p>Фотосессия в студии — это способ создания образа, который будет привлекателен для потенциальных работодателей.  Если вы не знаете, какую фотографию вставить в резюме и как себя показать, то обратитесь в RecArtFrame. </p>
-                        <p>Мы подготовим для вас кадры, которые наглядно продемонстрируют вашу компетентность, красоту и профессионализм.</p>
-                        <p>Фотограф должен не только виртуозно владеть своим инструментарием, но и быть хорошим психологом. С нашей помощью вы получите сногсшибательное резюме, которое будет выделяться среди серой массы конкурентов.</p>
+            <?php
+            if( have_rows('fotosessii_kejsy',306) ):
+                while( have_rows('fotosessii_kejsy',306) ) : the_row();
+                    $title = get_sub_field('zagolovok_fotosesii',306);
+                    $content = get_sub_field('opisanie_fotosesii',306);
+                    $image = get_sub_field('kartinka_fotosesii',306);
+                    ?>
+                    <div class="event__item">
+                        <div class="left" data-aos="fade-right">
+                            <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                        </div>
+                        <div class="right" data-aos="fade-left">
+                            <h4><?php echo $title;?></h4>
+                            <div class="descr">
+                                <?php echo $content;?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/studio2.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Съемка в кругу близких</h4>
-                    <div class="descr">
-                        <p>Студия RecArtFrame перевернет ваше представление о коллективной фотографии. Каждый кадр будет весомым. </p>
-                        <p>Вы получите полноценный сюжет о любви. Мы покажем вам историю крепкой дружбы с помощью магии фотографии. </p>
-                        <p>Забудьте про ограничения. Чувствуйте себя как дома вместе с друзьями или вторыми половинками. </p>
-                        <p>Мы поможем вам раскрепоститься и дать волю эмоциям.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/studio3.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Лечебный эффект фотографии</h4>
-                    <div class="descr">
-                        <p>Психологи отмечают, что качественная фотосессия в студии – это хороший антидепрессант. </p>
-                        <p>Если вы устали от своего старого «Я» и хотите перевоплотиться, то сеанс фотографии поможет вам расслабиться и отдохнуть от мирской суеты. </p>
-                        <p>В студии нет помех — нет ни случайных прохожих, ни капризной погоды. Мы позаботились о том, чтобы вам было комфортно.</p>
-                    </div>
-                </div>
-            </div>
+                <?php
+                endwhile;
+            else :
+            endif;
+            ?>
         </div>
     </div>
 
@@ -84,7 +67,7 @@ get_header();
                     <div class="third__inner" data-aos="fade-up">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg.jpg" alt="image" class="desk__image">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg-mobile.jpg" alt="image" class="mob__image">
-                        <h4 class="third__title">Студийная фотосъемка не приемлет рутины. RecArtFrame способен на импровизацию и экспромт. Мы убеждены, что фотосессия — это творчество, которое не знает границ.</h4>
+                        <h4 class="third__title"><?php the_field('opisanie', 306); ?></h4>
                     </div>
                 </div>
             </div>
@@ -97,21 +80,12 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">Этапы фотосЪемки</p>
-                        <h4 class="block__title">Как мы работаем?</h4>
+                        <p class="uppertitle"><?php the_field('podzagolovok_etapy_fotosemki', 306); ?></p>
+                        <h4 class="block__title"><?php the_field('zagolovok_etapy_fotosemki', 306); ?></h4>
                     </div>
                     <div class="work__steps--wrap">
                         <div class="left" data-aos="fade-right">
-                            <ol class="steps__list">
-                                <li>Встречаемся с вами.</li>
-                                <li>Выявляем ваши потребности в съемке.</li>
-                                <li>Прорабатываем концепцию.</li>
-                                <li>Создаем нужный образ и обстановку в студии.</li>
-                                <li>Приглашаем парикмахеров и визажистов, если требуется.</li>
-                                <li>Начинаем фотосессию.</li>
-                                <li>Обрабатываем и корректируем отснятый материал.</li>
-                                <li>Выводим изображения в нужный формат.</li>
-                            </ol>
+                            <?php the_field('opisanie_etapy_fotosemki', 306); ?>
                         </div>
                         <div class="right" data-aos="fade-left">
                             <div class="works__content">
@@ -147,8 +121,8 @@ get_header();
 
     <section class="seventh__block">
         <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">Разрабатываем брендинг</p>
-            <h4 class="block__title">Напишите нам</h4>
+            <p class="uppertitle"><?php the_field('podzagolovok_napishite_nam', 306); ?></p>
+            <h4 class="block__title"><?php the_field('zagolovok_napishite_nam', 306); ?></h4>
         </div>
         <div class="container">
             <div class="row">
@@ -183,9 +157,8 @@ get_header();
                 <div class="col-md-12">
                     <div class="seo__inner" data-aos="fade-up">
                         <div class="seo__text--content">
-                            <h4>Фотосъемка животных</h4>
-                            <p>Забудьте про неусидчивость вашего любимца. Для нас это не проблема. Мы уловим мельчайшие движения и мимику животного. От нашего взора не скроется красота окраски или мордочки. Снимки отразят уникальность питомца и его любовь к хозяину. В RecArtFrame понимают сложность фотосъемки с домашними животными и готовы предложить рецепты успешных кадров для хозяев.
-                                Забудьте про неусидчивость вашего любимца. Для нас это не проблема. Мы уловим мельчайшие движения и мимику животного. От нашего взора не скроется красота окраски или мордочки. Снимки отразят уникальность питомца и его любовь к хозяину. В RecArtFrame понимают сложность фотосъемки с домашними животными и готовы предложить рецепты успешных кадров для хозяев.</p>
+                            <h4><?php the_field('kommercheskaya_fotosemka_zagolovok', 306); ?></h4>
+                            <p><?php the_field('kommercheskaya_fotosemka_opisanie', 306); ?></p>
                         </div>
                     </div>
                 </div>

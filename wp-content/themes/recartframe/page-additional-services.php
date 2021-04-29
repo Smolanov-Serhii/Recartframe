@@ -13,72 +13,36 @@ get_header();
       <div class="row">
         <div class="col-md-12">
           <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">Свадебная фотосессия</p>
-            <h4 class="block__title">Дополнительные услуги</h4>
+            <p class="uppertitle"><?php the_field('zagolovok_blok_pod_formoj', 92); ?></p>
+            <h4 class="block__title"><?php the_field('zagolovok_blok_pod_formoj', 92); ?></h4>
           </div>
             <div class="add__serv--wrap">
-              <div class="service__item">
-                <div class="left" data-aos="fade-right">
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/as1.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                  <h4>Живая музыка</h4>
-                  <div class="description">
-                    <p>Организовываем чистое звучание праздника Подлинная красота музыки раскрывается только в непосредственном исполнении. </p>
-                    <p>Обыкновенные записи песен никогда не заменят маэстро. В RecArtFrame убеждены, что профессиональный музыкант на свадьбу оживит знаковое событие и наполнит праздничный зал чистым звуком.</p>
-                    <p>Никаких фонограмм и искусственных нот. Только музыка, которая доберется до самых глубоких струн души.</p>
-                  </div>
-                  <a href="#" class="more__button">Подробнее</a>
-                </div>
-              </div>
-              <div class="service__item">
-                <div class="left" data-aos="fade-right">
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/as2.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                  <h4>Диджей</h4>
-                  <div class="description">
-                    <blockquote>Recartframe создает стильные, современные, живые фотографии, через которые вы вновь прочувствуете торжественную атмосферу свадьбы.</blockquote>
-                    <ol>
-                      <li>Мы работаем в любой удобной для вас локации. Наша команда внимательна и сосредоточена, поэтому никогда не пропускает интересных и трогательных моментов на празднике.</li>
-                      <li>Никаких неприятных сюрпризов, ведь в Recartframe придерживаются фиксированных цен на свадебную фотосъемку.</li>
-                    </ol>
-                  </div>
-                  <a href="#" class="more__button">Подробнее</a>
-                </div>
-              </div>
-              <div class="service__item">
-                <div class="left" data-aos="fade-right">
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/as3.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                  <h4>Ведущий, Тамада</h4>
-                  <div class="description">
-                    <blockquote>В онлайн-эпоху принято делиться знаковыми событиями с близкими, друзьями и коллегами. Recartframe предлагает уникальную услугу, которая поможет молодоженам запечатлеть в онлайн-среде день рождения их семьи. Наша команда создает фотослайдшоу из свадебных снимков, которые вы можете разместить в социальных сетях:</blockquote>
-                    <ol>
-                      <li>мы подберем для вас индивидуальное музыкальное сопровождение;</li>
-                      <li>предложим современное, стильное оформление фотографий;</li>
-                    </ol>
-                  </div>
-                  <a href="#" class="more__button">Подробнее</a>
-                </div>
-              </div>
-              <div class="service__item">
-                <div class="left">
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/as4.jpg" alt="image">
-                </div>
-                <div class="right">
-                  <h4>Фото редактирование</h4>
-                  <div class="description">
-                    <blockquote>Recartframe создает стильные, современные, живые фотографии, через которые вы вновь прочувствуете торжественную атмосферу свадьбы. </blockquote>
-                    <ol>
-                      <li>Мы работаем в любой удобной для вас локации. Наша команда внимательна и сосредоточена, поэтому никогда не пропускает интересных и трогательных моментов на празднике.</li>
-                      <li>Никаких неприятных сюрпризов, ведь в Recartframe придерживаются фиксированных цен на свадебную фотосъемку.</li>
-                    </ol>
-                  </div>
-                  <a href="#" class="more__button">Подробнее</a>
-                </div>
-              </div>
+                <?php
+                if( have_rows('tipy_uslug') ):
+                    while( have_rows('tipy_uslug') ) : the_row();
+                        $title = get_sub_field('zagolovok_tipa_uslugi');
+                        $image = get_sub_field('kartinka_tipa_uslugi');
+                        $content = get_sub_field('opisanie_tipa_uslugi');
+                        $link = get_sub_field('ssylka_na_knopku_uslugi');
+                        $podrobnee = get_field('podrobnee', 'options');
+                        ?>
+                        <div class="service__item">
+                            <div class="left" data-aos="fade-right">
+                                <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                            </div>
+                            <div class="right" data-aos="fade-left">
+                                <h4><?php echo $title;?></h4>
+                                <div class="description">
+                                    <?php echo $content;?>
+                                </div>
+                                <a href="<?php echo $link;?>" class="more__button"><?php echo $podrobnee;?></a>
+                            </div>
+                        </div>
+                        <?php
+                    endwhile;
+                else :
+                endif;
+                ?>
             </div>
           </div>
         </div>
@@ -86,45 +50,35 @@ get_header();
     </div>
     <div class="videos__category">
       <div class="block__titles--wrap" data-aos="fade-up">
-        <p class="uppertitle">Разрабатываем брендинг</p>
-        <h4 class="block__title">Наши приемущества</h4>
+        <p class="uppertitle"><?php the_field('zagolovok_blok_pod_formoj', 92); ?></p>
+        <h4 class="block__title"><?php the_field('podzagolovok_nashi_preimushhstva', 92); ?></h4>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="cats__wrap" data-aos="fade-up">
-              <div class="item">
-                <div class="top">
-                  <div class="number">01</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/asc1.png" alt="image">
-                </div>
-                <h4>Емкость и Креатив</h4>
-                <p>Полная свобода творчества без навязчивых кадров.</p>
-              </div>
-              <div class="item">
-                <div class="top">
-                  <div class="number">02</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/asc2.png" alt="image">
-                </div>
-                <h4>ТОП технологии</h4>
-                <p>Живая анимация и цепляющие изображения, которым легко поверить.</p>
-              </div>
-              <div class="item">
-                <div class="top">
-                  <div class="number">03</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/asc3.png" alt="image">
-                </div>
-                <h4>Многолетний опыт</h4>
-                <p>Безграничный потенциал для производства имиджевого видео компании.</p>
-              </div>
-              <div class="item">
-                <div class="top">
-                  <div class="number">04</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/asc4.png" alt="image">
-                </div>
-                <h4>Большая студия</h4>
-                <p>Мы не зависим от локации и географии.</p>
-              </div>
+                <?php
+                $counter = 1;
+                if( have_rows('nashi_priemushhestva_dop_uslugi') ):
+                    while( have_rows('nashi_priemushhestva_dop_uslugi') ) : the_row();
+                        $title = get_sub_field('zagolovok_preimushhestva');
+                        $image = get_sub_field('ikonka_preimushhestva');
+                        $content = get_sub_field('opisanie_preimushhestva');
+                        ?>
+                        <div class="item">
+                            <div class="top">
+                                <div class="number"><?php echo $counter;?></div>
+                                <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                            </div>
+                            <h4><?php echo $title;?></h4>
+                            <p><?php echo $content;?></p>
+                        </div>
+                        <?php
+                        $counter ++;
+                    endwhile;
+                else :
+                endif;
+                ?>
             </div>
           </div>
         </div>
@@ -172,8 +126,8 @@ get_header();
         <div class="col-md-12">
           <div class="seo__inner" data-aos="fade-up">
             <div class="seo__text--content">
-              <h4>Стоимость свадебной фотосъемки</h4>
-              <p>Профессиональное качество съемки и авторский подход Recartframe сделает ваш торжественный день первой семейной ценностью. Цена свадебной фотосъемки зависит от количества часов и индивидуальных пожеланий жениха и невесты. Профессиональные услуги фотографа сделают этот значимый день ярчайшим началом вашей семейной жизни. В цену свадебной фотографии могут быть включены фотографии с дрона, снятые с высоты птичьего полета. Они займут центральное место в семейной фотогалерее рядом с будущими кадрами из детской фотосессии.Живите оптимистично и ярко, запоминая только лучшие моменты вашей совместной истории!</p>
+              <h4><?php the_field('zagolovok_bloka', 92); ?></h4>
+              <p><?php the_field('opisanie_bloka', 92); ?></p>
             </div>
           </div>
         </div>

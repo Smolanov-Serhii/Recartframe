@@ -9,13 +9,13 @@ get_header();
 ?>
 
   <section class="first__block first__block--rent first__block--presenter first__block--videos">
-    <img src="<?php echo get_template_directory_uri() ?>/dist/img/presenter-banner.jpg" alt="image" class="main__banner">
+    <img src="<?php echo the_field('kartinka_v_shapku_straniczy', 350); ?>" alt="<?php the_field('zagolovok_v_shapku', 92); ?>" class="main__banner">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="main__titles" data-aos="fade-right">
-            <h1>Ведущий, тамада</h1>
-            <p>Первоклассное сопровождение праздника</p>
+            <h1><?php the_field('zagolovok_v_shapku', 350); ?></h1>
+            <p><?php the_field('podzagolovok_v_shapku', 350); ?></p>
           </div>
         </div>
       </div><!-- /.row -->
@@ -27,108 +27,45 @@ get_header();
       <div class="row">
         <div class="col-md-12">
           <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">Свадебная фотосессия</p>
-            <h4 class="block__title">Последние мероприятия</h4>
+            <p class="uppertitle"><?php the_field('zagolovok_poslednie_meropriyatiya', 350); ?></p>
+            <h4 class="block__title"><?php the_field('podzagolovok_poslednie_meropriyatiya', 350); ?></h4>
           </div>
         </div>
       </div>
     </div>
     <div class="events__wrap">
-      <div class="event__item">
-        <div class="left" data-aos="fade-right">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/event1.jpg" alt="image">
-        </div>
-        <div class="right" data-aos="fade-left">
-          <h4>Организация свадебной фотосессии</h4>
-          <div class="descr">
-            <p>Большое скопление людей — это не только насыщенные эмоции, но и подлинный хаос. У гостей на праздниках — разные амплитуды настроения. </p>
-            <p>Чтобы свести всех к одному общему резонансу, нужен руководитель, который способен объединить души и мысли. </p>
-            <p>Ведущий и тамада — профессионалы, которые организуют неподдельное удовольствие каждому гостю.</p>
-          </div>
-        </div>
-      </div>
-      <div class="event__item">
-        <div class="left" data-aos="fade-right">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/event2.jpg" alt="image">
-        </div>
-        <div class="right" data-aos="fade-left">
-          <h4>Организация лучшего мероприятия</h4>
-          <div class="descr">
-            <p>Стандартный тамада или ведущий не способен уловить прихоти каждого гостя. Нередко случается так, что участникам празднества наскучивают очередные шутки или номера.</p>
-            <p>Наши ведущие найдут тонкий подход не только ко всем участникам, но и к каждому гостю по отдельности. Никакой скуки или навязчивости.</p>
-            <p>Мы организуем естественное веселье, которое покорит сердца даже самых матерых скептиков.</p>
-          </div>
-        </div>
-      </div>
-      <div class="event__item">
-        <div class="left" data-aos="fade-right">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/event3.jpg" alt="image">
-        </div>
-        <div class="right" data-aos="fade-left">
-          <h4>Уникальна услуга –  фотослайдшоу для соцсетей</h4>
-          <div class="descr">
-            <p>Неординарный подход к организации торжеств стал возможным благодаря нашему творчеству. Каждый праздник для нас — это событие, которого больше не случится.</p>
-            <p>Мы выжимаем максимум и раскрываем свой потенциал для вас. Наши ведущие — это талантливые личности, которые тонко чувствуют настрой гостей.</p>
-            <p>Мы гарантируем для вас чистую импровизацию и естественное течение праздника.</p>
-          </div>
-        </div>
-      </div>
+        <?php
+        if( have_rows('perechen_meropriyatij') ):
+            while( have_rows('perechen_meropriyatij') ) : the_row();
+                $title = get_sub_field('zagolovok_meropriyatiya');
+                $image = get_sub_field('izobrazhenie_meropriyatiya');
+                $content = get_sub_field('opisanie_meropritiya');
+                ?>
+                <div class="event__item">
+                    <div class="left" data-aos="fade-right">
+                        <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                    </div>
+                    <div class="right" data-aos="fade-left">
+                        <h4><?php echo $title;?></h4>
+                        <div class="descr">
+                            <?php echo $content;?>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            endwhile;
+        else :
+        endif;
+        ?>
     </div>
   </div>
 
   <section class="fifth__block fifth__block--presenter">
-    <div class="block__titles--wrap" data-aos="fade-up">
-      <p class="uppertitle">Разрабатываем брендинг</p>
-      <h4 class="block__title">Customer reviews</h4>
-    </div>
-    <div class="owl-carousel reviews__slider" id="reviews__slider">
-      <div class="slder__item">
-        <div class="thumb__wrap">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/rev1.jpg" alt="image">
-        </div>
-        <div class="right">
-          <div class="descr">
-            <p>Долго искали с невестой хороших мастеров по свадебной видеосъемке. Чтобы осталась память о празднике. Большинство студий предлагает одно и то же — незамысловатые сюжеты и типичные кадры.</p>
-            <p>Хотелось чего-то особенного. Не просто торт или танцы. Видео фото студия RecArtFrame настолько хорошо подошла к делу, что мне хочется пересматривать фильм раз за разом.</p>
-          </div>
-          <h4 class="rev__name">Евгений Овчинников</h4>
-        </div>
+      <div class="block__titles--wrap">
+          <p class="uppertitle"><?php the_field('zagolovok_otzyvy', 350); ?></p>
+          <h4 class="block__title"><?php the_field('podzagolovok_otzyvy', 350); ?></h4>
       </div>
-      <div class="slder__item">
-        <div class="thumb__wrap">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/rev2.jpg" alt="image">
-        </div>
-        <div class="right">
-          <div class="descr">
-            <p>Я как топ-менеджер компании должна была позаботиться о выставке. Чтобы клиенты видели преимущества наших товаров вживую и в интернете. Получила фотографии продукции от студии видео продакшна RecArtFrame и полностью удовлетворена результатом.</p>
-          </div>
-          <h4 class="rev__name">Юлия Попова</h4>
-        </div>
-      </div>
-      <div class="slder__item">
-        <div class="thumb__wrap">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/rev1.jpg" alt="image">
-        </div>
-        <div class="right">
-          <div class="descr">
-            <p>Долго искали с невестой хороших мастеров по свадебной видеосъемке. Чтобы осталась память о празднике. Большинство студий предлагает одно и то же — незамысловатые сюжеты и типичные кадры.</p>
-            <p>Хотелось чего-то особенного. Не просто торт или танцы. Видео фото студия RecArtFrame настолько хорошо подошла к делу, что мне хочется пересматривать фильм раз за разом.</p>
-          </div>
-          <h4 class="rev__name">Евгений Овчинников</h4>
-        </div>
-      </div>
-      <div class="slder__item">
-        <div class="thumb__wrap">
-          <img src="<?php echo get_template_directory_uri() ?>/dist/img/rev2.jpg" alt="image">
-        </div>
-        <div class="right">
-          <div class="descr">
-            <p>Я как топ-менеджер компании должна была позаботиться о выставке. Чтобы клиенты видели преимущества наших товаров вживую и в интернете. Получила фотографии продукции от студии видео продакшна RecArtFrame и полностью удовлетворена результатом.</p>
-          </div>
-          <h4 class="rev__name">Юлия Попова</h4>
-        </div>
-      </div>
-    </div>
+      <?php echo do_shortcode( '[testimonial_view id="1"]' ); ?>
   </section>
 
   <section class="seventh__block seventh__block--alternate">
@@ -187,8 +124,8 @@ get_header();
         <div class="col-md-12">
           <div class="seo__inner" data-aos="fade-up">
             <div class="seo__text--content">
-              <h4>Стоимость свадебной фотосъемки</h4>
-              <p>Светомузыка — настоящее искусство, которое доступно лишь избранным. Только мастер способен совместить звуковые ощущения и световое восприятие, чтобы достичь синестезии. Наши устройства обеспечивают первосортное слияние зрительных образов и музыкального сопровождения. Никакого хаоса — только звуки и цвета, которые изливаются в унисон. Если вы хотите получить подлинную синхронизацию изображения и музыки, то можете смело резервировать приборы от RecArtFrame. Расширяем визуальные возможности и границы представлений о музыке и цвете.</p>
+              <h4><?php the_field('zagolovok_v_shapku', 350); ?></h4>
+              <p><?php the_field('opisanie_bloka_pod_formoj', 350); ?></p>
             </div>
           </div>
         </div>

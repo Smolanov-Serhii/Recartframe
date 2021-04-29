@@ -9,7 +9,7 @@ get_header();
 ?>
 
   <section class="first__block first__block--rent first__block--presenter first__block--videos first__block--contacts" id="first__block" href="#second__block">
-    <img src="<?php echo get_template_directory_uri()?>/dist/img/contacts-banner.jpg" alt="image" class="main__banner">
+    <img src="<?php echo the_field('kartinka_v_shapku', 61); ?>" alt="<?php the_title();?>" class="main__banner">
     <div class="container">
       <div class="row">
         <div class="col-md-12">

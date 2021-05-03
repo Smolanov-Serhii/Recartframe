@@ -9,13 +9,13 @@ get_header();
 ?>
 
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/child-banner.jpg" alt="image" class="main__banner">
+        <img src="<?php echo the_field('kartinka_v_shapku_straniczy', 312); ?>" alt="<?php echo the_field('zagolovok_v_shapku', 312); ?>" class="main__banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main__titles" data-aos="fade-right">
-                        <h1>Детская фотосъемка</h1>
-                        <p>Неподдельная передача детских эмоций и сохранение образа любимого ребенка</p>
+                        <h1><?php echo the_field('zagolovok_v_shapku', 312); ?></h1>
+                        <p><?php echo the_field('podzagolovok_v_shapku', 312); ?></p>
                     </div>
                 </div>
             </div><!-- /.row -->
@@ -27,52 +27,35 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">Беззаботная вечность</p>
-                        <h4 class="block__title">Детских изображений</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_bloka_vidy_fotosessij', 312); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_bloka_vidy_fotosessij', 312); ?></h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="events__wrap">
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/child-photo1.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Индивидуальная фотосессия</h4>
-                    <div class="descr">
-                        <p>Нет ничего приятнее для родителей, чем фотография любимого ребенка.</p>
-                        <p>Мы способны увековечить детский образ. Ваш малыш будет чувствовать себя легко и непринужденно, благодаря чему  детская фотосессия получается более яркой и естественной.</p>
-                        <p>RecArtFrame сохранит искренность и непосредственность образа.</p>
+            <?php
+            if( have_rows('perechen_fotossesij') ):
+                while( have_rows('perechen_fotossesij') ) : the_row();
+                    $title = get_sub_field('zagolovok_dlya_fotosessii');
+                    $image = get_sub_field('fotografiya_fotossesii');
+                    $content = get_sub_field('opisanie_fotosessii');
+                    ?>
+                    <div class="event__item">
+                        <div class="left" data-aos="fade-right">
+                            <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                        </div>
+                        <div class="right" data-aos="fade-left">
+                            <h4><?php echo $title;?></h4>
+                            <div class="descr">
+                                <?php echo $content;?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/child-photo2.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Групповая детская съемка</h4>
-                    <div class="descr">
-                        <p>RecArtFrame организует не только индивидуальную съемку вашего малыша. </p>
-                        <p>Коллективная детская фотосессия в студии — это возможность отразить счастливые и чистые образы ваших детей в снимках. </p>
-                        <p>Мы покажем семейные узы и кровное родство, братство и сплоченность с помощью пары кадров.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/child-photo3.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Фотосъемка в детском саду</h4>
-                    <div class="descr">
-                        <p>Фотосъемка в детском саду — способ сохранить воспоминания о детстве через игру и коллективность. </p>
-                        <p>Вы получите кадры вашего ребенка в кругу других детей, когда беззаботность и радость были центральными темами в жизни. </p>
-                        <p>Мы организуем фотосессию, которую не заметят юные модели, и предоставим вам непосредственные снимки.</p>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 
@@ -84,7 +67,7 @@ get_header();
                     <div class="third__inner" data-aos="fade-up">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg.jpg" alt="image" class="desk__image">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg-mobile.jpg" alt="image" class="mob__image">
-                        <h4 class="third__title">Издавна известно, что дети — это цветы жизни. Но каждый маленький цветок рано или поздно вырастает. К великому сожалению, мы забываем многие детали и образы из жизни наших малышей. В RecArtFrame убеждены, что фотография — это лучший способ сохранить детские впечатления в непроглядном море бытовых воспоминаний.</h4>
+                        <h4 class="third__title"><?php echo the_field('opisanie_v_tyomnyj_blok', 312); ?></h4>
                     </div>
                 </div>
             </div>
@@ -103,41 +86,34 @@ get_header();
                     <div class="work__steps--wrap">
                         <div class="left" data-aos="fade-right">
                             <ol class="steps__list">
-                                <li>Встречаемся с вами.</li>
-                                <li>Обсуждаем идею будущей фотосессии.</li>
-                                <li>Изучаем характер детей и их индивидуальные черты.</li>
-                                <li>Готовим детей к съемке.</li>
-                                <li>Создаем нужную обстановку.</li>
-                                <li>Начинаем съемку.</li>
-                                <li>Занимаемся обработкой и корректировкой фотографий.</li>
-                                <li>Выводим материал в нужный формат.</li>
+                                <?php
+                                if( have_rows('etapy_fotosemki_perechen') ):
+                                    while( have_rows('etapy_fotosemki_perechen') ) : the_row();
+                                        $title = get_sub_field('zagolovok_etapy_fotosemki_perechen');
+                                        ?>
+                                        <li><?php echo $title;?></li>
+                                    <?php
+                                    endwhile;
+                                else :
+                                endif;
+                                ?>
                             </ol>
                         </div>
                         <div class="right" data-aos="fade-left">
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/works-tab.jpg" alt="image">
-                            </div>
+                            <?php
+                            if( have_rows('etapy_fotosemki_perechen') ):
+                                while( have_rows('etapy_fotosemki_perechen') ) : the_row();
+                                    $image = get_sub_field('izobrazhenie_dlya_zapisi');
+                                    $title = get_sub_field('zagolovok_etapy_fotosemki_perechen');
+                                    ?>
+                                    <div class="works__content">
+                                        <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                                    </div>
+                                <?php
+                                endwhile;
+                            else :
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -150,39 +126,36 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">наши цены</p>
-                        <h4 class="block__title">Стоимость фотосъемки</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_stoimost_fotosemki', 312); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_stoimost_fotosemki', 312); ?></h4>
                     </div>
                     <div class="pricing__wrap" data-aos="fade-up">
-                        <div class="pricing__item">
-                            <div class="inner">
-                                <div class="top">Базовый</div>
-                                <h4>250€</h4>
-                                <div class="timing">1-1,5 часа</div>
-                                <div class="description">
-                                    <p>Съемка дома, на природе или в студии. 10 отредактированных цветных изображений. Каждая следующая фотография 15, - € Онлайн-галерея на 3 месяца.</p>
+                        <?php
+                        if( have_rows('perechen_czen') ):
+                            while( have_rows('perechen_czen') ) : the_row();
+                                $title = get_sub_field('nazvanie_tarifa');
+                                $price = get_sub_field('czena_tarifa');
+                                $time = get_sub_field('vremya_dlya_tarifa');
+                                $desc = get_sub_field('opisanie_tarifa');
+                                $under = get_sub_field('opisanie_pod_tarifom');
+                                ?>
+                                <div class="pricing__item">
+                                    <div class="inner">
+                                        <div class="top"> <?php echo $title;?></div>
+                                        <h4> <?php echo $price;?></h4>
+                                        <div class="timing"> <?php echo $time;?></div>
+                                        <div class="description">
+                                            <p><?php echo $desc;?></p>
+                                        </div>
+                                        <a href="#" class="order__photo"><?php the_field('nadpis_zakazat', 'options'); ?></a>
+                                    </div>
+                                    <p> <?php echo $under;?></p>
                                 </div>
-                                <a href="#" class="order__photo">Заказать</a>
-                            </div>
-                            <p>Транспортные расходы включены до 10 км в районе Хилцинген. Каждый следующий километр 0,50 €</p>
-                        </div>
-                        <div class="pricing__item">
-                            <div class="inner">
-                                <div class="top">Стандарт</div>
-                                <h4>350€</h4>
-                                <div class="timing">3 часа</div>
-                                <div class="description">
-                                    <p>Съемка дома, на природе или в студии.
-                                        15 отредактированных цветных изображений.
-                                        Каждая следующая фотография 15, - €
-                                        10 распечатанных фотографий 13x19 на высококачественной бумаге.
-                                        Онлайн-галерея на 3 месяца.
-                                    </p>
-                                </div>
-                                <a href="#" class="order__photo">Заказать</a>
-                            </div>
-                            <p>Транспортные расходы включены до 10 км в районе Хилцинген. Каждый следующий километр 0,50 €</p>
-                        </div>
+                            <?php
+                            endwhile;
+                        else :
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -228,9 +201,10 @@ get_header();
                 <div class="col-md-12">
                     <div class="seo__inner" data-aos="fade-up">
                         <div class="seo__text--content">
-                            <h4>Цена детской фотосессии</h4>
-                            <p>Цена детской фотосессии зависит от количества юных моделей, сложности обстановки и других факторов. Мы учитываем сотни деталей для того, чтобы ухватить детский образ. RecArtFrame не довольствуется скучными кадрами — каждое изображение будет иметь полноценный сюжет и смысл. Вы сможете получить ностальгирующие фотографии, которые будут пропитаны любовью и радостью.
-                                Цена детской фотосессии зависит от количества юных моделей, сложности обстановки и других факторов. Мы учитываем сотни деталей для того, чтобы ухватить детский образ. RecArtFrame не довольствуется скучными кадрами — каждое изображение будет иметь полноценный сюжет и смысл. Вы сможете получить ностальгирующие фотографии, которые будут пропитаны любовью и радостью.</p>
+                            <h4><?php echo the_field('zagolovok_v_blok_pod_formoj', 312); ?></h4>
+                            <p>
+                                <?php echo the_field('opisanie_v_blok_pod_formoj', 312); ?>
+                                </p>
                         </div>
                     </div>
                 </div>

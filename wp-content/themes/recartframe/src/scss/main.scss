@@ -18,7 +18,9 @@ body {
   color: $base-font-color;
   background-color: $base-background-color;
   -webkit-font-smoothing: antialiased;
-
+  a{
+    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+  }
   &.overflow {
     overflow: hidden;
     pointer-events: none;
@@ -205,7 +207,7 @@ header {
         font-size: 16px;
         font-weight: 700;
         font-family: $heading-font-family;
-        cursor: pointer;
+        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       }
     }
     .trp-ls-shortcode-language{
@@ -219,7 +221,7 @@ header {
       font-size: 18px;
       font-weight: 700;
       font-family: $heading-font-family;
-      cursor: pointer;
+      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     }
     .hidden__lang, .trp-ls-shortcode-language, .qtranxs_widget{
       display: none;
@@ -253,7 +255,7 @@ header {
     height: 20px;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     &:before {
       display: block;
       content:'';
@@ -955,7 +957,7 @@ header {
           font-family: $heading-font-family;
           padding: 18.5px 0;
           border: 0;
-          cursor: pointer;
+          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           @extend .transition;
           &:focus {
             outline: none;
@@ -1026,7 +1028,6 @@ footer {
   }
   .left__footer {
     width: 540px;
-    cursor: auto;
     @extend .flex;
     .left__column {
       margin-right: 140px;
@@ -1047,7 +1048,6 @@ footer {
   .last__column {
     width: 290px;
     text-align: right;
-    cursor: auto;
     a {
       display: block;
       font-size: 18px;
@@ -1100,6 +1100,7 @@ footer {
 
 //INNER PAGES
 body {
+  cursor: url(../img/circle-cursor.svg) 45 45, pointer;
   .market-icons{
     .basket-btn__counter{
       background-color: white;
@@ -1369,7 +1370,7 @@ body {
   .related__slider {
     .blog__item {
       &.frized{
-        cursor: pointer;
+        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
         .thumb__wrap{
           overflow: hidden;
           img{
@@ -1625,7 +1626,7 @@ body {
             border: 2px solid #e6e6e6;
             border-bottom: 0;
             position: relative;
-            cursor: pointer;
+            cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
             &.active {
               &:after {
                 display: block;
@@ -1721,7 +1722,7 @@ body {
           font-family: $heading-font-family;
           padding: 18.5px 0;
           border: 0;
-          cursor: pointer;
+          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           @extend .transition;
           position: absolute;
           bottom: 120px;
@@ -1751,7 +1752,7 @@ body {
       padding-right: 30px;
       overflow-y: scroll;
       &::-webkit-scrollbar {
-          cursor: pointer;
+        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           width: 4px;
         }
         &::-webkit-scrollbar-track {
@@ -1761,7 +1762,7 @@ body {
         }
         &::-webkit-scrollbar-thumb {
           background: #e42a2b;
-          cursor: pointer;
+          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           width: 4px;
           @extend .transition;
         }
@@ -1992,7 +1993,7 @@ body {
   .video__item {
     width: 45%;
     margin-bottom: 120px;
-    cursor: pointer;
+    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     &:nth-child(even) {
       transform: translateY(200px);
     }
@@ -2403,7 +2404,7 @@ body {
 					margin-bottom: 90px;
 					position: relative;
 					padding-left: 150px;
-					cursor: pointer;
+                  cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
 					&:before {
 						display: block;
 						content: counter(my-awesome-counter, decimal-leading-zero) "";
@@ -2798,7 +2799,7 @@ body {
       font-weight: 700;
       width: 100px;
       margin-bottom: 45px;
-      cursor: pointer;
+      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       align-items: center;
       input{
         border: none;
@@ -3258,7 +3259,7 @@ body {
     width: 32.7%;
     height: 375px;
     margin-bottom: 15px;
-    cursor: pointer;
+    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     overflow: hidden;
     img{
       transition: 0.3s;

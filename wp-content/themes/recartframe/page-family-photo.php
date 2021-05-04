@@ -9,13 +9,13 @@ get_header();
 ?>
 
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-banner.jpg" alt="image" class="main__banner">
+        <img src="<?php echo the_field('kartinka_v_shapku', 309); ?>" alt="<?php echo the_field('zagolovok_v_shapku', 309); ?>" class="main__banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main__titles" data-aos="fade-right">
-                        <h1>Семейная фотосъемка</h1>
-                        <p>Демонстрируем союз сердец и близость любимых</p>
+                        <h1><?php echo the_field('zagolovok_v_shapku', 309); ?></h1>
+                        <p><?php echo the_field('podzagolovok_v_shapku', 309); ?></p>
                     </div>
                 </div>
             </div><!-- /.row -->
@@ -27,37 +27,35 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap">
-                        <p class="uppertitle">Студийная фотосъемка</p>
-                        <h4 class="block__title">Семейные ценности в одном кадре</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_semejnye_czennosti', 309); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_semejnye_czennosti', 309); ?></h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="events__wrap">
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/family1.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Фотосессия в кругу семьи</h4>
-                    <div class="descr">
-                        <p>Ничто так не сближает, как коллективная съемка в кругу любимых людей. </p>
-                        <p>Мы поможем вам испытать подлинные, глубокие чувства, которые пропитаны искренностью. Наши фотографии — это отражение вашей любви друг к другу.</p>
+            <?php
+            if( have_rows('perechen_czennostej') ):
+                while( have_rows('perechen_czennostej') ) : the_row();
+                    $title = get_sub_field('zagolovok_zapisi');
+                    $image = get_sub_field('kartinka_zapisi');
+                    $content = get_sub_field('opisanie_zapisi');
+                    ?>
+                    <div class="event__item">
+                        <div class="left" data-aos="fade-right">
+                            <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                        </div>
+                        <div class="right" data-aos="fade-left">
+                            <h4><?php echo $title;?></h4>
+                            <div class="descr">
+                                <?php echo $content;?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="event__item">
-                <div class="left" data-aos="fade-right">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/img/family2.jpg" alt="image">
-                </div>
-                <div class="right" data-aos="fade-left">
-                    <h4>Фотосессия для беременных</h4>
-                    <div class="descr">
-                        <p>Фотосессия для беременных — это возможность запечатлеть маму с малышом, который еще не видел белый свет. </p>
-                        <p>С помощью магии фотографии мы отразим материнский образ, который будет наполнен любовью и теплотой к ребенку.</p>
-                    </div>
-                </div>
-            </div>
+                <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 
@@ -68,7 +66,7 @@ get_header();
                     <div class="third__inner" data-aos="fade-up">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg.jpg" alt="image" class="desk__image">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg-mobile.jpg" alt="image" class="mob__image">
-                        <h4 class="third__title">С помощью наших фотографий вы сможете ощутить давние теплые чувства даже спустя десятилетия. Время не имеет значения — мы работаем со счастьем, которое длится вечность.</h4>
+                        <h4 class="third__title"><?php echo the_field('tekst_v_blok', 309); ?></h4>
                     </div>
                 </div>
             </div>
@@ -81,47 +79,40 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap">
-                        <p class="uppertitle">Этапы фотосЪемки</p>
-                        <h4 class="block__title">Как мы работаем?</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_etapy_fotosyomki', 309); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_etapy_fotosyomki', 309); ?></h4>
                     </div>
                     <div class="work__steps--wrap">
                         <div class="left" data-aos="fade-right">
                             <ol class="steps__list">
-                                <li>Встречаемся с вами.</li>
-                                <li>Проясняем цели семейной фотосессии.</li>
-                                <li>Обсуждаем идею съемки.</li>
-                                <li>Готовим образы.</li>
-                                <li>Создаем подходящую домашнюю атмосферу.</li>
-                                <li>Начинаем съемку.</li>
-                                <li>Обрабатываем и корректируем отснятые кадры.</li>
-                                <li>Выводим изображения в требуемый формат.</li>
+                                <?php
+                                if( have_rows('perechen_etapov') ):
+                                    while( have_rows('perechen_etapov') ) : the_row();
+                                        $title = get_sub_field('zagolovok_etapa');
+                                        ?>
+                                        <li><?php echo $title;?></li>
+                                    <?php
+                                    endwhile;
+                                else :
+                                endif;
+                                ?>
                             </ol>
                         </div>
                         <div class="right" data-aos="fade-left">
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
-                            <div class="works__content">
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/family-tab-image.jpg" alt="image">
-                            </div>
+                            <?php
+                            if( have_rows('perechen_etapov') ):
+                                while( have_rows('perechen_etapov') ) : the_row();
+                                    $image = get_sub_field('kartinka_etapa');
+                                    $title = get_sub_field('zagolovok_etapa');
+                                    ?>
+                                    <div class="works__content">
+                                        <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                                    </div>
+                                <?php
+                                endwhile;
+                            else :
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -134,34 +125,36 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">наши цены</p>
-                        <h4 class="block__title">Стоимость фотосъемки</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_stoimost_fotosemki', 309); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_stoimost_fotosemki', 309); ?></h4>
                     </div>
                     <div class="pricing__wrap" data-aos="fade-up">
-                        <div class="pricing__item">
-                            <div class="inner">
-                                <div class="top">Базовый</div>
-                                <h4>170€</h4>
-                                <div class="timing">1-1,5 часа</div>
-                                <div class="description">
-                                    <p>Съемка дома, на природе или в студии. 10 отредактированных цветных изображений. Каждая следующая фотография 15, - € Онлайн-галерея на 3 месяца.</p>
+                        <?php
+                        if( have_rows('perechen_stoimostej') ):
+                            while( have_rows('perechen_stoimostej') ) : the_row();
+                                $title = get_sub_field('nazvanie_paketa');
+                                $price = get_sub_field('czena_paketa');
+                                $time = get_sub_field('dlitelnojst_paketa');
+                                $desc = get_sub_field('opisanie_paketa');
+                                $under = get_sub_field('opisanie_pod_paketom');
+                                ?>
+                                <div class="pricing__item">
+                                    <div class="inner">
+                                        <div class="top"> <?php echo $title;?></div>
+                                        <h4> <?php echo $price;?></h4>
+                                        <div class="timing"> <?php echo $time;?></div>
+                                        <div class="description">
+                                            <p><?php echo $desc;?></p>
+                                        </div>
+                                        <a href="#" class="order__photo"><?php the_field('nadpis_zakazat', 'options'); ?></a>
+                                    </div>
+                                    <p> <?php echo $under;?></p>
                                 </div>
-                                <a href="#" class="order__photo">Заказать</a>
-                            </div>
-                            <p>Транспортные расходы включены до 10 км в районе Хилцинген. Каждый следующий километр 0,50 €</p>
-                        </div>
-                        <div class="pricing__item">
-                            <div class="inner">
-                                <div class="top">Стандарт</div>
-                                <h4>270€</h4>
-                                <div class="timing">1-1,5 часа</div>
-                                <div class="description">
-                                    <p>Съемка дома, на природе или в студии. (в одной из выбранных локаций) 15 отредактированных цветных изображений. 10 распечатанных фотографий 13x19 на высококачественной бумаге. Онлайн-галерея на 3 месяца.</p>
-                                </div>
-                                <a href="#" class="order__photo">Заказать</a>
-                            </div>
-                            <p>Транспортные расходы включены до 10 км в районе Хилцинген. Каждый следующий километр 0,50 €</p>
-                        </div>
+                            <?php
+                            endwhile;
+                        else :
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -206,8 +199,8 @@ get_header();
                 <div class="col-md-12">
                     <div class="seo__inner">
                         <div class="seo__text--content" data-aos="fade-up">
-                            <h4>Семейная фотосъемка</h4>
-                            <p>В RecArtFrame убеждены, что семейная фотосессия позволяет не только запечатлеть счастливые моменты жизни, но и достигнуть максимальной близости между родственными людьми. Семейная фотосъемка в студии отразит всю глубину родственных чувств. Только искренность, домашняя обстановка и чистые эмоции. Мы убеждены, что с помощью языка фотографии можно выразить невыразимое — близость человеческих душ.</p>
+                            <h4><?php echo the_field('zagolovok_bloka_pod_formoj', 309); ?></h4>
+                            <p><?php echo the_field('opisanie_bloka_pod_formoj', 309); ?></p>
                         </div>
                     </div>
                 </div>

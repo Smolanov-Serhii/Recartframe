@@ -6,16 +6,17 @@
 ?>
 <?php
 get_header();
+$post_id = get_the_ID();
 ?>
 
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
-        <img src="<?php echo the_field('kartinka_v_shapku_straniczy', 312); ?>" alt="<?php echo the_field('zagolovok_v_shapku', 312); ?>" class="main__banner">
+        <img src="<?php echo the_field('kartinka_v_shapku_straniczy', $post_id); ?>" alt="<?php echo the_field('zagolovok_v_shapku', 312); ?>" class="main__banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main__titles" data-aos="fade-right">
-                        <h1><?php echo the_field('zagolovok_v_shapku', 312); ?></h1>
-                        <p><?php echo the_field('podzagolovok_v_shapku', 312); ?></p>
+                        <h1><?php echo the_field('zagolovok_v_shapku', $post_id); ?></h1>
+                        <p><?php echo the_field('podzagolovok_v_shapku', $post_id); ?></p>
                     </div>
                 </div>
             </div><!-- /.row -->
@@ -27,8 +28,8 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle"><?php echo the_field('zagolovok_bloka_vidy_fotosessij', 312); ?></p>
-                        <h4 class="block__title"><?php echo the_field('podzagolovok_bloka_vidy_fotosessij', 312); ?></h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_bloka_vidy_fotosessij', $post_id); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_bloka_vidy_fotosessij', $post_id); ?></h4>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@ get_header();
                     <div class="third__inner" data-aos="fade-up">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg.jpg" alt="image" class="desk__image">
                         <img src="<?php echo get_template_directory_uri() ?>/dist/img/third-bg-mobile.jpg" alt="image" class="mob__image">
-                        <h4 class="third__title"><?php echo the_field('opisanie_v_tyomnyj_blok', 312); ?></h4>
+                        <h4 class="third__title"><?php echo the_field('opisanie_v_tyomnyj_blok', $post_id); ?></h4>
                     </div>
                 </div>
             </div>
@@ -80,15 +81,15 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">Этапы фотосЪемки</p>
-                        <h4 class="block__title">Как мы работаем?</h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_etapy_fotosemki', $post_id); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_etapy_fotosemki', $post_id); ?></h4>
                     </div>
                     <div class="work__steps--wrap">
                         <div class="left" data-aos="fade-right">
                             <ol class="steps__list">
                                 <?php
-                                if( have_rows('etapy_fotosemki_perechen') ):
-                                    while( have_rows('etapy_fotosemki_perechen') ) : the_row();
+                                if( have_rows('etapy_fotosemki_perechen', $post_id) ):
+                                    while( have_rows('etapy_fotosemki_perechen', $post_id) ) : the_row();
                                         $title = get_sub_field('zagolovok_etapy_fotosemki_perechen');
                                         ?>
                                         <li><?php echo $title;?></li>
@@ -126,13 +127,13 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle"><?php echo the_field('zagolovok_stoimost_fotosemki', 312); ?></p>
-                        <h4 class="block__title"><?php echo the_field('podzagolovok_stoimost_fotosemki', 312); ?></h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_stoimost_fotosemki', $post_id); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_stoimost_fotosemki', $post_id); ?></h4>
                     </div>
                     <div class="pricing__wrap" data-aos="fade-up">
                         <?php
-                        if( have_rows('perechen_czen') ):
-                            while( have_rows('perechen_czen') ) : the_row();
+                        if( have_rows('perechen_czen', $post_id) ):
+                            while( have_rows('perechen_czen', $post_id) ) : the_row();
                                 $title = get_sub_field('nazvanie_tarifa');
                                 $price = get_sub_field('czena_tarifa');
                                 $time = get_sub_field('vremya_dlya_tarifa');
@@ -201,9 +202,9 @@ get_header();
                 <div class="col-md-12">
                     <div class="seo__inner" data-aos="fade-up">
                         <div class="seo__text--content">
-                            <h4><?php echo the_field('zagolovok_v_blok_pod_formoj', 312); ?></h4>
+                            <h4><?php echo the_field('zagolovok_v_blok_pod_formoj', $post_id); ?></h4>
                             <p>
-                                <?php echo the_field('opisanie_v_blok_pod_formoj', 312); ?>
+                                <?php echo the_field('opisanie_v_blok_pod_formoj', $post_id); ?>
                                 </p>
                         </div>
                     </div>

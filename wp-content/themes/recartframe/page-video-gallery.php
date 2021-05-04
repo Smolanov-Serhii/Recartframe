@@ -15,64 +15,49 @@ get_header();
         <div class="col-md-12">
           <div class="top__wrap" data-aos="fade-up">
             <div class="titles">
-              <p class="uppertitle">Art Studio</p>
-              <h1>Видеогалерея</h1>
+              <p class="uppertitle"><?php echo the_field('shapka', 22)?></p>
+              <h1><?php the_title();?></h1>
             </div>
-            <div class="sorting">
-              <p class="default">Default sorting</p>
-            </div>
+<!--            <div class="sorting">-->
+<!--              <p class="default">Default sorting</p>-->
+<!--            </div>-->
           </div>
           <div class="videos__wrap" data-aos="fade-up">
-            <div class="video__item" data-aos="fade-right">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog2.jpg" alt="" class="video__banner">
-                <a href="https://youtu.be/mxiBmngh46k" class="play__video--item fresco"></a>
+              <?php
+              $counet = 1;
+              $evenodd = '';
+              $args = array(
+                  'post_type' => 'vigeogalery',
+                  'showposts' => "-1", //сколько показать статей
+                  'orderby' => "ASC", //сортировка по дате
+                  'caller_get_posts' => 1);
+              $my_query = new wp_query($args);
+              if ($my_query->have_posts()) {
+                  while ($my_query->have_posts()) {
+                      $my_query->the_post();
+
+                      if ($counet % 2){
+                          $evenodd = 'fade-right';
+                      } else {
+                          $evenodd = 'fade-left';
+                      }
+                      ?>
+                      <div class="video__item" data-aos="<?php echo $evenodd;?>">
+                          <div class="thumb__wrap">
+                              <img src="<?php echo the_field('kartinka_oblozhki_zapisi');?>" alt="<?php the_title();?>" class="video__banner">
+                              <a href="<?php echo the_field('ssylka_na_video');?>" class="play__video--item fresco"></a>
+                          </div>
+                          <h4><?php the_title();?></h4>
+                          <p><?php echo the_field('czena');?></p>
+                      </div>
+                  <?php
+                  $counet ++;
+                  }
+              }
+              wp_reset_query(); ?>
+              <div class="show__more--wrap" data-aos="fade-up">
+                  <a href="#" class="show__more">Show more</a>
               </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="video__item" data-aos="fade-left">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog3.jpg" alt="" class="video__banner">
-                <a href="#" class="play__video--item"></a>
-              </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="video__item" data-aos="fade-right">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog4.jpg" alt="" class="video__banner">
-                <a href="#" class="play__video--item"></a>
-              </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="video__item" data-aos="fade-left">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog5.jpg" alt="" class="video__banner">
-                <a href="#" class="play__video--item"></a>
-              </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="video__item" data-aos="fade-right">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog5.jpg" alt="" class="video__banner">
-                <a href="#" class="play__video--item"></a>
-              </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="video__item" data-aos="fade-left">
-              <div class="thumb__wrap">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog1.jpg" alt="" class="video__banner">
-                <a href="#" class="play__video--item"></a>
-              </div>
-              <h4>Aix-en-Provence 1</h4>
-              <p>299,99€</p>
-            </div>
-            <div class="show__more--wrap" data-aos="fade-up">
-              <a href="#" class="show__more">Show more</a>
             </div>
           </div>
         </div>

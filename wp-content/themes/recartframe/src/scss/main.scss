@@ -90,7 +90,9 @@ picture {
 .transition {
   transition: .4s all ease-out;
 }
-
+#qtranslate-2{
+  list-style: none;
+}
 header {
   .market-icons{
     position: relative;
@@ -178,6 +180,10 @@ header {
         }
       }
     }
+    #qtranslate-2-chooser{
+      flex-direction: column;
+      display: flex;
+    }
     &.active {
       opacity: 0;
     }
@@ -215,7 +221,7 @@ header {
       font-family: $heading-font-family;
       cursor: pointer;
     }
-    .hidden__lang, .trp-ls-shortcode-language{
+    .hidden__lang, .trp-ls-shortcode-language, .qtranxs_widget{
       display: none;
       position: absolute;
       background-color: #fff;

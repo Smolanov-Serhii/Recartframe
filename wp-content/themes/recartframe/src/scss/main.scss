@@ -3465,6 +3465,9 @@ body {
     transition: opacity .3ms ease 0s, transform 300ms ease 0s;
   }
 }
+#curent-page{
+  display: none;
+}
 @import 'media.scss';
 @import "fonts/font_gilroy";
 @import "fonts/font_museo";

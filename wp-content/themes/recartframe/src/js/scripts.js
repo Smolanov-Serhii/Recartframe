@@ -206,5 +206,17 @@ jQuery(document).ready(function($) {
             stagePadding: 0,
         });
     });
+    if ($('#curent-page').length){
+        var CurrentPage = $('h1').html();
+        $('#curent-page').val(CurrentPage);
+        var NameLang = $('.name-input').data('currenttext');
+        $('#input-name').html(NameLang);
+
+        var PhoneLang = $('.phone').data('currenttext');
+        $('#input-phone').html(PhoneLang);
+
+        var EmailLang = $('.email').data('currenttext');
+        $('#input-email').html(EmailLang);
+    }
 
 });

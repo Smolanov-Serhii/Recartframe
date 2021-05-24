@@ -15,7 +15,7 @@ get_header();
         <div class="col-md-12">
           <div class="main__titles" data-aos="fade-right">
             <h1><?php the_title();?></h1>
-            <p><?php echo the_field('podzagolovok_v_shapku_fotosemka', 75);?>"></p>
+            <p><?php echo the_field('podzagolovok_v_shapku_fotosemka', 75);?></p>
           </div>
         </div>
       </div><!-- /.row -->
@@ -84,20 +84,13 @@ get_header();
               <div class="item">
                 <div class="top">
                   <div class="number">08</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc8.png" alt="image">
-                </div>
-                <h4><a href="<?php echo the_field('korporativnaya_semka_ssylka', 75);?>"><?php echo the_field('korporativnaya_semka', 75);?></a></h4>
-              </div>
-              <div class="item">
-                <div class="top">
-                  <div class="number">09</div>
                   <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc9.png" alt="image">
                 </div>
                 <h4><a href="<?php echo the_field('zhivotnye_i_landshaft_ssylka', 75);?>"><?php echo the_field('zhivotnye_i_landshaft', 75);?></a></h4>
               </div>
               <div class="item">
                 <div class="top">
-                  <div class="number">10</div>
+                  <div class="number">09</div>
                   <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc10.png" alt="image">
                 </div>
                 <h4><a href="<?php echo the_field('aerofotosemka_dronom_ssylka', 75);?>"><?php echo the_field('aerofotosemka_dronom', 75);?></a></h4>
@@ -191,8 +184,8 @@ get_header();
 
     <section class="seventh__block">
         <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle"><?php the_field('nadpis_nad_formoj', 13); ?></p>
-            <h4 class="block__title"><?php the_field('zaglovok_nad_formoj', 13); ?></h4>
+            <p class="uppertitle"><?php the_field('nadzagolovok_formy_svyazi', 75); ?></p>
+            <h4 class="block__title"><?php the_field('zagolovok_formy_svyazi', 75); ?></h4>
         </div>
         <div class="container">
             <div class="row">

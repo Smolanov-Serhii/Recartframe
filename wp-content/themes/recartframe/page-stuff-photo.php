@@ -123,30 +123,14 @@ $post_id = get_the_ID();
 
         <section class="seventh__block">
             <div class="block__titles--wrap" data-aos="fade-up">
-                <p class="uppertitle">отложите все и просто</p>
-                <h4 class="block__title">Свяжитесь с нами</h4>
+                <p class="uppertitle"><?php echo the_field('nadzagolovok_dlya_formy_svyazi', 321); ?></p>
+                <h4 class="block__title"><?php echo the_field('zagolovok_dlya_formy_svyazi', 321); ?></h4>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form__wrap" data-aos="fade-up">
-                            <form action="#">
-                                <div class="form__inner--container">
-                <span class="wpcf7-form-control-wrap">
-                <label for="name__input">Ваше Имя</label>
-                <input type="text" id="name__input" />
-              </span>
-                                    <span class="wpcf7-form-control-wrap">
-                <label for="phone__input">Телефон</label>
-                <input type="text" id="phone__input" />
-              </span>
-                                    <span class="wpcf7-form-control-wrap">
-                <label for="email__input">EMAIL</label>
-                <input type="text" id="email__input" />
-              </span>
-                                    <input type="text" class="send__button" value="Отправить" />
-                                </div>
-                            </form>
+                            <?php echo do_shortcode( '[contact-form-7 id="181" title="Контактная форма 1"]' ); ?>
                         </div>
                     </div>
                 </div>

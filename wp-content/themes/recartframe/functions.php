@@ -711,3 +711,4 @@ wp_clear_scheduled_hook('wp_update_themes');
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 7;' ), 20 );
 
 remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
+

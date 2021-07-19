@@ -1,5 +1,48 @@
 jQuery(document).ready(function($) {
 
+    function QuantityNum(){
+        if ($('.quantity__wrap').length){
+
+            $( '.quantity__wrap' ).each(function( index ) {
+                var col = $(this).find('input');
+                var plus = $(this).find('.number-plus');
+                var minus = $(this).find('.number-minus');
+                var total = col.val();
+                plus.click(function() {
+                    total++;
+                    col.val(total);
+                    // $('.add-to-cart').val(total);
+                    $('button.button').removeAttr("disabled");
+                    if (total > 0){
+                        minus.removeClass('disable');
+                    }
+                    col.attr('value', total);
+                    $( '[name="update_cart"]' ).trigger( 'click' );
+                    $( '[name="update_wishlist"]' ).trigger( 'click' );
+                });
+                minus.click(function() {
+                    total--;
+                    col.val(total);
+                    // $('.add-to-cart').val(total);
+                    $('button.button').removeAttr("disabled");
+                    if (total <= 0){
+                        minus.addClass('disable');
+                    } else {
+                        minus.removeClass('disable');
+                    }
+                    col.attr('value', total);
+                    // $( '[name="update_cart"]' ).trigger( 'click' );
+                    // $( '[name="update_wishlist"]' ).trigger( 'click' );
+                });
+            });
+        }
+
+    }
+    QuantityNum();
+    $("body").bind("DOMSubtreeModified", function() {
+        QuantityNum();
+    });
+
     const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
     const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart');

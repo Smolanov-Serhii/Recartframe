@@ -13,7 +13,7 @@ $id = $product->get_id();
 global $wp_query;
 global $woocommerce;
 $current_price = $product->get_price();
-$product = wc_get_product(get_the_ID());
+$productid = wc_get_product(get_the_ID());
 $terms = get_the_terms($product->get_id(), 'product-cat');
 $variations = $product->get_children();
 $first_variation = new WC_Product_Variation( $variations[0]);
@@ -79,26 +79,33 @@ $product_type = get_field( 'tip_tovara');
                                 <div class="technical__block">
                                     <h4>Технические характеристики</h4>
                                     <div class="characters__list">
-                                        <div class="list__item">
-                                            <p>Lorem Ipsum is simply</p>
-                                            <p>12</p>
-                                        </div>
-                                        <div class="list__item">
-                                            <p>Lorem Ipsum is simply</p>
-                                            <p>12</p>
-                                        </div>
-                                        <div class="list__item">
-                                            <p>Lorem Ipsum is simply</p>
-                                            <p>12</p>
-                                        </div>
-                                        <div class="list__item">
-                                            <p>Lorem Ipsum is simply</p>
-                                            <p>12</p>
-                                        </div>
-                                        <div class="list__item">
-                                            <p>Lorem Ipsum is simply</p>
-                                            <p>12</p>
-                                        </div>
+                                        <?php
+                                        $attributes = $product->get_attributes();
+                                        foreach ( $attributes as $attribute ) :
+                                            if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
+                                                continue;
+                                            } else {
+                                                $has_row = true;
+                                            }
+                                            ?>
+                                            <div class="list__item <?php if ( ( $alt = $alt * -1 ) == 1 ) echo 'alt'; ?>">
+                                                <p><?php echo wc_attribute_label( $attribute['name'] ); ?></p>
+                                                <?php
+                                                    if ( $attribute['is_taxonomy'] ) {
+
+                                                        $values = wc_get_product_terms( $product->id, $attribute['name'], array( 'fields' => 'names' ) );
+                                                        echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+
+                                                    } else {
+
+                                                        // Convert pipes to commas and display values
+                                                        $values = array_map( 'trim', explode( WC_DELIMITER, $attribute['value'] ) );
+                                                        echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+
+                                                    }
+                                                    ?>
+                                            </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <?php
@@ -116,23 +123,28 @@ $product_type = get_field( 'tip_tovara');
                                 <?php the_content(); ?>
                             </div>
                             <div class="">
-                                <form id="product_buy" method="post" enctype="multipart/form-data">
-                                    <div class="">
-                                        <div class="quantity__wrap">
-                                            <span class="number-minus">-</span>
-                                            <?php
-                                            woocommerce_quantity_input(array(
-                                                'min_value' => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
-                                                'classes'      => apply_filters( 'woocommerce_quantity_input_classes', array( 'custom_input_num' ), $product ),
-                                                'max_value' => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
-                                                'input_value' => $product->get_min_purchase_quantity(),
-                                            ));
-                                            ?>
-                                            <span class="number-plus">+</span>
-                                        </div>
-                                    </div>
-                                    <button class="add-to-cart" id="add_to_cart" value="<?php echo esc_attr($first_variation->get_id()); ?>"><?php the_field('dobavit_v_korzinu','options')?></button>
+                                <form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
+                                    <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+                                    <?php
+                                    do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+                                    woocommerce_quantity_input(
+                                        array(
+                                            'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+                                            'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+                                            'input_value' => 1, // WPCS: CSRF ok, input var ok.
+                                        )
+                                    );
+
+                                    do_action( 'woocommerce_after_add_to_cart_quantity' );
+                                    ?>
+
+                                    <button type="submit" id="add-to-cart" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button alt add-to-cart"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+                                    <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -335,28 +347,6 @@ $product_type = get_field( 'tip_tovara');
                 thumbItem: 4,
             });
         });
-
-        let col = $('.custom_input_num');
-        let plus = $('.number-plus');
-        let minus = $('.number-minus');
-        plus.click(function() {
-            col.val(parseInt(col.val())+1);
-            var check = col.val();
-            if (check > 1){
-                minus.removeClass('disable');
-            }
-        });
-        minus.click(function() {
-            var check = col.val();
-            if (check > 1){
-                col.val(parseInt(col.val())-1);
-                minus.removeClass('disable');
-            } else {
-                minus.addClass('disable');
-            }
-
-        });
-
     </script>
 
 <?php

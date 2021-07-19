@@ -8,6 +8,7 @@
 @import 'aos';
 @import 'fresco';
 @import 'viewbox.sass';
+
 body {
   font-family: $base-font-family;
   font-size: $base-font-size;
@@ -142,6 +143,88 @@ input[type="date"]{
   }
   &.visible{
     opacity: 1;
+  }
+}
+.woocommerce-message{
+  border-top-color: #e42a2b;
+  &:before{
+    color: #e42a2b;
+  }
+}
+.woocommerce{
+  .woocommerce-checkout{
+    .selectric{
+      .label{
+        text-align: left;
+      }
+    }
+    input, textarea{
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #e6e6e6;
+      height: 50px;
+      padding-left: 15px;
+      margin-bottom: 30px;
+    }
+  }
+  .quantity__wrap {
+    @media all and (max-width: 768px) {
+      margin-left: auto;
+      margin-right: 0;
+    }
+    @extend .flex;
+    alignment-baseline: center;
+    justify-content: space-between;
+    border: 2px solid #e6e6e6;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    width: 100px;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    align-items: center;
+    .custom_input_num{
+      &.disable{
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+    input{
+      border: none;
+      text-align: center;
+    }
+    input[type='number'] {
+      -moz-appearance:textfield;
+      max-width: 40px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+  .curtom_cart{
+    .product-name{
+      a{
+        color: #000000;
+      }
+    }
+  }
+}
+.custom-button-red{
+  display: block;
+  color: #fff;
+  font-family: Gilroy,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 23px 0;
+  background: #e42a2b;
+  text-align: center;
+  border: none;
+  transition: .3s;
+  &:hover{
+    opacity: .7;
   }
 }
 .cursor {
@@ -705,6 +788,36 @@ header {
 .fourth__block {
   margin-bottom: 250px;
   .fourth__inner {
+    &__container{
+      position: relative;
+      .owl-dots{
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        display: flex;
+        justify-content: center;
+        @media all and (max-width: 768px) {
+          top: auto;
+          bottom: 60px;
+          left: 15px;
+          right: auto;
+        }
+        @media all and (max-width: 500px) {
+         bottom: 260px;
+        }
+        .owl-dot{
+          width: 20px;
+          height: 20px;
+          background-color: transparent;
+          border: 1px solid #e42a2b;
+          border-radius: 50%;
+          margin-left: 10px;
+          &.active{
+            background-color: #e42a2b;
+          }
+        }
+      }
+    }
     &__slide{
       width: 100%;
     }

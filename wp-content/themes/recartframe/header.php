@@ -20,16 +20,33 @@
     <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
     <link href="<?php echo get_template_directory_uri() ?>/favicon.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
     <![endif]-->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
 <!-- wrapper -->
+<div class="cursor">
+    <div class="cursor__ball cursor__ball--big ">
+        <svg height="30" width="30">
+            <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+        </svg>
+    </div>
+
+    <div class="cursor__ball cursor__ball--small">
+        <svg height="10" width="10">
+            <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+        </svg>
+    </div>
+</div>
 <div class="wrapper" id="top-wrapper">
     <header role="banner">
         <div class="container">
@@ -76,7 +93,7 @@
                             'walker'          => '',
                         ] );?>
                             <?php get_sidebar("language"); ?>
-                        <?php if (get_page_by_path("svetomuzyka")->ID == get_the_ID() || get_page_by_path("magazin")->ID == get_the_ID()) { ?>
+                        <?php if (is_page( 'svetomuzyka' ) || is_page( 'magazin' ) ||  is_shop() || is_single()){ ?>
                             <div class="market-icons">
                                 <div class="s-header__basket-wr woocommerce">
                                     <?php

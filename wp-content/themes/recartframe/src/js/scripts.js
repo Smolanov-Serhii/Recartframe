@@ -1,4 +1,167 @@
 jQuery(document).ready(function($) {
+
+    const $bigBall = document.querySelector('.cursor__ball--big');
+    const $smallBall = document.querySelector('.cursor__ball--small');
+    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart');
+
+// Listeners
+    document.body.addEventListener('mousemove', onMouseMove);
+    for (let i = 0; i < $hoverables.length; i++) {
+        $hoverables[i].addEventListener('mouseenter', onMouseHover);
+        $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+    }
+
+// Move the cursor
+    function onMouseMove(e) {
+        TweenMax.to($bigBall, .4, {
+            x: e.clientX - 15,
+            y: e.clientY - 15
+        })
+        TweenMax.to($smallBall, .1, {
+            x: e.clientX - 5,
+            y: e.clientY - 7
+        })
+    }
+
+// Hover an element
+    function onMouseHover() {
+        TweenMax.to($bigBall, .3, {
+            scale: 4
+        })
+    }
+    function onMouseHoverOut() {
+        TweenMax.to($bigBall, .3, {
+            scale: 1
+        })
+    }
+
+    if( $('input#date__start').length ) {
+        var theLanguage = $('html').attr('lang');
+        $( 'input#date__start, input#date__end' ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "input#date__start, input#date__end" ).datepicker();
+        if(theLanguage == "de-DE"){
+            ( function( factory ) {
+                "use strict";
+
+                if ( typeof define === "function" && define.amd ) {
+
+                    // AMD. Register as an anonymous module.
+                    define( [ "../widgets/datepicker" ], factory );
+                } else {
+
+                    // Browser globals
+                    factory( jQuery.datepicker );
+                }
+            } )( function( datepicker ) {
+                "use strict";
+
+                datepicker.regional.de = {
+                    closeText: "Schließen",
+                    prevText: "&#x3C;Zurück",
+                    nextText: "Vor&#x3E;",
+                    currentText: "Heute",
+                    monthNames: [ "Januar", "Februar", "März", "April", "Mai", "Juni",
+                        "Juli", "August", "September", "Oktober", "November", "Dezember" ],
+                    monthNamesShort: [ "Jan", "Feb", "Mär", "Apr", "Mai", "Jun",
+                        "Jul", "Aug", "Sep", "Okt", "Nov", "Dez" ],
+                    dayNames: [ "Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag" ],
+                    dayNamesShort: [ "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa" ],
+                    dayNamesMin: [ "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa" ],
+                    weekHeader: "KW",
+                    dateFormat: "dd.mm.yy",
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: "" };
+                datepicker.setDefaults( datepicker.regional.de );
+
+                return datepicker.regional.de;
+
+            } );
+            $('input#date__start, input#date__end').datepicker({ language: "de"});
+        } else if(theLanguage == "ru-RU"){
+            ( function( factory ) {
+                "use strict";
+
+                if ( typeof define === "function" && define.amd ) {
+
+                    // AMD. Register as an anonymous module.
+                    define( [ "../widgets/datepicker" ], factory );
+                } else {
+
+                    // Browser globals
+                    factory( jQuery.datepicker );
+                }
+            } )( function( datepicker ) {
+                "use strict";
+
+                datepicker.regional.ru = {
+                    closeText: "Закрыть",
+                    prevText: "&#x3C;Пред",
+                    nextText: "След&#x3E;",
+                    currentText: "Сегодня",
+                    monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                        "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
+                    monthNamesShort: [ "Янв", "Фев", "Мар", "Апр", "Май", "Июн",
+                        "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек" ],
+                    dayNames: [ "воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота" ],
+                    dayNamesShort: [ "вск", "пнд", "втр", "срд", "чтв", "птн", "сбт" ],
+                    dayNamesMin: [ "Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
+                    weekHeader: "Нед",
+                    dateFormat: "dd.mm.yy",
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: "" };
+                datepicker.setDefaults( datepicker.regional.ru );
+
+                return datepicker.regional.ru;
+
+            } );
+            $('input#date__start, input#date__end').datepicker({ language: "ru"},{ dateFormat: "dd.mm.yy" } );
+        } else if(theLanguage == "en-EN"){
+            ( function( factory ) {
+                "use strict";
+
+                if ( typeof define === "function" && define.amd ) {
+
+                    // AMD. Register as an anonymous module.
+                    define( [ "../widgets/datepicker" ], factory );
+                } else {
+
+                    // Browser globals
+                    factory( jQuery.datepicker );
+                }
+            } )( function( datepicker ) {
+                "use strict";
+
+                datepicker.regional[ "en-AU" ] = {
+                    closeText: "Done",
+                    prevText: "Prev",
+                    nextText: "Next",
+                    currentText: "Today",
+                    monthNames: [ "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December" ],
+                    monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+                    dayNames: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+                    dayNamesShort: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+                    dayNamesMin: [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ],
+                    weekHeader: "Wk",
+                    dateFormat: "dd/mm/yy",
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: "" };
+                datepicker.setDefaults( datepicker.regional[ "en-AU" ] );
+
+                return datepicker.regional[ "en-AU" ];
+
+            } );
+            $('input#date__start, input#date__end').datepicker({ language: "en"});
+        }
+    }
+
     $('.hamburger').css('z-index', '999');
     $('.hamburger').on('click', function() {
         $(this).toggleClass('active');
@@ -206,17 +369,17 @@ jQuery(document).ready(function($) {
             stagePadding: 0,
         });
     });
-    if ($('#curent-page').length){
-        var CurrentPage = $('h1').html();
-        $('#curent-page').val(CurrentPage);
-        var NameLang = $('.name-input').data('currenttext');
-        $('#input-name').html(NameLang);
-
-        var PhoneLang = $('.phone').data('currenttext');
-        $('#input-phone').html(PhoneLang);
-
-        var EmailLang = $('.email').data('currenttext');
-        $('#input-email').html(EmailLang);
-    }
+    // if ($('#curent-page').length){
+    //     var CurrentPage = $('h1').html();
+    //     $('#curent-page').val(CurrentPage);
+    //     var NameLang = $('.name-input').data('currenttext');
+    //     $('#input-name').html(NameLang);
+    //
+    //     var PhoneLang = $('.phone').data('currenttext');
+    //     $('#input-phone').html(PhoneLang);
+    //
+    //     var EmailLang = $('.email').data('currenttext');
+    //     $('#input-email').html(EmailLang);
+    // }
 
 });

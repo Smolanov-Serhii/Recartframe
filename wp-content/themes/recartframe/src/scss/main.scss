@@ -18,8 +18,9 @@ body {
   color: $base-font-color;
   background-color: $base-background-color;
   -webkit-font-smoothing: antialiased;
+  cursor: none;
   a{
-    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
   }
   &.overflow {
     overflow: hidden;
@@ -95,7 +96,71 @@ picture {
 #qtranslate-2{
   list-style: none;
 }
+input[type="date"]{
+  -webkit-appearance: none;
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+  }
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-js{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255,255,255,0.7);
+  z-index: 9999999;
+  svg {
+    animation: 3s linear 0s normal none infinite running rot;
+    -webkit-animation: 3s linear 0s normal none infinite running rot;
+    width: 100px;
+  }
+  &.visible{
+    opacity: 1;
+  }
+}
+.cursor {
+  pointer-events: none;
+
+  &__ball {
+    position: fixed;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    z-index: 99999999;
+
+    circle {
+      fill: #e42a2b;
+    }
+  }
+}
 header {
+  z-index: 11!important;
   .market-icons{
     position: relative;
     margin-right: 20px;
@@ -207,7 +272,7 @@ header {
         font-size: 16px;
         font-weight: 700;
         font-family: $heading-font-family;
-        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+        //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       }
     }
     .trp-ls-shortcode-language{
@@ -221,7 +286,7 @@ header {
       font-size: 18px;
       font-weight: 700;
       font-family: $heading-font-family;
-      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+      //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     }
     .hidden__lang, .trp-ls-shortcode-language, .qtranxs_widget{
       display: none;
@@ -255,7 +320,7 @@ header {
     height: 20px;
     overflow: hidden;
     position: relative;
-    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     &:before {
       display: block;
       content:'';
@@ -320,6 +385,7 @@ header {
     transition: 1s all ease-out;
     &.active {
       transform: translateX(0);
+      z-index: 999999;
     }
     nav {
       margin-right: 0;
@@ -363,7 +429,7 @@ header {
 .first__block {
   height: calc(100vh - 115px);
   position: relative;
-  cursor: url(../img/arrow-down.png) 38 38, pointer;;
+  //cursor: url(../img/arrow-down.png) 38 38, pointer;;
   &:before {
     display: block;
     content:'';
@@ -492,7 +558,7 @@ header {
 .second__block {
   padding-top: 160px;
   margin-bottom: 170px;
-  cursor: url(../img/circle-cursor.svg) 45 45, pointer;
+  //cursor: url(../img/circle-cursor.svg) 45 45, pointer;
  .second__wrap {
   @extend .flex;
   align-items: center;
@@ -516,7 +582,7 @@ header {
       bottom: 0;
       left: 0;
       margin: auto;
-      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+      //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       @extend .transition;
       &:hover{
       transform: scale(1.1);
@@ -543,7 +609,7 @@ header {
       font-size: 12px;
       font-weight: 700;
       color: #000;
-      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+      //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       @extend .transition;
       &:hover {
         color: #fff;
@@ -842,7 +908,7 @@ header {
   padding-bottom: 220px;
   color: #fff;
   position: relative;
-  cursor: url(../img/circle-cursor.svg) 45 45, pointer;
+  //cursor: url(../img/circle-cursor.svg) 45 45, pointer;
   .block__titles--wrap {
     color: #fff;
     position: relative;
@@ -893,7 +959,7 @@ header {
         margin-bottom: 35px;
         a {
           color: #ddd;
-          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+          //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
         }
       }
       p {
@@ -913,17 +979,28 @@ header {
       width: 100%;
       .form__inner--container {
         @extend .flex;
+        align-items: flex-end;
         br{
           display: none;
         }
         .ajax-loader{
           display: none;
         }
-        align-items: flex-end;
         justify-content: space-between;
-        > .wpcf7-form-control-wrap {
+        .first__row{
+          > .wpcf7-form-control-wrap{
+            margin-bottom: 0;
+            .wpcf7-form-control-wrap{
+              width: 100%;
+            }
+          }
+        }
+        .wpcf7-form-control-wrap {
           display: block;
           width: 26%;
+          .wpcf7-form-control-wrap{
+            width: 100%;
+          }
           label {
             display: block;
             font-size: 12px;
@@ -957,7 +1034,7 @@ header {
           font-family: $heading-font-family;
           padding: 18.5px 0;
           border: 0;
-          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+          //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           @extend .transition;
           &:focus {
             outline: none;
@@ -996,7 +1073,7 @@ footer {
   background-color: #212121;
   color: #fff;
   position: relative;
-  cursor: url(../img/arrow-top.png) 38 38, pointer;
+  //cursor: url(../img/arrow-top.png) 38 38, pointer;
   .footer__wrap {
     @extend .flex;
     justify-content: space-between;
@@ -1043,6 +1120,7 @@ footer {
     .underfooter {
       margin-bottom: 60px;
       max-width: 200px;
+      color: white;
     }
   }
   .last__column {
@@ -1100,7 +1178,7 @@ footer {
 
 //INNER PAGES
 body {
-  cursor: url(../img/circle-cursor.svg) 45 45, pointer;
+  //cursor: url(../img/circle-cursor.svg) 45 45, pointer;
   .market-icons{
     .basket-btn__counter{
       background-color: white;
@@ -1195,11 +1273,16 @@ body {
 }
 
 .blog__inner {
+  #nav-posts{
+    display: none;
+  }
   .top__wrap {
     max-width: 1430px;
     width: 100%;
     margin: 0 auto;
     margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
     @extend .flex;
     justify-content: space-between;
     align-items: center;
@@ -1218,6 +1301,9 @@ body {
     .sorting {
       width: 200px;
       position: relative;
+      form{
+        width: 100%;
+      }
       @extend .flex;
       align-items: center;
       .cats__wrap {
@@ -1243,28 +1329,17 @@ body {
           }
         }
       }
-      &:after {
-        display: block;
-        content:'';
-        width: 12px;
-        height: 8px;
-        background: transparent url('../img/arrow--down-black.png') center no-repeat;
-        background-size: contain;
-        position: absolute;
-        right: 20px;
-        top: 16px;
-      }
       .default {
-        display: block;
-        width: 100%;
-        padding: 12px 0;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-family: $heading-font-family;
-        text-align: center;
-        text-indent: -20px;
-        border: 2px solid #e6e6e6;
+        //display: block;
+        //width: 100%;
+        //padding: 12px 0;
+        //font-size: 12px;
+        //font-weight: 700;
+        //text-transform: uppercase;
+        //font-family: $heading-font-family;
+        //text-align: center;
+        //text-indent: -20px;
+        //border: 2px solid #e6e6e6;
       }
     }
   }
@@ -1370,7 +1445,7 @@ body {
   .related__slider {
     .blog__item {
       &.frized{
-        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+        //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
         .thumb__wrap{
           overflow: hidden;
           img{
@@ -1626,7 +1701,7 @@ body {
             border: 2px solid #e6e6e6;
             border-bottom: 0;
             position: relative;
-            cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+            //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
             &.active {
               &:after {
                 display: block;
@@ -1722,7 +1797,7 @@ body {
           font-family: $heading-font-family;
           padding: 18.5px 0;
           border: 0;
-          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+          //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           @extend .transition;
           position: absolute;
           bottom: 120px;
@@ -1752,7 +1827,7 @@ body {
       padding-right: 30px;
       overflow-y: scroll;
       &::-webkit-scrollbar {
-        cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+        //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           width: 4px;
         }
         &::-webkit-scrollbar-track {
@@ -1762,7 +1837,7 @@ body {
         }
         &::-webkit-scrollbar-thumb {
           background: #e42a2b;
-          cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+          //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
           width: 4px;
           @extend .transition;
         }
@@ -1993,7 +2068,7 @@ body {
   .video__item {
     width: 45%;
     margin-bottom: 120px;
-    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     &:nth-child(even) {
       transform: translateY(200px);
     }
@@ -2404,7 +2479,7 @@ body {
 					margin-bottom: 90px;
 					position: relative;
 					padding-left: 150px;
-                  cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+                  //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
 					&:before {
 						display: block;
 						content: counter(my-awesome-counter, decimal-leading-zero) "";
@@ -2699,10 +2774,12 @@ body {
 
 .shop__inner {
    .top__wrap {
+     z-index: 10;
     .sorting {
       width: auto;
       .default {
         width: 200px;
+        margin-bottom: 0;
       }
     }
    }
@@ -2799,7 +2876,7 @@ body {
       font-weight: 700;
       width: 100px;
       margin-bottom: 45px;
-      cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+      //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
       align-items: center;
       input{
         border: none;
@@ -3259,7 +3336,7 @@ body {
     width: 32.7%;
     height: 375px;
     margin-bottom: 15px;
-    cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
     overflow: hidden;
     img{
       transition: 0.3s;
@@ -3332,14 +3409,29 @@ body {
   .lSSlideOuter {
     margin-bottom: 100px;
   }
+  .slider-nav{
+    margin-top: 30px;
+    margin-bottom: 100px;
+    .slick-slide{
+      padding: 0 3px;
+      filter: grayscale(100%);
+      &.slick-current{
+        filter: grayscale(0);
+        border: 1px solid #e42a2b;
+      }
+    }
+    img{
+      height: 100px;
+      width: auto;
+    }
+  }
   .photo__slider {
     max-height: 950px;
     position: relative;
     img {
       max-height: 950px;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      margin: auto;
     }
   }
   .lSAction {

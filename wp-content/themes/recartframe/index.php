@@ -9,9 +9,9 @@ get_header();
 ?>
 
 <section class="first__block" id="first__block" href="#second__block">
-    <img src="<?php echo get_template_directory_uri() ?>/dist/img/main-banner.jpg" alt="image" class="main__banner main__banner--image">
+    <img src="<?php the_field('kartinka_v_shapku_glavnoj'); ?>" alt="<?php the_field('zagolovok_dlya_verhnego_banera'); ?>" class="main__banner main__banner--image">
     <video autoplay muted loop class="main__banner main__banner--video">
-        <source src="<?php echo get_template_directory_uri() ?>/video/grey.mp4" type="video/mp4">
+        <source src="<?php the_field('video_v_shapku_glavnoj'); ?>" type="video/mp4">
     </video>
     <div class="container">
         <div class="row">

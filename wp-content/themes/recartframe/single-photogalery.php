@@ -13,7 +13,7 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="photo__slider" id="photo__slider">
+                    <div class="photo__slider slider-single" id="photo__slider">
                         <?php
                             if( have_rows('slajder_dlya_zapisi_fotogalerei') ):
 
@@ -25,13 +25,35 @@ get_header();
                                     // Do something...
                                         ?>
                         <div class="slider__item" data-thumb="<?php echo $sub_value ?>">
-                            <a href="<?php echo $sub_value ?>" class="viewbox">
-                                <img src="<?php echo $sub_value ?>" alt="<?php the_title();?>">
-                            </a>
+                            <img src="<?php echo $sub_value ?>" alt="<?php the_title();?>">
                         </div>
                         <?php
                         // End loop.
                         endwhile;
+
+                        // No value.
+                        else :
+                            // Do something...
+                        endif;
+                        ?>
+                    </div>
+                    <div class="slider-nav">
+                        <?php
+                        if( have_rows('slajder_dlya_zapisi_fotogalerei') ):
+
+                            // Loop through rows.
+                            while( have_rows('slajder_dlya_zapisi_fotogalerei') ) : the_row();
+
+                                // Load sub field value.
+                                $sub_value = get_sub_field('slajd_dlya_zapisi_fotogalereya');
+                                // Do something...
+                                ?>
+                                <div class="slider__item" data-thumb="<?php echo $sub_value ?>">
+                                    <img src="<?php echo $sub_value ?>" alt="<?php the_title();?>">
+                                </div>
+                            <?php
+                                // End loop.
+                            endwhile;
 
                         // No value.
                         else :
@@ -114,17 +136,64 @@ get_header();
     </section>
     <script>
         jQuery(document).ready(function($) {
-            //Single product slider
-            $("#photo__slider").lightSlider({
-                gallery: true,
-                currentPagerPosition: 'bottom',
-                item: 1,
-                controls: true,
-                ThumbWidth: 120,
-                thumbItem: 9,
+            $('.slider-single').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: false,
+                adaptiveHeight: true,
+                infinite: false,
+                useTransform: true,
+                speed: 400,
+                cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
             });
-            //Viewbox
-            $(".viewbox").viewbox();
+
+            $('.slider-nav')
+                .on('init', function(event, slick) {
+                    $('.slider-nav .slick-slide.slick-current').addClass('is-active');
+                })
+                .slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    dots: false,
+                    arrows: false,
+                    focusOnSelect: false,
+                    infinite: true,
+                    variableWidth: true,
+                    responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5,
+                        }
+                    }, {
+                        breakpoint: 640,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                        }
+                    }, {
+                        breakpoint: 420,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                        }
+                    }]
+                });
+
+            $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+                $('.slider-nav').slick('slickGoTo', currentSlide);
+                let currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
+                $('.slider-nav .slick-slide.is-active').removeClass('is-active');
+                $(currrentNavSlideElem).addClass('is-active');
+            });
+
+            $('.slider-nav').on('click', '.slick-slide', function(event) {
+                event.preventDefault();
+                let goToSingleSlide = $(this).data('slick-index');
+                $('.slider-single').slick('slickGoTo', goToSingleSlide);
+            });
         });
     </script>
 

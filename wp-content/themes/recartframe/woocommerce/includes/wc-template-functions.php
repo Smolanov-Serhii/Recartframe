@@ -2217,7 +2217,7 @@ if ( ! function_exists( 'woocommerce_breadcrumb' ) ) {
                 'woocommerce_breadcrumb_defaults',
                 array(
                     'delimiter'   => '&nbsp;&#47;&nbsp;',
-                    'wrap_before' => '<nav class="woocommerce-breadcrumb">',
+                    'wrap_before' => '<nav class="woocommerce-breadcrumb" style="display: none;">',
                     'wrap_after'  => '</nav>',
                     'before'      => '',
                     'after'       => '',

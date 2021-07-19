@@ -20,6 +20,8 @@ const sass = require('gulp-sass');
 
 //Порядок подключения файлов со стилями
 const styleFiles = [
+   './src/scss/selectric.scss',
+   './src/scss/slick.scss',
    './src/scss/main.scss'
 
 
@@ -31,6 +33,8 @@ const scriptFiles = [
    './src/js/owl.carousel.min.js',
    './src/js/lightslider.js',
    './src/js/aos.js',
+   './src/js/jquery.selectric.js',
+   './src/js/slick.js',
    './src/js/fresco.min.js',
    './src/js/scripts.js'
 

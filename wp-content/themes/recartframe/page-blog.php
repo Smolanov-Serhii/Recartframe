@@ -18,7 +18,25 @@ get_header();
                             <h1><?php the_field('zagolovok_v_shapke_straniczy'); ?></h1>
                         </div>
                         <div class="sorting">
-                            <p class="default">Default sorting</p>
+                            <?php
+
+                            if ($_GET['select'] == 'newest') { $order = "&orderby=date&order=DESC"; $s1 = ' selected="selected"'; }
+                            if ($_GET['select'] == 'lastest') { $order = "&orderby=date&order=ASC"; $s2 = ' selected="selected"'; }
+                            if ($_GET['select'] == 'title') { $order = "&orderby=title&order=ASC"; $s3 = ' selected="selected"'; }
+                            if ($_GET['select'] == 'correct') { $order = "&orderby=modified"; $s4 = ' selected="selected"'; }
+                            ?>
+                            <form method="get" id="order">
+                                <select name="select" onchange='this.form.submit()' style="width:200px">
+                                    <option value="newest"<?=$s1?>><?php the_field('nadpis_po_date_snachala_novye', 'option'); ?></option>
+                                    <option value="lastest"<?=$s2?>><?php the_field('nadpis_po_date_snachala_starye', 'option'); ?></option>
+                                    <option value="title"<?=$s3?>><?php the_field('nadpis_po_zagolovku', 'option'); ?></option>
+                                    <option value="correct"<?=$s4?>><?php the_field('nadpis_po_date_izmeneniya', 'option'); ?></option>
+                                </select>
+                            </form>
+
+                            <?php global $query_string; // параметры базового запроса
+                            query_posts($query_string.'&'.$order); // базовый запрос + свои параметры
+                            ?>
                         </div>
                     </div>
                     <div class="blog__content" data-aos="fade-up">
@@ -113,6 +131,11 @@ get_header();
         </div>
     </div>
 
+    <script>
+        $(function() {
+            $('select').selectric();
+        });
+    </script>
 
 <?php
 get_footer();

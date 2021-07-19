@@ -105,7 +105,7 @@ get_header();
                   ?>
                   <div class="blog__item">
                       <div class="thumb__wrap">
-                          <a href="<?php echo $link;?>" class="item__link"><?php echo $podrobnee;?></a>
+                          <a href="<?php echo $link;?>" class="item__link fresco"><?php echo $podrobnee;?></a>
                           <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
                       </div>
                       <a href="<?php echo $link;?>" class="description">
@@ -125,30 +125,14 @@ get_header();
 
   <section class="seventh__block">
     <div class="block__titles--wrap" data-aos="fade-up">
-      <p class="uppertitle">Разрабатываем брендинг</p>
-      <h4 class="block__title">Напишите нам</h4>
+        <p class="uppertitle"><?php the_field('otlozhite_vse_i_prosto','options');?></p>
+        <h4 class="block__title"><?php the_field('svyazhites_s_nami','options');?></h4>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="form__wrap" data-aos="fade-up">
-            <form action="#">
-              <div class="form__inner--container">
-                <span class="wpcf7-form-control-wrap">
-                <label for="name__input">Ваше Имя</label>
-                <input type="text" id="name__input" />
-              </span>
-              <span class="wpcf7-form-control-wrap">
-                <label for="phone__input">Телефон</label>
-                <input type="text" id="phone__input" />
-              </span>
-              <span class="wpcf7-form-control-wrap">
-                <label for="email__input">EMAIL</label>
-                <input type="text" id="email__input" />
-              </span>
-              <input type="text" class="send__button" value="Отправить" />
-              </div>
-            </form>
+              <?php echo do_shortcode( '[contact-form-7 id="181" title="Контактная форма 1"]' ); ?>
             <a href="#" class="brief__button">Заполнить бриф</a>
           </div>
         </div>

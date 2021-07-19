@@ -67,30 +67,30 @@ get_header();
                 </div>
                 <h4><a href="<?php echo the_field('komercheskaya_fotosemka_sslyka', 75);?>"><?php echo the_field('komercheskaya_fotosemka', 75);?></a></h4>
               </div>
+<!--              <div class="item">-->
+<!--                <div class="top">-->
+<!--                  <div class="number">06</div>-->
+<!--                  <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/img/pc6.png" alt="image">-->
+<!--                </div>-->
+<!--                <h4><a href="--><?php //echo the_field('predmetnaya_fotosessiya_ssylka', 75);?><!--">--><?php //echo the_field('predmetnaya_fotosessiya', 75);?><!--</a></h4>-->
+<!--              </div>-->
               <div class="item">
                 <div class="top">
                   <div class="number">06</div>
-                  <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc6.png" alt="image">
-                </div>
-                <h4><a href="<?php echo the_field('predmetnaya_fotosessiya_ssylka', 75);?>"><?php echo the_field('predmetnaya_fotosessiya', 75);?></a></h4>
-              </div>
-              <div class="item">
-                <div class="top">
-                  <div class="number">07</div>
                   <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc7.png" alt="image">
                 </div>
                 <h4><a href="<?php echo the_field('fotosemka_dlya_menyu_sslyka', 75);?>"><?php echo the_field('fotosemka_dlya_menyu', 75);?></a></h4>
               </div>
               <div class="item">
                 <div class="top">
-                  <div class="number">08</div>
+                  <div class="number">07</div>
                   <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc9.png" alt="image">
                 </div>
                 <h4><a href="<?php echo the_field('zhivotnye_i_landshaft_ssylka', 75);?>"><?php echo the_field('zhivotnye_i_landshaft', 75);?></a></h4>
               </div>
               <div class="item">
                 <div class="top">
-                  <div class="number">09</div>
+                  <div class="number">08</div>
                   <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc10.png" alt="image">
                 </div>
                 <h4><a href="<?php echo the_field('aerofotosemka_dronom_ssylka', 75);?>"><?php echo the_field('aerofotosemka_dronom', 75);?></a></h4>

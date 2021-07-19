@@ -23,7 +23,7 @@ do_action( 'wpmtst_before_view' );
                     <div class="descr">
                         <?php wpmtst_the_content(); ?>
                     </div>
-                    <h4 class="rev__name"><?php wpmtst_the_client(); ?></h4>
+                    <h4 class="rev__name"><?php the_field('imya'); ?></h4>
                 </div>
             </div>
         <?php endwhile; ?>

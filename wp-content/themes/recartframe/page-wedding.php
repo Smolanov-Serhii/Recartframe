@@ -249,41 +249,7 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="form__wrap">
-                        <form action="#">
-                            <div class="form__inner--container">
-                                <div class="left">
-                                    <div class="first__row">
-                    <span class="wpcf7-form-control-wrap">
-                      <label for="name__input">Дата проведения</label>
-                      <input type="text" id="date__input" />
-                    </span>
-                                        <span class="wpcf7-form-control-wrap">
-                      <label for="name__input">Дата завершения</label>
-                      <input type="text" id="datef__input" />
-                     </span>
-                                    </div>
-                                    <span class="wpcf7-form-control-wrap">
-                    <label for="name__input">Фамилия, Имя</label>
-                    <input type="text" id="name__input" />
-                  </span>
-                                    <span class="wpcf7-form-control-wrap">
-                    <label for="phone__input">Телефон</label>
-                    <input type="text" id="phone__input" />
-                  </span>
-                                    <span class="wpcf7-form-control-wrap">
-                    <label for="email__input">EMAIL</label>
-                    <input type="text" id="email__input" />
-                  </span>
-                                </div>
-                                <div class="right">
-                  <span class="wpcf7-form-control-wrap">
-                    <label for="email__input">Сообщение</label>
-                    <textarea></textarea>
-                  </span>
-                                    <input type="text" class="send__button" value="Отправить" />
-                                </div>
-                            </div>
-                        </form>
+                        <?php echo do_shortcode('[contact-form-7 id="1673" title="Большая форма"]')?>
                     </div>
                 </div>
             </div>
@@ -310,3 +276,5 @@ get_header();
 <?php
 get_footer();
 ?>
+
+

@@ -57,7 +57,7 @@ $product_type = get_field( 'tip_tovara');
                         <div class="left" data-aos="fade-right">
                             <div class="product__slider" id="product__slider">
                                 <div class="slider__item" data-thumb="<?php the_post_thumbnail_url('', 'full'); ?>">
-                                    <a href="<?php the_post_thumbnail_url('', 'full'); ?>" class="viewbox">
+                                    <a href="<?php the_post_thumbnail_url('', 'full'); ?>" class="viewbox fresco">
                                         <img src="<?php the_post_thumbnail_url('', 'full'); ?>" alt="<?php the_title();?>>">
                                     </a>
                                 </div>

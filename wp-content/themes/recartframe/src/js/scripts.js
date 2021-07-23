@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 
     const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart');
+    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video');
 
 // Listeners
     document.body.addEventListener('mousemove', onMouseMove);

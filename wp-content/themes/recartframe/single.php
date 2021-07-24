@@ -28,9 +28,6 @@ get_header();
                     <div class="col-md-12">
                         <div class="single__text" data-aos="fade-up">
                             <?php the_content();?>
-                            <div class="share">
-                                <p>Поделится в соцсетях: </p>
-                            </div>
                         </div>
                     </div>
                 </div>

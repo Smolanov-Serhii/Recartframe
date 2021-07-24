@@ -149,11 +149,14 @@ input[type="date"]{
     opacity: 1;
   }
 }
-.woocommerce-message{
+.woocommerce-message, .woocommerce-info{
   border-top-color: #e42a2b;
   &:before{
     color: #e42a2b;
   }
+}
+.custom-cart{
+  padding-bottom: 100px;
 }
 .woocommerce{
   .woocommerce-checkout{

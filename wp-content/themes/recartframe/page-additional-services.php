@@ -89,8 +89,8 @@ get_header();
 
   <section class="seventh__block">
     <div class="block__titles--wrap" data-aos="fade-up">
-      <p class="uppertitle">отложите все и просто</p>
-      <h4 class="block__title">Свяжитесь с нами</h4>
+        <p class="uppertitle"><?php the_field('otlozhite_vse_i_prosto','options');?></p>
+        <h4 class="block__title"><?php the_field('svyazhites_s_nami','options');?></h4>
     </div>
     <div class="container">
       <div class="row">

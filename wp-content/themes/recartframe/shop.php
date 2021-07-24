@@ -14,8 +14,8 @@ get_header();
         <div class="col-md-12">
           <div class="top__wrap" data-aos="fade-up">
             <div class="titles">
-              <p class="uppertitle">Art Studio</p>
-              <h1>Shop</h1>
+              <p class="uppertitle"><?php the_field('art_studio','options');?></p>
+              <h1><?php the_field('nadpis_magazitn','options');?></h1>
             </div>
             <div class="sorting">
               <div class="cats__wrap">

@@ -71,27 +71,21 @@ if ( $total > 1 ) {
     if ($(".page__inner").length) {
         var nextlink = $('.next.page-numbers').attr('href');
         $('.page__inner').on('click', '.show__more', function () {
-            // console.log(nextlink);
-            if ($("a.next.page-numbers").length) {
-                $('.loader-js').addClass('visible');
-                $('.show__more--wrap').remove();
-                $.ajax({
-                    url: nextlink,
-                    success: function (data) {
-                        dataelem = $(data).find('.blog__item');
-                        $('.blog__content').append(dataelem);
-                        if ($("a.next.page-numbers").length) {
-                            var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
-                            $('.blog__content').append(triger);
-                            nextlink = $(data).find('.next.page-numbers').attr('href');
-                        }
-                        $('.loader-js').removeClass('visible');
+            $('.loader-js').addClass('visible');
+            $('.show__more--wrap').remove();
+            $.ajax({
+                url: nextlink,
+                success: function (data) {
+                    dataelem = $(data).find('.blog__content .blog__item');
+                    $('.blog__content').append(dataelem);
+                    if ($(data).find('.next.page-numbers').length) {
+                        var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
+                        $('.blog__content').append(triger);
+                        nextlink = $(data).find('.next.page-numbers').attr('href');
                     }
-                });
-            } else {
-                $('.more-news-block .next_link').remove();
-            }
-
+                    $('.loader-js').removeClass('visible');
+                }
+            });
         });
     }
 </script>

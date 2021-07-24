@@ -151,190 +151,46 @@ $product_type = get_field( 'tip_tovara');
                 </div>
             </div>
         </div>
-        <?php
-            if($product_type == 'сутки'){
-                ?>
-        <section class="form__order--rent">
+        <div class="related__wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="block__titles--wrap" data-aos="fade-up">
-                            <p class="uppertitle">заполните форму</p>
-                            <h4 class="block__title">Я хотел бы арендовать </h4>
-                        </div>
-                        <div class="form__wrap" data-aos="fade-up">
-                            <form action="#">
-                                <div class="form__checkboxes">
-                <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr1">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr1" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr2">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr2" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr3">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr3" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr4">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr4" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr5">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr5" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr6">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr6" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr7">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr7" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label class="rent__checkbox" for="pr7">
-                    <p>Provence-Aix-en 3</p>
-                    <span>299,99€</span>
-                  </label class="rent__checkbox">
-                  <input type="checkbox" id="pr8" />
-                </span>
-                                </div>
-                                <div class="form__inner--container">
-                <span class="wpcf7-form-control-wrap">
-                  <label for="name__input">В какой день планируете получить (дата/время)</label>
-                  <input type="text" id="time__input" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label for="name__input">В какой день планируете вернуть (дата/время)</label>
-                  <input type="text" id="timer__input" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap">
-                  <label for="name__input">Фамилия, Имя</label>
-                  <input type="text" id="name__input" />
-                </span>
-                                    <span class="wpcf7-form-control-wrap your-message">
-                  <label for="name__input">Сообщение</label>
-                  <textarea></textarea>
-                </span>
-                                    <div class="column__wrap">
-                  <span class="wpcf7-form-control-wrap">
-                  <label for="phone__input">Адрес</label>
-                  <input type="text" id="adress__input" />
-                </span>
-                                        <span class="wpcf7-form-control-wrap">
-                  <label for="phone__input">Phone</label>
-                  <input type="text" id="phone__input" />
-                </span>
-                                        <span class="wpcf7-form-control-wrap">
-                  <label for="email__input">EMAIL ADDRESS *</label>
-                  <input type="text" id="email__input" />
-                </span>
-                                    </div>
-                                    <input type="text" class="send__button" value="Отправить" />
-                                </div>
-                            </form>
+                        <div class="top__wrap" data-aos="fade-up">
+                            <div class="titles">
+
+                                <p class="uppertitle"><?php the_field('podzagolovok_dlya_razrabatyvaem_brending','options');?></p>
+                                <h4><?php the_field('zagolovok_podobnye_zapisi','options');?></h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="owl-carousel related__slider" id="related__slider">
                 <?php
-            } else {
-                ?>
-                <div class="related__wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="top__wrap" data-aos="fade-up">
-                                    <div class="titles">
-                                        <p class="uppertitle">Разрабатываем брендинг</p>
-                                        <h4>Related products</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="owl-carousel related__slider" id="related__slider">
-                        <?php
+                $loop = new WP_Query( array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 10,
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC',
+                ));
 
-                        ?>
-                        <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="#" class="item__link">Подробнее</a>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog4.jpg" alt="image">
-                            </div>
-                            <a href="#" class="description">
-                                <h4>Provence-en-Aix 2 копия</h4>
-                                <p class="price">299,99€</p>
-                            </a>
+                while ( $loop->have_posts() ): $loop->the_post(); ?>
+                    <div class="blog__item">
+                        <div class="thumb__wrap">
+                            <a href="<?php the_permalink(); ?>" class="item__link"><?php the_field('podrobnee','options');?></a>
+                            <?php the_post_thumbnail("thumbnail-215x300"); ?>
                         </div>
-                        <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="#" class="item__link">Подробнее</a>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog5.jpg" alt="image">
-                            </div>
-                            <a href="#" class="description">
-                                <h4>Provence-en-Aix 2 копия</h4>
-                                <p class="price">299,99€</p>
-                            </a>
-                        </div>
-                        <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="#" class="item__link">Подробнее</a>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog1.jpg" alt="image">
-                            </div>
-                            <a href="#" class="description">
-                                <h4>Provence-en-Aix 2 копия</h4>
-                                <p class="price">299,99€</p>
-                            </a>
-                        </div>
-                        <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="#" class="item__link">Подробнее</a>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog1.jpg" alt="image">
-                            </div>
-                            <a href="#" class="description">
-                                <h4>Provence-en-Aix 2 копия</h4>
-                                <p class="price">299,99€</p>
-                            </a>
-                        </div>
-                        <div class="blog__item">
-                            <div class="thumb__wrap">
-                                <a href="#" class="item__link">Подробнее</a>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/blog2.jpg" alt="image">
-                            </div>
-                            <a href="#" class="description">
-                                <h4>Provence-en-Aix 2 копия</h4>
-                                <p class="price">299,99€</p>
-                            </a>
-                        </div>
+                        <a href="<?php the_permalink(); ?>" class="description">
+                            <h4><?php the_title(); ?></h4>
+                            <p class="price">
+                                <?php _e("Price:","examp"); ?>
+                                <?php woocommerce_template_loop_price(); ?>
+                            </p>
+                        </a>
                     </div>
-                </div>
-                <?php
-            }
-        ?>
+                 <?php endwhile; ?>
+            </div>
+        </div>
     </div>
     <script>
         jQuery(document).ready(function($) {

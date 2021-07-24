@@ -71,8 +71,8 @@ $post_id = get_the_ID();
 
     <section class="seventh__block seventh__block--alternate">
         <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">Разрабатываем брендинг</p>
-            <h4 class="block__title">Напишите нам</h4>
+            <p class="uppertitle"><?php the_field('podzagolovok_dlya_razrabatyvaem_brending','options');?></p>
+            <h4 class="block__title"><?php the_field('nadpis_napishite_nam','options');?></h4>
         </div>
         <div class="container">
             <div class="row">

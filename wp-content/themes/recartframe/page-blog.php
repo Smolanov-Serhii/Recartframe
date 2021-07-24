@@ -40,40 +40,44 @@ get_header();
                         </div>
                     </div>
                     <div class="blog__content" data-aos="fade-up">
-                        <?php // Display blog posts on any page @ http://m0n.co/l
-                        $temp = $wp_query; $wp_query= null;
-                        $wp_query = new WP_Query(); $wp_query->query('showposts=5' . '&paged='.$paged);
-                        while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+                        <?php
+                        $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                        $params = array(
+                            'paged'          => $current_page,
+                            'posts_per_page' => 5,
+                            'post_type'      => 'post',
+                            'category'      => '4'
+                        );
+                        query_posts($params);
+                        $wp_query->is_archive = true;
+                        $wp_query->is_home = false;
 
-                            <div class="blog__item">
-                                <div class="thumb__wrap">
-                                    <a href="<?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
-                                    <?php the_post_thumbnail();?>
+                            while(have_posts()): the_post();
+                                ?>
+                                <div class="blog__item">
+                                    <div class="thumb__wrap">
+                                        <a href="<?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
+                                        <?php the_post_thumbnail();?>
+                                    </div>
+                                    <a href="#" class="description">
+                                        <h4><?php the_title();?></h4>
+                                        <p><?php the_excerpt();?></p>
+                                    </a>
                                 </div>
-                                <a href="#" class="description">
-                                    <h4><?php the_title();?></h4>
-                                    <p><?php the_excerpt();?></p>
-                                </a>
-                            </div>
+                            <?php
+                            endwhile;
 
-                        <?php endwhile; ?>
+                        wp_reset_postdata();
+                        ?>
+                        <div class="pagination-ajax" style="display: none;">
+                            <?php
+                            the_posts_pagination();
+                            ?>
+                        </div>
+                        <?php
 
-                        <?php if ($paged > 1) { ?>
-
-                            <nav id="nav-posts">
-                                <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
-                                <div class="next"><?php previous_posts_link('Newer Posts &raquo;'); ?></div>
-                            </nav>
-
-                        <?php } else { ?>
-
-                            <nav id="nav-posts">
-                                <div class="prev"><?php next_posts_link('&laquo; Previous Posts'); ?></div>
-                            </nav>
-
-                        <?php } ?>
-
-                        <?php wp_reset_postdata(); ?>
+                        wp_reset_query();
+                        ?>
                         <div class="show__more--wrap">
                             <a href="#" class="show__more"><?php the_field('pokazat_bolshe','options');?></a>
                         </div>
@@ -132,8 +136,30 @@ get_header();
     </div>
 
     <script>
-        $(function() {
-            $('select').selectric();
+        $( document ).ready(function() {
+            var nextlink = $('.next.page-numbers').attr('href');
+            $(function() {
+                $('select').selectric();
+            });
+            if ($(".blog__content").length) {
+                $('.page__inner').on('click', '.show__more', function () {
+                        $('.loader-js').addClass('visible');
+                        $('.show__more--wrap').remove();
+                        $.ajax({
+                            url: nextlink,
+                            success: function (data) {
+                                dataelem = $(data).find('.blog__content .blog__item');
+                                $('.blog__content').append(dataelem);
+                                if ($(data).find('.next.page-numbers').length) {
+                                    var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
+                                    $('.blog__content').append(triger);
+                                    nextlink = $(data).find('.next.page-numbers').attr('href');
+                                }
+                                $('.loader-js').removeClass('visible');
+                            }
+                        });
+                });
+            }
         });
     </script>
 

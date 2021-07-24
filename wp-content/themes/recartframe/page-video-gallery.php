@@ -56,7 +56,7 @@ get_header();
               }
               wp_reset_query(); ?>
               <div class="show__more--wrap" data-aos="fade-up">
-                  <a href="#" class="show__more">Show more</a>
+                  <a href="#" class="show__more"><?php the_field('nadpis_pokazat_eshhyo','options');?></a>
               </div>
             </div>
           </div>
@@ -67,8 +67,8 @@ get_header();
 
   <section class="seventh__block">
     <div class="block__titles--wrap" data-aos="fade-up">
-      <p class="uppertitle">Разрабатываем брендинг</p>
-      <h4 class="block__title">Напишите нам</h4>
+      <p class="uppertitle"><?php the_field('podzagolovok_dlya_razrabatyvaem_brending','options');?></p>
+      <h4 class="block__title"><?php the_field('nadpis_napishite_nam','options');?></h4>
     </div>
     <div class="container">
       <div class="row">

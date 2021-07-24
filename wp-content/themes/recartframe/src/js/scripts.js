@@ -414,7 +414,6 @@ jQuery(document).ready(function($) {
 
     $('.play__video--item.fresco').on('click', function() {
         var UrlLink = $(this).attr('href');
-        console.log(UrlLink);
         Fresco.show({
             url: UrlLink
         });

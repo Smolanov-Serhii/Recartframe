@@ -159,15 +159,15 @@ $post_id = get_the_ID();
 
     <section class="seventh__block">
         <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">отложите все и просто</p>
-            <h4 class="block__title">Заказать проект</h4>
+            <p class="uppertitle">"<?php the_field('otlozhite_vse_i_prosto','options')?></p>
+            <h4 class="block__title"><?php the_field('nadpis_zakazat_proekt','options')?></h4>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form__wrap" data-aos="fade-up">
                         <?php echo do_shortcode('[contact-form-7 id="181" title="Малая форма связи"]')?>
-                        <a href="#" class="brief__button">Заполнить бриф</a>
+                        <a href="<?php the_field('dokument_brif','options')?>" class="brief__button" download=""><?php echo the_field('nadpis_zapolnit_brif','options')?></a>
                     </div>
                 </div>
             </div>

@@ -149,7 +149,8 @@
                             </div>
                         <?php } ?>
                         <div class="hamburger">
-                            <div class="hamburger__inner"></div>
+                            <div class="hamburger__inner">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,6 +158,13 @@
         </div><!-- /.container -->
 
         <div class="menu">
+            <div class="menu__mob-close">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.7782 26.1924L7.80761 9.22181L9.22183 7.80759L26.1924 24.7782L24.7782 26.1924Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.80761 24.7782L24.7782 7.80759L26.1924 9.22181L9.22182 26.1924L7.80761 24.7782Z" fill="white"/>
+                </svg>
+            </div>
+            <?php get_sidebar("language-mob"); ?>
             <nav>
                 <?php wp_nav_menu( [
                     'theme_location'  => 'BurgerMenu',

@@ -231,6 +231,40 @@ input[type="date"]{
     opacity: .7;
   }
 }
+#qtranslate-4{
+  list-style: none;
+  margin-bottom: 40px;
+  li{
+    list-style: none;
+  }
+  .lang__holder{
+    margin-right: 10px;
+    span{
+      text-decoration: underline;
+    }
+  }
+  .hidden__lang{
+    display: flex;
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+  .language{
+    display: flex;
+    opacity: 1;
+    a{
+      span{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: Museo;
+      }
+    }
+  }
+}
 .cursor {
   pointer-events: none;
 
@@ -623,6 +657,28 @@ header {
     padding: 100px 250px;
     transform: translateX(100%);
     transition: 1s all ease-out;
+    #menu-burger-menyu{
+      @media screen and (max-width: 990px) {
+        max-height: calc(100vh - 226px);
+        overflow-y: scroll;
+      }
+    }
+    &__mob-close{
+      position: fixed;
+      right: 100px;
+      top: 100px;
+      width: 40px;
+      height: auto;
+      cursor: pointer;
+      @media screen and (max-width: 990px) {
+        top: 120px;
+        right: 22px;
+      }
+      svg{
+        width: 100%;
+        height: auto;
+      }
+    }
     &.active {
       transform: translateX(0);
       z-index: 999999;

@@ -56,6 +56,7 @@ if ( ! function_exists( 'recartframe_setup' ) ) :
                 'BurgerMenu' => esc_html__( 'Бургер меню', 'recartframe' ),
                 'FooterMenu' => esc_html__( 'Меню подвал', 'recartframe' ),
                 'Language' => esc_html__( 'Языки', 'recartframe' ),
+                'LanguageMobile' => esc_html__( 'Языки мобайл', 'recartframe' ),
 			)
 
 		);
@@ -144,6 +145,13 @@ function recartframe_widgets_init() {
         array(
             'name'          => esc_html__( 'language', 'recartframe' ),
             'id'            => 'language',
+            'description'   => esc_html__( 'Добавте языковые єлементы', 'recartframe' ),
+        )
+    );
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'language-mob', 'recartframe' ),
+            'id'            => 'language-mob',
             'description'   => esc_html__( 'Добавте языковые єлементы', 'recartframe' ),
         )
     );

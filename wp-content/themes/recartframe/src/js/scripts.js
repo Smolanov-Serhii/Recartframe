@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 
     const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video');
+    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video, .rent__order--button');
 
 // Listeners
     document.body.addEventListener('mousemove', onMouseMove);
@@ -226,7 +226,12 @@ jQuery(document).ready(function($) {
 
     $('.hamburger').css('z-index', '999');
     $('.hamburger').on('click', function() {
-        $(this).toggleClass('active');
+        $('.menu').toggleClass('active');
+        $('body').toggleClass('overflow');
+        $('.header--nav').toggleClass('active');
+        $('.language').toggleClass('active');
+    });
+    $('.menu__mob-close').on('click', function() {
         $('.menu').toggleClass('active');
         $('body').toggleClass('overflow');
         $('.header--nav').toggleClass('active');

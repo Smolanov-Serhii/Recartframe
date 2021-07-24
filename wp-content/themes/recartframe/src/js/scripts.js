@@ -77,7 +77,26 @@ jQuery(document).ready(function($) {
             scale: 1
         })
     }
-
+    if( $('input#datetime__start').length ) {
+        var theLanguage = $('html').attr('lang');
+        if (theLanguage == "de-DE") {
+            $.datetimepicker.setLocale('de');
+            $('input#datetime__start, input#datetime__end').datetimepicker({
+                locale: 'de',
+            });
+        } else if (theLanguage == "ru-RU") {
+            $.datetimepicker.setLocale('ru');
+            $('input#datetime__start, input#datetime__end').datetimepicker({
+                locale: 'ru',
+            });
+        } else if (theLanguage == "en-EN") {
+            $.datetimepicker.setLocale('en');
+            $('input#datetime__start, input#datetime__end').
+            $('input#datetime__start, input#datetime__end').datetimepicker({
+                locale: 'en',
+            });
+        }
+    }
     if( $('input#date__start').length ) {
         var theLanguage = $('html').attr('lang');
         $( 'input#date__start, input#date__end' ).datepicker({ dateFormat: 'yy-mm-dd' });

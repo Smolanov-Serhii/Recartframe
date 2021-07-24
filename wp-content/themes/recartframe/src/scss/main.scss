@@ -3,6 +3,7 @@
 @import 'import/bootstrap-theme';
 @import 'import/owl.carousel';
 @import 'import/owl.theme.default';
+@import 'bootstrap-datetimepicker';
 @import 'import/wordpress';
 @import 'import/lightslider';
 @import 'aos';
@@ -1869,6 +1870,9 @@ body {
       border-bottom: 2px solid #e6e6e6;
       .show-more{
         margin-top: 30px;
+        letter-spacing: 2px;
+        font-size: 12px;
+        text-transform: uppercase;
       }
       .video-slide{
         position: relative;
@@ -2007,16 +2011,31 @@ body {
           min-height: 200px;
           max-width: calc(100% - 20px);
           max-height: calc(100% - 20px);
+          @media screen and (max-width: 960px) {
+            padding: 100px 50px 50px 50px;
+          }
+          @media screen and (max-width: 550px) {
+            padding: 70px 20px 20px 20px;
+            max-height: calc(100vh - 20px);
+            height: 100%;
+          }
         }
         &-close{
           position: absolute;
           right: 40px;
           top: 46px;
+          @media screen and (max-width: 550px) {
+            top: 30px;
+            right: 20px;
+          }
         }
         &-wrap{
           overflow-y: scroll;
           max-height: calc(100vh - 280px);
           padding-right: 20px;
+          @media screen and (max-width: 550px) {
+            max-height: calc(100vh - 130px);
+          }
           h4 {
             font-size: 36px;
             margin-bottom: 30px;
@@ -2081,6 +2100,12 @@ body {
         @extend .flex;
         //align-items: center;
         align-items: flex-end;
+        @media screen and (max-width: 1200px) {
+          align-items: flex-start;
+        }
+        @media screen and (max-width: 500px) {
+          align-items: center;
+        }
         .thumb {
           width: 230px;
           height: 160px;

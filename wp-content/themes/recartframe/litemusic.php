@@ -166,6 +166,29 @@ get_header();
                         $('body').addClass('lock');
                         NeedElem.addClass('showed-description');
                         NeedElem.fadeIn(300);
+
+                        $(this).closest('.rent__item').next('.rent__item-absolute').find('.slider-main').slick({
+                                slidesToShow: 1,
+                                adaptiveHeight: true,
+                                slidesToScroll: 1,
+                                accesibility: false,
+                                draggable: false,
+                                swipe: false,
+                                touchMove: false,
+                                arrows: false,
+                                fade: true,
+                            });
+                        $(this).closest('.rent__item').next('.rent__item-absolute').find('.slider-nav').slick({
+                                slidesToShow: 4,
+                                slidesToScroll: 1,
+                                asNavFor:  $(this).closest('.rent__item').next('.rent__item-absolute').find('.slider-main'),
+                                dots: false,
+                                arrows: false,
+                                variableWidth: true,
+                                centerMode: true,
+                                focusOnSelect: true
+                            });
+
                     });
                     $('.rent__item-absolute-close').on('click', function () {
                         $(this).closest('.rent__item-absolute').fadeOut(300);
@@ -195,8 +218,8 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle">заполните форму</p>
-                        <h4 class="block__title">Я хотел бы арендовать </h4>
+                        <p class="uppertitle"><?php echo the_field('nadzagolovok_formy_zakaza',96)?></p>
+                        <h4 class="block__title"><?php echo the_field('zagolovok_formy_zakaza',96)?></h4>
                     </div>
                     <div class="form__wrap rent-form" data-aos="fade-up">
                         <?php echo do_shortcode('[contact-form-7 id="1725" title="Форма аренды"]')?>
@@ -209,31 +232,19 @@ get_header();
         <div class="fourth__inner">
             <div class="left" data-aos="fade-right">
                 <div class="block__titles--wrap">
-                    <p class="uppertitle">все изнутри</p>
-                    <h4 class="block__title">Как заказать технику?</h4>
+                    <p class="uppertitle"><?php echo the_field('nadzagolovok_bloka_opisaniya',96)?></p>
+                    <h4 class="block__title"><?php echo the_field('zagolovok_bloka_opisaniya',96)?></h4>
                 </div>
                 <div class="description">
-                    <p>Вы можете зарезервировать приборы с помощью заполнения формы или электронным письмом на нашу
-                        почту info@gerete. Чтобы забронировать устройства светомузыки, необходимо указать в форме или
-                        письме следующие данные:</p>
-                    <ol>
-                        <li>тип арендуемых приборов;</li>
-                        <li>день аренды. Желательно указать также время;</li>
-                        <li>дата сдачи техники;</li>
-                        <li>ваши имя, адрес и номер телефона.</li>
-                    </ol>
-                    <blockquote>
-                        Для нас нет перерывов и выходных — в RecArtFrame аренда звука и света доступна ежедневно. С
-                        нашей помощью вы откроете новые грани восприятия и ощутите на себе настоящий цвет музыки.
-                    </blockquote>
+                    <?php echo the_field('opisanie_bloka',96)?>
                 </div>
             </div>
             <div class="right" data-aos="fade-left">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/rent-photo-image.jpg" alt="image"
+                <img src="<?php echo the_field('bolshaya_kartinka',96)?>" alt="image"
                      class="photo__image">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/rent-small-image.jpg" alt="image"
+                <img src="<?php echo the_field('menshaya_kartinka',96)?>" alt="image"
                      class="small__image">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/img/rent-word-image.png" alt="image"
+                <img src="<?php echo the_field('kartinka_tekst',96)?>" alt="image"
                      class="word__image">
             </div>
         </div>
@@ -246,43 +257,14 @@ get_header();
                 <div class="col-md-12">
                     <div class="seo__inner" data-aos="fade-up">
                         <div class="seo__text--content">
-                            <h4>Аренда светомузыки</h4>
-                            <p>Светомузыка — настоящее искусство, которое доступно лишь избранным. Только мастер
-                                способен совместить звуковые ощущения и световое восприятие, чтобы достичь синестезии.
-                                Наши устройства обеспечивают первосортное слияние зрительных образов и музыкального
-                                сопровождения. Никакого хаоса — только звуки и цвета, которые изливаются в унисон. Если
-                                вы хотите получить подлинную синхронизацию изображения и музыки, то можете смело
-                                резервировать приборы от RecArtFrame. Расширяем визуальные возможности и границы
-                                представлений о музыке и цвете.</p>
+                            <h4><?php echo the_field('zagolovok_bloka_so_skrolom',96)?></h4>
+                            <p><?php echo the_field('opisanie_bloka_so_skrolom',96)?></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<script>
-    jQuery(document).ready(function($) {
-        $( ".rent__item-absolute" ).each(function( index ) {
-            $('.slider-main').slick({
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                slidesToScroll: 1,
-                arrows: false,
-                fade: true,
-            });
-            $('.slider-nav').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                asNavFor: '.slider-main',
-                dots: false,
-                arrows: false,
-                variableWidth: true,
-                centerMode: true,
-                focusOnSelect: true
-            });
-        });
-    });
-</script>
 
 <?php
 get_footer();

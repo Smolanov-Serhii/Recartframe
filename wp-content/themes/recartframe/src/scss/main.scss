@@ -2213,6 +2213,9 @@ body {
           font-weight: 700;
           font-family: $heading-font-family;
           transition: 0.3s;
+          &:hover{
+            background-color: #e42a2b;
+          }
           .active{
             display: none;
           }
@@ -4159,6 +4162,58 @@ body {
 #curent-page{
   display: none;
 }
+
+.xdsoft_datetimepicker .xdsoft_calendar td{
+  background-color: #E9E9E9!important;
+  border: 1px solid #FFFFFF!important;
+  cursor: none;
+  div{
+    color: #212121;
+  }
+}
+.xdsoft_datetimepicker .xdsoft_calendar th{
+  background-color: #FFFFFF!important;
+  border: 1px solid #FFFFFF!important;
+  color: #212121;
+  cursor: none;
+  div{
+    color: #212121;
+  }
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_other_month, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled, .xdsoft_datetimepicker .xdsoft_time_box>div>div.xdsoft_disabled{
+  opacity: 0;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box>div>div.xdsoft_current{
+  background-color: #E42A2B!important;
+  box-shadow: none;
+  color: #FFFFFF;
+  div{
+    color: #FFFFFF;
+  }
+}
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box>div>div:hover{
+  background-color: #E42A2B!important;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box>div>div{
+  cursor: none;
+}
+.xdsoft_scrollbar{
+  cursor: none!important;
+}
+.ui-widget-header .ui-icon{
+  background-image: none;
+  background-color: #E42A2B!important;
+}
+.ui-datepicker .ui-datepicker-header{
+  background-color: #E9E9E9!important;
+  border: none!important;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+  background-image: url("../img/nextpicker.svg");
+  background-position: center;
+  background-size: contain;
+}
+@import 'jquery-ui.scss';
 @import 'media.scss';
 @import "fonts/font_gilroy";
 @import "fonts/font_museo";

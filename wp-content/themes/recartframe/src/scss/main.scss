@@ -270,6 +270,9 @@ input[type="date"]{
 }
 .cursor {
   pointer-events: none;
+  @media all and (max-width: 1024px) {
+    display: none;
+  }
 
   &__ball {
     position: fixed;
@@ -3913,13 +3916,13 @@ body {
     font-size: 18px;
     font-weight: 700;
     font-family: $heading-font-family;
-    margin: 0 auto;
+    margin: 100px auto 0 auto;
     padding: 20px;
   }
 }
 
 .photogallery__wrap {
-  margin-bottom: 100px;
+
   .photorow-1, .photorow-2 {
     @extend .flex;
     justify-content: space-between;

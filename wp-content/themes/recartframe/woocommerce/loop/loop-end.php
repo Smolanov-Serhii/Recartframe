@@ -69,6 +69,7 @@ if ( $total > 1 ) {
     });
 
     if ($(".page__inner").length) {
+        var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
         var nextlink = $('.next.page-numbers').attr('href');
         $('.page__inner').on('click', '.show__more', function () {
             $('.loader-js').addClass('visible');
@@ -79,7 +80,6 @@ if ( $total > 1 ) {
                     dataelem = $(data).find('.blog__content .blog__item');
                     $('.blog__content').append(dataelem);
                     if ($(data).find('.next.page-numbers').length) {
-                        var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
                         $('.blog__content').append(triger);
                         nextlink = $(data).find('.next.page-numbers').attr('href');
                     }

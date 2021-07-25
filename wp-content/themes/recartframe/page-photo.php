@@ -152,7 +152,7 @@ get_header();
           <div class="owl-carousel related__slider" id="related__slider">
               <?php
               $result = wp_get_recent_posts( [
-                  'numberposts'      => 10,
+                  'numberposts'      => 7,
                   'offset'           => 0,
                   'category'         => 0,
                   'orderby'          => 'post_date',
@@ -176,6 +176,7 @@ get_header();
                   </div>
                   <?php
               }
+
               wp_reset_postdata();
               ?>
           </div>

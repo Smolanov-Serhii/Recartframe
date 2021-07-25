@@ -78,8 +78,8 @@ get_header();
 
                         wp_reset_query();
                         ?>
-                        <div class="show__more--wrap">
-                            <a href="#" class="show__more"><?php the_field('pokazat_bolshe','options');?></a>
+                        <div class="show__more--wrap" data-aos="fade-up">
+                            <div class="show__more"><?php the_field('pokazat_bolshe','options');?></div>
                         </div>
                     </div>
                 </div>
@@ -142,6 +142,7 @@ get_header();
                 $('select').selectric();
             });
             if ($(".blog__content").length) {
+                var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('pokazat_bolshe','option');?></div></div>');
                 $('.page__inner').on('click', '.show__more', function () {
                         $('.loader-js').addClass('visible');
                         $('.show__more--wrap').remove();
@@ -151,7 +152,6 @@ get_header();
                                 dataelem = $(data).find('.blog__content .blog__item');
                                 $('.blog__content').append(dataelem);
                                 if ($(data).find('.next.page-numbers').length) {
-                                    var triger = $('<div class="show__more--wrap"><div class="show__more"><?php the_field('nadpis_pokazat_eshhyo','option');?></div></div>');
                                     $('.blog__content').append(triger);
                                     nextlink = $(data).find('.next.page-numbers').attr('href');
                                 }

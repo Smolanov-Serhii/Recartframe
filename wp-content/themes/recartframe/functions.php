@@ -252,7 +252,12 @@ function my_photogalery() {
 //          'yarpp_support'       => true,
         'taxonomies'          => ['type-photogalery'],
         'capability_type'     => 'post',
-        'rewrite'             => true,
+        'rewrite' => array(
+            'with_front' => false,
+            'pages'      => true,
+            'feeds'      => false,
+            'feed'       => false
+        ),
         'query_var'           => true,
     );
     register_taxonomy( 'type-photogalery', 'photogalery',
@@ -305,7 +310,12 @@ function register_post_types()
         'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => true,
-        'rewrite' => true,
+        'rewrite' => array(
+            'with_front' => false,
+            'pages'      => true,
+            'feeds'      => false,
+            'feed'       => false
+        ),
         'query_var' => true,
     ]);
     register_post_type('rent', [

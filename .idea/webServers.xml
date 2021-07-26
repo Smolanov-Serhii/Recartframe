@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8a97b7ff-d4c5-45dd-9fe8-d54c9f11684c" name="uashared22.twinservers.net" url="http://uashared22.twinservers.net">
+        <fileTransfer rootFolder="/public_html" accessType="SFTP" host="home663355165.1and1-data.host" port="22" sshConfigId="9a58b8e4-cad5-4e83-95b4-5e620c1bdbe8" sshConfig="u87808509@home663355165.1and1-data.host:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 
     const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video, .rent__order--button');
+    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video, .rent__order--button, .button-top, .owl-prev, .owl-next');
 
 // Listeners
     document.body.addEventListener('mousemove', onMouseMove);
@@ -447,5 +447,34 @@ jQuery(document).ready(function($) {
     //     var EmailLang = $('.email').data('currenttext');
     //     $('#input-email').html(EmailLang);
     // }
+
+    $('.order__photo').on('click', function() {
+        let title = $('.main__titles h1').html();
+        console.log(title);
+        let currentItem = $(this).closest('.pricing__item').find('.top').html();
+        console.log(currentItem);
+        let currentPrice = $(this).closest('.pricing__item').find('h4').html();
+        console.log(currentPrice);
+        $('.hidden-area .current-page input').val(title);
+        $('.hidden-area .current-item input').val(currentItem);
+        $('.hidden-area .current-price input').val(currentPrice);
+    });
+
+    var $page = $('html, body');
+    $('.js-button-top[href*="#"]').click(function() {
+        $page.animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 400);
+        return false;
+    });
+
+    $(window).scroll(function(event){
+        var scroll = $(window).scrollTop();
+        if (scroll < 300){
+            $('.js-button-top').fadeOut(300);
+        } else {
+            $('.js-button-top').fadeIn(300);
+        }
+    });
 
 });

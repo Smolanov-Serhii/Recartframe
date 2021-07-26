@@ -18,9 +18,9 @@ get_header();
               <p class="uppertitle"><?php the_field('art_studio','options');?></p>
               <h1><?php the_title();?></h1>
             </div>
-            <div class="sorting">
-              <p class="default"><?php the_field('pokazat_vse','options');?></p>
-            </div>
+<!--            <div class="sorting">-->
+<!--              <p class="default">--><?php //the_field('pokazat_vse','options');?><!--</p>-->
+<!--            </div>-->
           </div>
 
           <div class="photogallery__wrap">

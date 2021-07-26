@@ -20,7 +20,7 @@ get_header();
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /section -->
-
+    <?php echo do_shortcode('[elfsight_instagram_feed id="1"]')?>
     <section class="videos__category videos__category--about" id="second__block">
         <div class="block__titles--wrap" data-aos="fade-up">
             <p class="uppertitle"><?php the_field('zagolovok_priemushhestva', 18); ?></p>
@@ -59,7 +59,8 @@ get_header();
     </section>
 
     <section class="about__description">
-        <div class="left">
+        <div class="left fresco" href="<?php echo the_field('video_o_nas'); ?>">
+            <div class="play__film--video"></div>
             <img src="<?php the_field('kartinka_o_nas', 18); ?>" alt="<?php the_field('zagolovok_o_nas', 18); ?>">
         </div>
         <div class="right">
@@ -119,7 +120,7 @@ get_header();
                     while( have_rows('logotipy_klientov') ) : the_row();
                         $image = get_sub_field('kartinka_logotipaa');
                         ?>
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/img/cl1.png" alt="image">
+                        <img src="<?php echo $image?>" alt="image">
                     <?php
                     endwhile;
                 else :

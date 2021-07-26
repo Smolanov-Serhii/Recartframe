@@ -122,7 +122,7 @@
                             'walker'          => '',
                         ] );?>
                             <?php get_sidebar("language"); ?>
-                        <?php if (is_page( 'svetomuzyka' ) || is_page( 'magazin' ) ||  is_shop() || is_single()){ ?>
+                        <?php if (is_page( 'svetomuzyka' ) || is_page( 'magazin' ) ||  is_shop()){ ?>
                             <div class="market-icons">
                                 <div class="s-header__basket-wr woocommerce">
                                     <?php

@@ -42,13 +42,14 @@ get_header();
                         $title = get_sub_field('zagoloak_dlya_kategorii');
                         $image = get_sub_field('ikonka_dlya_kategorii');
                         $content = get_sub_field('opisanie_dlya_kategorii');
+                        $link = get_sub_field('ssylka_na_kategoriyu');
                         ?>
                         <div class="item">
                             <div class="top">
                                 <div class="number"><?php echo $counter;?></div>
                                 <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
                             </div>
-                            <h4><?php echo $title;?></h4>
+                            <h4><a href="<?php echo $link;?>"><?php echo $title;?></a></h4>
                             <p><?php echo $content;?></p>
                         </div>
                     <?php
@@ -103,16 +104,16 @@ get_header();
                   $content = get_sub_field('opisanie_dlya_raboty');
                   $podrobnee = get_field('podrobnee', 'options');
                   ?>
-                  <div class="blog__item">
+                  <a href="<?php echo $link;?>" class="blog__item fresco">
                       <div class="thumb__wrap">
-                          <a href="<?php echo $link;?>" class="item__link fresco"><?php echo $podrobnee;?></a>
+                          <div class="play__video--item"></div>
                           <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
                       </div>
-                      <a href="<?php echo $link;?>" class="description">
+                      <div class="description">
                           <h4><?php echo $title;?></h4>
                           <p><?php echo $content;?></p>
-                      </a>
-                  </div>
+                      </div>
+                  </a>
               <?php
               endwhile;
           else :

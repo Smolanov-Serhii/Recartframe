@@ -143,7 +143,7 @@ get_header();
                       <div class="top__wrap">
                           <div class="titles">
                               <p class="uppertitle"><?php the_field('podzagolovok_dlya_razrabatyvaem_brending','options');?></p>
-                              <h4><?php the_field('zagolovok_podobnye_zapisi','options');?></h4>
+                              <h4><a href="http://recartframe.com/photogallery/"><?php the_field('zagolovok_podobnye_zapisi','options');?></a></h4>
                           </div>
                       </div>
                   </div>
@@ -151,34 +151,32 @@ get_header();
           </div>
           <div class="owl-carousel related__slider" id="related__slider">
               <?php
-              $result = wp_get_recent_posts( [
-                  'numberposts'      => 7,
-                  'offset'           => 0,
-                  'category'         => 0,
-                  'orderby'          => 'post_date',
-                  'order'            => 'DESC',
-                  'include'          => '',
-                  'exclude'          => '',
-                  'meta_key'         => '',
-                  'meta_value'       => '',
-                  'post_type'        => 'post',
-                  'post_status'      => 'draft, publish, future, pending, private',
-                  'suppress_filters' => true,
-              ], OBJECT );
-              foreach( $result as $post ){
-                  setup_postdata( $post );
-                  ?>
-                  <div class="blog__item">
-                      <div class="thumb__wrap">
-                          <a href=" <?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
-                          <?php the_post_thumbnail();?>
-                      </div>
-                  </div>
-                  <?php
-              }
+              $args = array(
+                  'posts_per_page' => 10,
+                  'post_type' => 'photogalery',
+                  'orderby' => "menu_order", //сортировка по дате
+                  'caller_get_posts' => 1
+              );
 
-              wp_reset_postdata();
-              ?>
+              $my_query = new wp_query($args);
+              if ($my_query->have_posts()) {
+                  while ($my_query->have_posts()) {
+                      $my_query->the_post();
+                      ?>
+                      <div class="blog__item">
+                          <div class="thumb__wrap">
+                              <a href=" <?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
+                              <img src="<?php the_field('kartinka_dlya_oblozhki_na_straniczu_fotogalereya');?>">
+                          </div>
+                      </div>
+                  <?php }
+                    ?>
+                        </div>
+                      <?php
+                  wp_reset_postdata();
+              }
+              wp_reset_query(); ?>
+
           </div>
       </div>
   </div>

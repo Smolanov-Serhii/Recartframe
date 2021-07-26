@@ -14,7 +14,7 @@ get_header();
                 <div class="col-md-12">
                     <div class="top__wrap" data-aos="fade-up">
                         <div class="titles">
-                            <p class="uppertitle"><?php the_field('zagolovok_v_shapke_straniczy'); ?></p>
+                            <p class="uppertitle"><?php the_field('podzagolovok_v_shapke_dlya_straniczy'); ?></p>
                             <h1><?php the_field('zagolovok_v_shapke_straniczy'); ?></h1>
                         </div>
                         <div class="sorting">
@@ -59,7 +59,7 @@ get_header();
                                         <a href="<?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
                                         <?php the_post_thumbnail();?>
                                     </div>
-                                    <a href="#" class="description">
+                                    <a href="<?php the_permalink();?>" class="description">
                                         <h4><?php the_title();?></h4>
                                         <p><?php the_excerpt();?></p>
                                     </a>
@@ -122,7 +122,7 @@ get_header();
                             <a href=" <?php the_permalink();?>" class="item__link"><?php the_field('podrobnee','options');?></a>
                             <?php the_post_thumbnail();?>
                         </div>
-                        <a href="#" class="description">
+                        <a href="<?php the_permalink();?>" class="description">
                             <h4><?php the_title();?></h4>
                             <p><?php the_excerpt();?></p>
                         </a>

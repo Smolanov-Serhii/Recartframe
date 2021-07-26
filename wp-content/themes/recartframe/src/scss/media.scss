@@ -1622,7 +1622,7 @@
 	.about__clients {
 		&:before {
 			height: 150px;
-			bottom: -1000px;
+			bottom: -780px;
 		}
 		&:after {
 			display: none;
@@ -2620,7 +2620,7 @@
 	.about__clients {
 		&:before {
 			height: 70px;
-			bottom: -1130px;
+			bottom: -768px;
 		}
 		.clients__inner {
 			padding: 50px 25px;
@@ -2723,7 +2723,30 @@
 		}
 	}
 }
+@media screen and (max-width: 450px) {
+	.about__clients {
+		&:before {
+			bottom: -800px;
+		}
 
+		.clients__inner {
+			padding: 30px 25px;
+
+			.right {
+				img {
+					max-width: 100px;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 400px) {
+	.about__clients {
+		&:before {
+			bottom: -900px;
+		}
+	}
+}
 @media screen and (max-width: 350px) {
 	header {
 		.menu {
@@ -2768,6 +2791,10 @@
 	}
 
 	.about__clients {
+		&:before {
+			height: 70px;
+			bottom: -930px;
+		}
 		.clients__inner {
 			padding: 30px 25px;
 			.right {

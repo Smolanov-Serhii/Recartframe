@@ -165,6 +165,10 @@ get_header();
     <section class="addition__service">
         <div class="container">
             <div class="row">
+                <div class="block__titles--wrap" data-aos="fade-up">
+                    <p class="uppertitle"><?php the_field('nadpis_tak-zhe_rekomenduem', 'options'); ?></p>
+                    <h4 class="block__title"><?php the_field('nadpis_dopolnitelnye_uslugi',  'options'); ?></h4>
+                </div>
                 <div class="col-md-12">
                     <div class="addition__items">
                         <?php
@@ -172,11 +176,12 @@ get_header();
                             while( have_rows('vid_syomki_edinicza') ) : the_row();
                                 $title = get_sub_field('zagolovok_odnoj_zapisi');
                                 $subtitle = get_sub_field('podzagolovok_odnoj_zapisi');
+                                $link = get_sub_field('ssylka_dlya_zapisi');
                                 ?>
-                                <div class="addition__item">
+                                <a href="<?php echo $link;?>" class="addition__item">
                                     <h4><?php echo $title;?></h4>
                                     <p><?php echo $subtitle;?></p>
-                                </div>
+                                </a>
                             <?php
                             endwhile;
                         else :

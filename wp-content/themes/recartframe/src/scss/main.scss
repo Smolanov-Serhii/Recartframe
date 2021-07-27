@@ -5365,6 +5365,11 @@ body {
     }
   }
 }
+.page-template-page-confident{
+  .single__container{
+    padding-bottom: 100px;
+  }
+}
 @import 'jquery-ui.scss';
 @import 'media.scss';
 @import "fonts/font_gilroy";

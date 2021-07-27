@@ -13,8 +13,8 @@ get_header();
       <div class="row">
         <div class="col-md-12">
           <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle"><?php the_field('zagolovok_blok_pod_formoj', 92); ?></p>
-            <h4 class="block__title"><?php the_field('zagolovok_blok_pod_formoj', 92); ?></h4>
+            <p class="uppertitle"><?php the_field('zagolovok_straniczy_dopolnitelnye_uslugi', 92); ?></p>
+            <h4 class="block__title"><?php the_field('podzagolovok_straniczy_dopolnitelnye_uslugi', 92); ?></h4>
           </div>
             <div class="add__serv--wrap">
                 <?php

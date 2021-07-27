@@ -20,7 +20,6 @@ get_header();
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /section -->
-    <?php echo do_shortcode('[elfsight_instagram_feed id="1"]')?>
     <section class="videos__category videos__category--about" id="second__block">
         <div class="block__titles--wrap" data-aos="fade-up">
             <p class="uppertitle"><?php the_field('zagolovok_priemushhestva', 18); ?></p>
@@ -83,22 +82,7 @@ get_header();
                         <h4 class="block__title"><?php the_field('podzagolovok_instagram', 18); ?></h4>
                     </div>
                     <div class="instagram__inner">
-                        <?php
-                        if( have_rows('perechen_instragram') ):
-                            while( have_rows('perechen_instragram') ) : the_row();
-                                $image = get_sub_field('izobrazhenie_instagram');
-                                $link = get_sub_field('ssylka_na_rabtu_instagram');
-                                ?>
-                                <div class="instagram__item">
-                                    <a href="<?php echo $link;?>">
-                                        <img src="<?php echo $image;?>" alt="instagram">
-                                    </a>
-                                </div>
-                            <?php
-                            endwhile;
-                        else :
-                        endif;
-                        ?>
+                        <?php echo do_shortcode('[elfsight_instagram_feed id="1"]')?>
                     </div>
                 </div>
             </div>

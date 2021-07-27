@@ -413,8 +413,8 @@
 		}
 	}
 	.instagram__inner {
-		.instagram__item {
-			height: 275px;
+		.instagram__item, .eapps-instagram-feed-posts-item {
+			height: 275px!important;
 		}
 	}
 	.about__clients {
@@ -1614,9 +1614,9 @@
 		margin-bottom: 100px;
 	}
 	.instagram__inner {
-		.instagram__item {
-			width: 32%;
-			height: 200px;
+		.instagram__item, .eapps-instagram-feed-posts-item {
+			width: 32% !important;
+			height: 200px!important;
 		}
 	}
 	.about__clients {
@@ -2612,9 +2612,9 @@
 		margin-bottom: 60px;
 	}
 	.instagram__inner {
-		.instagram__item {
-			width: 48%;
-			height: 155px;
+		.instagram__item, .eapps-instagram-feed-posts-item {
+			width: 48% !important;
+			height: 155px!important;
 		}
 	}
 	.about__clients {

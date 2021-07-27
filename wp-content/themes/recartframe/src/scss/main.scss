@@ -455,9 +455,11 @@ input[type="date"] {
     }
   }
 }
-
+.entry-header{
+  z-index: 0!important;
+}
 header {
-  z-index: 11 !important;
+  z-index: 99!important;
   svg{
     &:hover{
       path{
@@ -4327,15 +4329,21 @@ body {
   margin-bottom: 150px;
 }
 
-.instagram__inner {
+.instagram__inner, .eapps-instagram-feed-posts-view {
   @extend .flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between!important;
+  .eui-widget-title{
+    display: none!important;
+  }
+  .eapps-instagram-feed-posts-grid-load-more-container{
+    display: none!important;
+  }
 
-  .instagram__item {
-    width: 24%;
-    height: 415px;
-    margin-bottom: 20px;
+  .instagram__item, .eapps-instagram-feed-posts-item{
+    width: 24% !important;
+    height: 415px!important;
+    margin-bottom: 20px!important;
 
     a {
       display: block;

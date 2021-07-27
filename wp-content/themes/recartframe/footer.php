@@ -86,7 +86,43 @@
 </a>
 </body>
 </html>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <?php wp_footer(); ?>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+        //Block show animation
+        AOS.init({
+            duration: 1000,
+            anchorPlacement: 'top-bottom',
+            easing: 'ease-in-out-sine',
+            offset: 200,
+            once: true,
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth <= maxWidth;
+            }
+        });
+
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+            $('.custom-popup').removeClass('active-popup');
+            $('#success-send').addClass('active-popup');
+            $('body').removeClass('locked');
+            $('.hidden-area .current-page input').val('');
+            $('.hidden-area .current-item input').val('');
+            $('.hidden-area .current-price input').val('');
+            setTimeout(function (){
+                $('#success-send').removeClass('active-popup');
+            }, 2000);
+        }, false );
+
+    });
+</script>
+<div id="success-send" class="success-send">
+    <div class="success-send__inner">
+        <?php the_field('nadpis_dannye_uspeshno_otpravleny','options');?>
+    </div>
+</div>
+
 </body>
 </html>

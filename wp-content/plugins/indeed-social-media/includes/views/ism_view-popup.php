@@ -23,7 +23,8 @@
     $rand = rand(1,5000);
     $attr['parent_before_wrap_id'] = 'ism_b_parent_'.$rand;
     $attr['indeed_wrap_id'] = 'indeed_sm_wrap_' . $rand;
-    $attr['before_wrap_id'] = 'indeed_before_wrapD_' . $rand;
+    $attr['before_wrap_id'] = 'indeed_before_wrapD_' . $rand;
+
     $attr['after_share_id'] = 'ism_after_share_' . rand(0, 1000);
     	
 	////used in ism_return_sm_arr_ready function

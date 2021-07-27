@@ -518,9 +518,8 @@ if( function_exists('acf_add_options_page') ) {
  * "Хлебные крошки" для WordPress
 */
 function dimox_breadcrumbs() {
-
     /* === ОПЦИИ === */
-    $text['home']     = 'Главная'; // текст ссылки "Главная"
+    $text['home']     = get_field('nadpis_stranicza_glanaya','options'); // текст ссылки "Главная"
     $text['category'] = '%s'; // текст для страницы рубрики
     $text['search']   = 'Результаты поиска по запросу "%s"'; // текст для страницы с результатами поиска
     $text['tag']      = 'Записи с тегом "%s"'; // текст для страницы тега
@@ -768,3 +767,12 @@ add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 7;' ), 20 );
 
 remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
 
+add_filter( 'woocommerce_available_payment_gateways', 'woocommerce_available_payment_gateways' );
+function woocommerce_available_payment_gateways( $available_gateways ) {
+    if (! is_checkout() ) return $available_gateways;  // stop doing anything if we're not on checkout page.
+    if (array_key_exists('paypal',$available_gateways)) {
+        // Gateway ID for Paypal is 'paypal'.
+        $available_gateways['paypal']->order_button_text = __( get_field('nadpis_vozmite_vash_zakaz', 'options'), 'woocommerce' );
+    }
+    return $available_gateways;
+}

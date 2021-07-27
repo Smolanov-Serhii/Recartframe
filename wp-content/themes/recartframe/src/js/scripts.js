@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 
     const $bigBall = document.querySelector('.cursor__ball--big');
     const $smallBall = document.querySelector('.cursor__ball--small');
-    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video, .rent__order--button, .button-top, .owl-prev, .owl-next');
+    const $hoverables = document.querySelectorAll('a, input, textarea, .add-to-cart, .play__film--video, .rent__order--button, .button-top, .owl-prev, .owl-next, .custom-popup__close');
 
 // Listeners
     document.body.addEventListener('mousemove', onMouseMove);
@@ -401,16 +401,7 @@ jQuery(document).ready(function($) {
         $('.video__popup .video__popup--play').fadeIn();
     });
 
-    //Block show animation
-     AOS.init({
-        duration: 1000,
-        easing: 'ease-out-sine',
-        once: true,
-        disable: function () {
-            var maxWidth = 768;
-            return window.innerWidth <= maxWidth;
-        }
-     });
+
 
     $('.play__video--item.fresco').on('click', function() {
         var UrlLink = $(this).attr('href');
@@ -455,9 +446,19 @@ jQuery(document).ready(function($) {
         console.log(currentItem);
         let currentPrice = $(this).closest('.pricing__item').find('h4').html();
         console.log(currentPrice);
+        $('body').addClass('locked');
         $('.hidden-area .current-page input').val(title);
         $('.hidden-area .current-item input').val(currentItem);
         $('.hidden-area .current-price input').val(currentPrice);
+        $('.custom-popup').addClass('active-popup');
+    });
+
+    $('.custom-popup__close').on('click', function() {
+        $('body').removeClass('locked');
+        $('.hidden-area .current-page input').val('');
+        $('.hidden-area .current-item input').val('');
+        $('.hidden-area .current-price input').val('');
+        $('.custom-popup').removeClass('active-popup');
     });
 
     var $page = $('html, body');

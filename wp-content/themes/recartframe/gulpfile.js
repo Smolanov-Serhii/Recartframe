@@ -34,7 +34,7 @@ const scriptFiles = [
    './src/js/lightslider.js',
    './src/js/moment-with-locales.js',
    './src/js/bootstrap-datetimepicker.js',
-   './src/js/aos.js',
+   // './src/js/aos.js',
    './src/js/jquery.selectric.js',
    './src/js/slick.js',
    './src/js/fresco.min.js',

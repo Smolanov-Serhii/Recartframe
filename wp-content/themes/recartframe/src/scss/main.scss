@@ -6,7 +6,7 @@
 @import 'bootstrap-datetimepicker';
 @import 'import/wordpress';
 @import 'import/lightslider';
-@import 'aos';
+//@import 'aos';
 @import 'fresco';
 @import 'viewbox.sass';
 
@@ -35,7 +35,7 @@ body {
     }
   }
 
-  &.lock {
+  &.locked {
     overflow: hidden;
   }
 }
@@ -294,6 +294,7 @@ input[type="date"] {
     box-shadow: none;
     padding: 0;
     border-radius: 0;
+    border: none;
   }
 
   .language {
@@ -843,6 +844,17 @@ header {
   margin-bottom: 100px;
 }
 .home{
+  .first__block{
+    h1 {
+      color: transparent!important;
+      -webkit-text-stroke: 1px #FFFFFF;
+      text-transform: uppercase;
+      font-size: 80px;
+      font-weight: 900;
+      margin-bottom: 50px;
+    }
+  }
+
   .header--logo{
     svg{
       path{
@@ -922,8 +934,7 @@ header {
     z-index: 5;
 
     h1 {
-      color: rgba(0, 0, 0, 0);
-      -webkit-text-stroke: 1px #FFFFFF;
+      color: white;
       text-transform: uppercase;
       font-size: 80px;
       font-weight: 900;
@@ -3096,9 +3107,12 @@ body {
 
   .share {
     @extend .flex;
+    flex-direction: column;
     align-self: center;
     margin-bottom: 150px;
-
+    .ism_wrap{
+      margin: 0;
+    }
     p {
       font-family: $heading-font-family;
       color: #e42a2b;
@@ -3458,7 +3472,8 @@ body {
           width: 100%;
           height: 270px;
           border: 1px solid #e6e6e6;
-          margin-bottom: 50px;
+          //margin-bottom: 50px;
+          margin-bottom: 22px;
           @extend .transition;
           padding: 15px;
 
@@ -3471,7 +3486,14 @@ body {
     }
   }
 }
-
+.woocommerce-notices-wrapper{
+  display: none;
+}
+.single-post{
+  header{
+    background-color: white!important;
+  }
+}
 .page-template-services-php {
   footer {
     display: none;
@@ -4725,6 +4747,11 @@ body {
 
 .single__photo--inner {
   padding-top: 45px;
+  .bread__wrap {
+    @extend .flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .lSSlideOuter {
     margin-bottom: 100px;
@@ -5063,20 +5090,280 @@ body {
   right: 30px;
   cursor: none;
   z-index: 9999999;
-  @media all and (max-width: 1024px){
-    width: 60px;
-    height: 60px;
-    svg{
-      width: 100%;
-      height: auto;
-    }
-  }
+  width: 60px;
+  height: 60px;
   svg{
+    width: 100%;
+    height: auto;
     border-radius: 50%;
     -webkit-box-shadow: 0px 0px 17px -1px #000000;
     box-shadow: 0px 0px 17px -1px #000000;
   }
+}
+.single__product--inner{
+  padding-top: 40px;
+  .top__wrap{
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .breadcrumbs {
+    @extend .flex;
+    position: relative;
+    z-index: 20;
+    margin-bottom: 40px;
+    li {
+      font-size: 13px;
+      a, span {
+        font-size: 13px;
+      }
+      span{
 
+      }
+      a{
+        color: #e42a2b;
+      }
+      &.separator {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+#payment{
+  a{
+    color: #e42a2b;
+  }
+}
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
+  display: block;
+  width: 195px;
+  color: #fff;
+  font-family: Gilroy,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 23px 0;
+  background: #e42a2b;
+  text-align: center;
+  border: none;
+  transition: .3s;
+  margin-top: 20px;
+  &:hover{
+    opacity: .7;
+  }
+}
+.ism_wrap{
+  a{
+    margin-right: 10px;
+  }
+  .ism_item_wrapper{
+    width: 53px;
+    height: 53px;
+    @media all and (max-width: 500px){
+      width: 38px;
+      height: 38px;
+    }
+    .ism_item{
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      transition: 1s;
+      &.ism_box_facebook{
+        background-image: url("../img/fb-icon.svg");
+        &:hover{
+          background-image: url("../img/fb-icon-hov.svg");
+        }
+      }
+      &.ism_box_twitter{
+        background-image: url("../img/twir-icon.svg");
+        &:hover{
+          background-image: url("../img/twir-icon-hover.svg");
+        }
+      }
+      &.ism_box_linkedin{
+        background-image: url("../img/in-icon.svg");
+        &:hover{
+          background-image: url("../img/in-icon-hover.svg");
+        }
+      }
+      &.ism_box_whatsapp{
+        background-image: url("../img/whats-icon.svg");
+        &:hover{
+          background-image: url("../img/whats-icon-hover.svg");
+        }
+      }
+      &.ism_box_telegram{
+        background-image: url("../img/telega-icon.svg");
+        &:hover{
+          background-image: url("../img/telega-icon-hover.svg");
+        }
+      }
+      &.ism_box_messenger{
+        background-image: url("../img/mes-icon.svg");
+        &:hover{
+          background-image: url("../img/mes-icon-hover.svg");
+        }
+      }
+      i{
+        display: none;
+      }
+    }
+  }
+}
+.checkout-custom{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  align-items: center;
+  margin: 0 auto 40px auto;
+  &__step{
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #E42A2B;
+    @media all and (max-width: 900px){
+      font-size: 24px;
+    }
+    @media all and (max-width: 768px){
+      font-size: 20px;
+    }
+    @media all and (max-width: 500px){
+      font-size: 16px;
+    }
+    @media all and (max-width: 450px){
+      font-size: 14px;
+    }
+  }
+  &__devider{
+    svg{
+      @media all and (max-width: 700px){
+        max-height: 20px;
+      }
+      @media all and (max-width: 500px){
+        max-height: 14px;
+      }
+    }
+  }
+}
+.success-send{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+  pointer-events: none;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  opacity: 0;
+  transition: 1s;
+  &.active-popup{
+    pointer-events: all;
+    opacity: 1;
+  }
+  &__inner{
+    width: 300px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.custom-popup{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+  pointer-events: none;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  opacity: 0;
+  transition: 1s;
+  .ajax-loader{
+    display: none!important;
+  }
+  .wpcf7-response-output{
+    display: none!important;
+  }
+  .wpcf7-not-valid-tip{
+    font-size: 10px!important;
+  }
+  &.active-popup{
+    pointer-events: all;
+    opacity: 1;
+  }
+  &__close{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    cursor: none;
+  }
+  &__inner{
+    max-width: 320px;
+    height: auto;
+    background-color: white;
+    padding: 50px 20px 20px 20px;
+    position: relative;
+    .uptitle{
+      font-size: 30px!important;
+      margin-top: 8px!important;
+      text-align: left!important;
+      margin-bottom: 60px!important;
+    }
+    .title{
+      font-size: 10px!important;
+      text-align: left!important;
+    }
+    form{
+      text-align: left;
+      input, textarea{
+        width: 100%;
+        padding: 10px 10px;
+        border: 2px solid #e6e6e6;
+        font-size: 12px;
+      }
+      label{
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+      textarea{
+        max-height: 100px;
+        resize: none;
+      }
+      .hidden-area{
+        //display: none;
+      }
+      input[type="submit"]{
+        display: block;
+        width: 100%;
+        background-color: #e42a2b;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 18.5px 0;
+        border: 0;
+        transition: 0.3s;
+        &:hover{
+          background: #951314;
+        }
+      }
+    }
+  }
 }
 @import 'jquery-ui.scss';
 @import 'media.scss';

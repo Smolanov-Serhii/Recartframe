@@ -34,7 +34,7 @@ get_header();
                   }
                   ?>
               </div>
-              <p class="default">Default sorting</p>
+              <a href="http://recartframe.com/magazin/" class="default"><?php echo the_field('nadpis_vse_tovary', 'options')?></a>
             </div>
           </div>
           <div class="blog__content" data-aos="fade-up">

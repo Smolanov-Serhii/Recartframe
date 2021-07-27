@@ -18,7 +18,7 @@ $terms = get_the_terms($product->get_id(), 'product-cat');
 $variations = $product->get_children();
 $first_variation = new WC_Product_Variation( $variations[0]);
 $currency_symbol = html_entity_decode( get_woocommerce_currency_symbol() );
-$product_type = get_field( 'tip_tovara');
+$product_type = get_field( 'edinicza_izmereniya');
 ?>
 
     <div class="page__inner blog__inner shop__inner single__product--inner">
@@ -26,6 +26,9 @@ $product_type = get_field( 'tip_tovara');
             <div class="row">
                 <div class="col-md-12">
                     <div class="top__wrap" data-aos="fade-up">
+                        <div class="bread__wrap">
+                            <?php if ( function_exists( 'dimox_breadcrumbs' ) ) dimox_breadcrumbs(); ?>
+                        </div>
                         <div class="titles">
                             <p class="uppertitle">Art Studio</p>
                             <h1>Shop</h1>

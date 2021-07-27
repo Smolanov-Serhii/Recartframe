@@ -20,6 +20,7 @@
     <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
     <link href="<?php echo get_template_directory_uri() ?>/favicon.png" rel="icon" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
@@ -122,7 +123,7 @@
                             'walker'          => '',
                         ] );?>
                             <?php get_sidebar("language"); ?>
-                        <?php if (is_page( 'svetomuzyka' ) || is_page( 'magazin' ) ||  is_shop()){ ?>
+                        <?php if (is_page( 'magazin' ) ||  is_shop() || is_product()){ ?>
                             <div class="market-icons">
                                 <div class="s-header__basket-wr woocommerce">
                                     <?php

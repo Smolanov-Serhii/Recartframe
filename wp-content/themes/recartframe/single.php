@@ -28,6 +28,10 @@ get_header();
                     <div class="col-md-12">
                         <div class="single__text" data-aos="fade-up">
                             <?php the_content();?>
+                            <div class="share"><p>Поделится в соцсетях: </p>
+                                <?php echo do_shortcode("[indeed-social-media sm_list='fb,tw,li,messenger,whatsapp,telegram' sm_template='ism_template_1' sm_list_align='horizontal' sm_display_counts='false' sm_display_full_name='false' ]");?>
+                            </div>
+
                         </div>
                     </div>
                 </div>

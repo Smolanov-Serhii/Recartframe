@@ -219,68 +219,127 @@
     	';
     }
 
-    //linkedin
-    if(strpos($meta_arr['list'], 'li')!==FALSE){
-    	if(isset($args)) unset($args);
-    	$args = array();
-    	$args['link'] = 'javascript:void(0)';
-    	$args['sm_type'] = 'li';
-    	$args['sm_class'] = 'linkedin';
-    	$args['custom_height'] = 450;
-    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['linkedin'];
-    	if($meta_arr['display_counts']=='true'){
-    		$args['display_counts'] = true;
-    		$ismitems_arr[] = 'linkedin';
-    	}
-    	$html .= ism_return_item($args);
+    //linkedin
+
+    if(strpos($meta_arr['list'], 'li')!==FALSE){
+
+    	if(isset($args)) unset($args);
+
+    	$args = array();
+
+    	$args['link'] = 'javascript:void(0)';
+
+    	$args['sm_type'] = 'li';
+
+    	$args['sm_class'] = 'linkedin';
+
+    	$args['custom_height'] = 450;
+
+    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['linkedin'];
+
+    	if($meta_arr['display_counts']=='true'){
+
+    		$args['display_counts'] = true;
+
+    		$ismitems_arr[] = 'linkedin';
+
+    	}
+
+    	$html .= ism_return_item($args);
+
     }
-
-    //pinterest
-    if(strpos($meta_arr['list'], 'pt')!==FALSE){
-    	if(isset($args)) unset($args);
-    	$args = array();
-    	$args['link'] = 'javascript:void(0)';
-    	$args['sm_type'] = 'pt';
-    	$args['sm_class'] = 'pinterest';
-    	$args['custom_height'] = 450;
-    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['pinterest'];
-    	if($meta_arr['display_counts']=='true'){
-    		$args['display_counts'] = true;
-    		$ismitems_arr[] = 'pinterest';
-    	}
-    	$html .= ism_return_item($args);
+
+
+    //pinterest
+
+    if(strpos($meta_arr['list'], 'pt')!==FALSE){
+
+    	if(isset($args)) unset($args);
+
+    	$args = array();
+
+    	$args['link'] = 'javascript:void(0)';
+
+    	$args['sm_type'] = 'pt';
+
+    	$args['sm_class'] = 'pinterest';
+
+    	$args['custom_height'] = 450;
+
+    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['pinterest'];
+
+    	if($meta_arr['display_counts']=='true'){
+
+    		$args['display_counts'] = true;
+
+    		$ismitems_arr[] = 'pinterest';
+
+    	}
+
+    	$html .= ism_return_item($args);
+
     }
-
-    //vk
-    if(strpos($meta_arr['list'], 'vk')!==FALSE){
-    	if(isset($args)) unset($args);
-    	$args = array();
-    	$args['link'] = 'javascript:void(0)';
-    	$args['sm_type'] = 'vk';
-    	$args['sm_class'] = 'vk';
-    	$args['custom_height'] = 450;
-    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['vk'];
-    	if($meta_arr['display_counts']=='true'){
-    		$args['display_counts'] = true;
-    		$ismitems_arr[] = 'vk';
-    	}
-    	$html .= ism_return_item($args);
+
+
+    //vk
+
+    if(strpos($meta_arr['list'], 'vk')!==FALSE){
+
+    	if(isset($args)) unset($args);
+
+    	$args = array();
+
+    	$args['link'] = 'javascript:void(0)';
+
+    	$args['sm_type'] = 'vk';
+
+    	$args['sm_class'] = 'vk';
+
+    	$args['custom_height'] = 450;
+
+    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['vk'];
+
+    	if($meta_arr['display_counts']=='true'){
+
+    		$args['display_counts'] = true;
+
+    		$ismitems_arr[] = 'vk';
+
+    	}
+
+    	$html .= ism_return_item($args);
+
     }
-
-    //ok
-    if(strpos($meta_arr['list'], 'ok')!==FALSE){
-    	if(isset($args)) unset($args);
-    	$args = array();
-    	$args['link'] = 'javascript:void(0)';
-    	$args['sm_type'] = 'ok';
-    	$args['sm_class'] = 'ok';
-    	$args['custom_height'] = 450;
-    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['ok'];
-    	if($meta_arr['display_counts']=='true'){
-    		$args['display_counts'] = true;
-    		$ismitems_arr[] = 'ok';
-    	}
-    	$html .= ism_return_item($args);
+
+
+    //ok
+
+    if(strpos($meta_arr['list'], 'ok')!==FALSE){
+
+    	if(isset($args)) unset($args);
+
+    	$args = array();
+
+    	$args['link'] = 'javascript:void(0)';
+
+    	$args['sm_type'] = 'ok';
+
+    	$args['sm_class'] = 'ok';
+
+    	$args['custom_height'] = 450;
+
+    	if($meta_arr['display_full_name']=='true') $args['label'] = $ism_list['ok'];
+
+    	if($meta_arr['display_counts']=='true'){
+
+    		$args['display_counts'] = true;
+
+    		$ismitems_arr[] = 'ok';
+
+    	}
+
+    	$html .= ism_return_item($args);
+
     }
 
     $html .= "</div>";

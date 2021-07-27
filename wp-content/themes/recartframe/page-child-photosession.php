@@ -148,7 +148,7 @@ $post_id = get_the_ID();
                                         <div class="description">
                                             <p><?php echo $desc;?></p>
                                         </div>
-                                        <a href="#" class="order__photo"><?php the_field('nadpis_zakazat', 'options'); ?></a>
+                                        <div class="order__photo"><?php the_field('nadpis_zakazat', 'options'); ?></div>
                                     </div>
                                     <p> <?php echo $under;?></p>
                                 </div>
@@ -196,7 +196,17 @@ $post_id = get_the_ID();
             </div>
         </div>
     </section>
-
+<div class="custom-popup">
+    <div class="custom-popup__inner">
+        <div class="custom-popup__close">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.951013 23.5784L23.5784 0.95096L24.9926 2.36517L2.36523 24.9926L0.951013 23.5784Z" fill="black"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.39341 0.979181L25.0208 23.6066L23.6066 25.0208L0.979197 2.39339L2.39341 0.979181Z" fill="black"/>
+            </svg>
+        </div>
+        <?php echo do_shortcode('[contact-form-7 id="1782" title="Форма заявки на услугу"]')?>
+    </div>
+</div>
 <?php
 get_footer();
 ?>

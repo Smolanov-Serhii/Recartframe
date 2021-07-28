@@ -478,6 +478,45 @@ jQuery(document).ready(function($) {
         }
     });
 
-    
+    function StickerCookie() {
+        if ($(".cookie-popup").length > 0) {
+            setTimeout(function () {
+                $('.cookie-popup').addClass('active');
+            }, 2000);
+            $(document).on('click', '.js-close-cookies', function () {
+                $(this).parents('.cookie-popup').removeClass('active');
+                addCookie();
+            });
+        }
+    }
+
+    function addCookie() {
+        var date = new Date;
+        date.setFullYear(new Date().getFullYear() + 1);
+        document.cookie = "PopUpShown=1;  path=/; expires=" + date.toUTCString();
+    }
+
+    function get_cookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return false;
+    }
+    function CheckCookie() {
+        if (!get_cookie('PopUpShown')) {
+            StickerCookie();
+        }
+    }
+
+    CheckCookie();
 
 });

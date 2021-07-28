@@ -5389,7 +5389,7 @@ body {
   visibility: hidden;
   transition: all .5s ease-in-out;
   box-sizing: border-box;
-  z-index: 999999999;
+  z-index: 9999999;
   @media all and (max-width: 500px) {
     padding: 60px 20px 20px 20px;
   }
@@ -5415,7 +5415,6 @@ body {
     position: absolute;
     right: 18px;
     top: 15px;
-    cursor: pointer;
     pointer-events: all;
     svg {
       width: 25px;

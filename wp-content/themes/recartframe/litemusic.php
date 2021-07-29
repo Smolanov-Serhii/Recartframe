@@ -7,7 +7,15 @@
 <?php
 get_header();
 ?>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bread__wrap">
+                    <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="first__block first__block--rent" id="first__block" href="#second__block">
         <img src="<?php echo get_template_directory_uri() ?>/dist/img/rent-banner.jpg" alt="image" class="main__banner">
         <div class="container">

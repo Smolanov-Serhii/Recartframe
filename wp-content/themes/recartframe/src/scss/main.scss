@@ -3349,7 +3349,15 @@ body {
       &:last-child {
         margin-bottom: 0;
       }
-
+      &--video{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
       &:nth-child(even) {
         flex-direction: row-reverse;
 
@@ -5453,7 +5461,42 @@ body {
     transition: opacity linear .3s;
   }
 }
+.container{
+  .row{
+    .col-md-12{
+      .bread__wrap {
+        @extend .flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
+      .breadcrumbs {
+        @extend .flex;
+        position: relative;
+        z-index: 20;
+        margin-bottom: 40px;
+
+        li {
+          color: #fff;
+          font-size: 13px;
+
+          a, span {
+            color: black;
+            font-size: 13px;
+            span{
+              color: #e42a2b;
+            }
+          }
+
+          &.separator {
+            margin: 0 10px;
+            color: #e42a2b;
+          }
+        }
+      }
+    }
+  }
+}
 @import 'jquery-ui.scss';
 @import 'media.scss';
 @import "fonts/font_gilroy";

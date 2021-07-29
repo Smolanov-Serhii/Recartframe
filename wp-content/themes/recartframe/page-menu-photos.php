@@ -7,7 +7,15 @@
 <?php
 get_header();
 ?>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bread__wrap">
+                    <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
         <img src="<?php echo the_field('kartinka_v_shapku', 318); ?>" alt="<?php echo the_field('zagolovok_shapki', 318); ?>" class="main__banner">
         <div class="container">

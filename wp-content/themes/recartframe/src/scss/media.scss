@@ -1709,6 +1709,14 @@
 }
 
 @media screen and (max-width: 500px) {
+	.product__inner{
+		.right{
+			.quantity__wrap{
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+	}
 	.container {
 		.col-md-12 {
 			padding: 0 25px;
@@ -1723,7 +1731,7 @@
 			display: none;
 		}
 		.menu {
-			padding: 130px 20px;
+			padding: 80px 20px;
 			background: transparent url('../img/menu-bg-mobile.jpg') center no-repeat;
 			background-size: cover;
 			nav {

@@ -128,9 +128,9 @@ get_header();
         <blockquote><?php echo the_field('czytata_vsyo_iznutri', 75);?></blockquote>
       </div>
       <div class="right" data-aos="fade-left">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/photo-works-image.jpg" alt="image" class="photo__image">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/photo-page-small.jpg" alt="image" class="small__image">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/photo-word.png" alt="image" class="word__image">
+        <img src="<?php echo the_field('bolshaya_kartinka', 75);?>" alt="image" class="photo__image">
+        <img src="<?php echo the_field('malenkaya_kartinka', 75);?>" alt="image" class="small__image">
+        <img src="<?php echo the_field('kartinka_tekst', 75);?>" alt="image" class="word__image">
       </div>
     </div>
   </section>

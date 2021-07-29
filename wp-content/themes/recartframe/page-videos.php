@@ -75,9 +75,9 @@ get_header();
         </div>
       </div>
       <div class="right" data-aos="fade-left">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/videos-image.jpg" alt="image" class="photo__image">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/small-image-videos.jpg" alt="image" class="small__image">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/videos-word-image.png" alt="image" class="word__image">
+        <img src="<?php the_field('bolshaya_fotografiya', 90); ?>" alt="image" class="photo__image">
+        <img src="<?php the_field('malenkaya_fotografiya', 90); ?>" alt="image" class="small__image">
+        <img src="<?php the_field('fotografiya_teksta', 90); ?>" alt="image" class="word__image">
       </div>
     </div>
   </section>

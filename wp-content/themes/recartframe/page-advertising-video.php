@@ -166,7 +166,7 @@ $post_id = get_the_ID();
                     <div class="col-md-12">
                         <div class="form__wrap" data-aos="fade-up">
                             <?php echo do_shortcode( '[contact-form-7 id="181" title="Контактная форма 1"]' ); ?>
-                            <<a href="<?php the_field('dokument_brif','options')?>" class="brief__button" download=""><?php echo the_field('nadpis_zapolnit_brif','options')?></a>
+                            <a href="<?php the_field('dokument_brif','options')?>" class="brief__button" download=""><?php echo the_field('nadpis_zapolnit_brif','options')?></a>
                         </div>
                     </div>
                 </div>

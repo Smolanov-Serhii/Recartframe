@@ -159,8 +159,8 @@ $post_id = get_the_ID();
 
     <section class="seventh__block">
         <div class="block__titles--wrap" data-aos="fade-up">
-            <p class="uppertitle">"<?php the_field('otlozhite_vse_i_prosto','options')?></p>
-            <h4 class="block__title"><?php the_field('nadpis_zakazat_proekt','options')?></h4>
+            <p class="uppertitle">"<?php the_field('nadzagolovok_nad_formoj', $post_id)?></p>
+            <h4 class="block__title"><?php the_field('zagolovok_nad_formoj', $post_id)?></h4>
         </div>
         <div class="container">
             <div class="row">

@@ -2,8 +2,9 @@
 @import 'import/bootstrap';
 @import 'import/bootstrap-theme';
 @import 'import/owl.carousel';
+@import 'jquery.datetimepicker';
 @import 'import/owl.theme.default';
-@import 'bootstrap-datetimepicker';
+//@import 'bootstrap-datetimepicker';
 @import 'import/wordpress';
 @import 'import/lightslider';
 //@import 'aos';
@@ -882,7 +883,7 @@ header {
       position: absolute;
       left: 0;
       top: 0;
-      z-index: 5;
+      z-index: 0;
     }
   }
 }

@@ -78,22 +78,33 @@ jQuery(document).ready(function($) {
         })
     }
     if( $('input#datetime__start').length ) {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
         var theLanguage = $('html').attr('lang');
         if (theLanguage == "de-DE") {
             $.datetimepicker.setLocale('de');
             $('input#datetime__start, input#datetime__end').datetimepicker({
                 locale: 'de',
+                singleDatePicker: true,
+                startDate:	today,
             });
         } else if (theLanguage == "ru-RU") {
             $.datetimepicker.setLocale('ru');
             $('input#datetime__start, input#datetime__end').datetimepicker({
-                locale: 'ru',
+                lang:'ru',
+                singleDatePicker: true,
+                startDate:	today,
             });
         } else if (theLanguage == "en-EN") {
             $.datetimepicker.setLocale('en');
-            $('input#datetime__start, input#datetime__end').
             $('input#datetime__start, input#datetime__end').datetimepicker({
                 locale: 'en',
+                singleDatePicker: true,
+                startDate:	today,
             });
         }
     }

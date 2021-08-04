@@ -5409,10 +5409,13 @@ body {
   }
   span {
     display: block;
-    max-width: 96%;
+    max-width: calc(100% - 228px);
     font-size: 18px;
     line-height: 130%;
     color: #fff;
+    @media all and (max-width: 768px){
+      max-width: 100%;
+    }
     @media all and (max-width: 500px) {
       font-size: 14px;
     }
@@ -5423,9 +5426,25 @@ body {
   }
   .close-cookies {
     position: absolute;
-    right: 18px;
-    top: 15px;
+    right: 38px;
+    top: 40px;
     pointer-events: all;
+    display: block;
+    width: 190px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,.95);
+    padding: 20px 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,.95);
+    @media all and (max-width: 768px){
+      position: static;
+      margin-top: 20px;
+    }
+    @media all and (max-width: 500px) {
+      width: 100%;
+    }
     svg {
       width: 25px;
       height: 25px;

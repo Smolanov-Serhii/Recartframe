@@ -125,12 +125,10 @@
     </div>
 </div>
 <div class="cookie-popup">
-    <div class="close-cookies js-close-cookies">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 42 42" xml:space="preserve">
-      <polygon points="42,19 23,19 23,0 19,0 19,19 0,19 0,23 19,23 19,42 23,42 23,23 42,23 "></polygon>
-      </svg>
-    </div>
     <span><?php the_field('tekst_dlya_kuki','options');?></span>
+    <div class="close-cookies js-close-cookies">
+        <?php the_field('close_kuki','options');?>
+    </div>
 </div>
 </body>
 </html>

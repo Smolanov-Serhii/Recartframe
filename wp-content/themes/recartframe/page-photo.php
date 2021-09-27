@@ -18,7 +18,7 @@ get_header();
     </div>
     <section class="first__block first__block--rent first__block--presenter first__block--videos" href="#second__block"
              id="first__block">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/photo-page-banner.jpg" alt="image"
+        <img src="<?php echo the_field('kartinka_v_shapku_fotosemka', 75); ?>" alt="<?php the_title(); ?>"
              class="main__banner">
         <div class="container">
             <div class="row">

@@ -19,7 +19,7 @@ get_header();
   <section class="first__block first__block--rent first__block--videos" id="first__block" href="#second__block">
     <img src="<?php echo get_template_directory_uri() ?>/dist/img/videos-banner.jpg" alt="image" class="main__banner main__banner--image">
     <video autoplay muted loop class="main__banner main__banner--video">
-      <source src="<?php echo get_template_directory_uri() ?>/video/grey.mp4" type="video/mp4">
+      <source src="<?php the_field('video_v_shapku_videosemka', 90); ?>" type="video/mp4">
     </video>
     <div class="container">
       <div class="row">

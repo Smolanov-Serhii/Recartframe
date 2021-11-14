@@ -2065,7 +2065,7 @@ body {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          filter: grayscale(100%);
+          //filter: grayscale(100%);
         }
       }
 
@@ -2683,8 +2683,17 @@ body {
     }
   }
 }
-
-.form__order--rent {
+.form__order--quizz{
+  padding-bottom: 250px;
+  p{
+    margin-bottom: 70px;
+    margin-top: 0;
+  }
+  .main__titles{
+    margin-top: 0!important;
+  }
+}
+.form__order--rent, .form__order--quizz {
   .block__titles--wrap {
     padding-left: 150px;
   }
@@ -2799,8 +2808,7 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         position: relative;
-
-        .wpcf7-form-control-wrap {
+        .wpcf7-form-control-wrap, {
           display: block;
           width: 47%;
 
@@ -2832,7 +2840,14 @@ body {
             height: 145px;
           }
         }
-
+        .column__quizz{
+          display: block;
+          width: calc(50% - 20px);
+          margin-right: 20px;
+          .wpcf7-form-control-wrap{
+            width: 100%;
+          }
+        }
         .column__wrap {
           width: 100%;
           position: relative;
@@ -3329,7 +3344,27 @@ body {
     right: 0;
     top: 600px;
   }
-
+  .play__film--video {
+    width: 110px;
+    height: 140px;
+    background: transparent url('../img/play-cion.png') center no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    //cursor: url(../img/circle-cursor-button.svg) 45 45, pointer;
+    @extend .transition;
+    @media all and (max-width: 500px) {
+        width: 50px;
+        height: 65px;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   .block__titles--wrap {
     padding-left: 150px;
   }
@@ -5518,8 +5553,161 @@ body {
     }
   }
 }
-@import 'jquery-ui.scss';
+
+.red{
+  color: #e42a2b!important;
+}
+.red-stroke{
+  color: #e42a2b!important;
+  -webkit-text-stroke: 1px #fff;
+}
+.black{
+  color: rgba(0,0,0,.99) !important;
+}
+.white{
+  color: white!important;
+}
+.white-stroke{
+  color: white!important;
+  -webkit-text-stroke: 1px #e42a2b;
+}
+.black-stroke{
+  color: rgba(0,0,0,.99) !important;
+  -webkit-text-stroke: 1px #fff;
+}
+.transparent-stroke{
+  color: transparent!important;
+  -webkit-text-stroke: 1px #fff;
+}
 @import 'media.scss';
+.page-template-page-quiz-php{
+  .js-send-custom-quizz{
+    position: static!important;
+    left: 0;
+    margin-top: 58px;
+  }
+  .first__block{
+    height: auto;
+    &:after{
+      display: none;
+    }
+    .col-md-12{
+      height: auto;
+    }
+    .main__titles{
+      left: 0;
+      margin-left: 170px;
+      margin-right: 170px;
+      top: 0;
+      margin-top: 10vh;
+      position: relative;
+      font-size: 115px;
+      @media all and (max-width: 1550px){
+        margin-left: 0;
+        margin-right: 0;
+      }
+      h1{
+        @media all and (max-width: 1550px){
+          font-size: 100px!important;
+        }
+        @media all and (max-width: 1200px){
+          font-size: 100px!important;
+        }
+        @media all and (max-width: 1024px){
+          font-size: 70px!important;
+        }
+        @media all and (max-width: 700px){
+          font-size: 60px!important;
+        }
+        @media all and (max-width: 600px){
+          font-size: 50px!important;
+        }
+        @media all and (max-width: 500px){
+          font-size: 40px!important;
+        }
+        @media all and (max-width: 450px){
+          font-size: 30px!important;
+        }
+      }
+
+    }
+  }
+}
+.quizz{
+  max-width: 1430px;
+  padding: 0 100px;
+  margin: auto;
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 152px;
+  }
+  &__item{
+    width: calc(50% - 20px);
+    margin-right: 20px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    @media all and (max-width: 768px){
+      width: 100%;
+    }
+    &-title{
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 45px;
+      line-height: 100%;
+      span{
+        color: #e42a2b;
+      }
+    }
+    textarea{
+      flex: 1;
+      min-height: 100px;
+      border: 2px solid #e6e6e6;
+      padding: 20px;
+      resize: none;
+    }
+  }
+  &__row{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    margin-bottom: 22px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    input{
+      font-size: 18px;
+      margin-top: 6px;
+      display: none;
+      &:checked + span{
+        &:before{
+          opacity: 1;
+        }
+      }
+    }
+    span{
+      width: 28px;
+      height: 28px;
+      border: 2px solid #e6e6e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 24px;
+      margin-top: -4px;
+      &:before{
+        content: "";
+        display: block;
+        width: 14px;
+        height: 14px;
+        background-color: #e42a2b;
+        opacity: 0;
+        @extend .transition;
+      }
+    }
+  }
+}
+@import 'jquery-ui.scss';
 @import "fonts/font_gilroy";
 @import "fonts/font_museo";
 

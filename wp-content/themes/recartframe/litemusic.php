@@ -6,6 +6,7 @@
 ?>
 <?php
 get_header();
+$post_id = get_the_ID();
 ?>
     <div class="container">
         <div class="row">
@@ -17,7 +18,7 @@ get_header();
         </div>
     </div>
     <section class="first__block first__block--rent" id="first__block" href="#second__block">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/rent-banner.jpg" alt="image" class="main__banner">
+        <img src="<?php echo the_field('shapka_straniczy_копия', $post_id); ?>" alt="image" class="main__banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

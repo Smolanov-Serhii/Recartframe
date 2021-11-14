@@ -18,6 +18,9 @@ get_header();
     </div>
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
         <img src="<?php echo the_field('kartinka_v_shapku', 309); ?>" alt="<?php echo the_field('zagolovok_v_shapku', 309); ?>" class="main__banner">
+        <video autoplay muted loop class="main__banner main__banner--video">
+            <source src="<?php the_field('video_v_shapku_glavnoj'); ?>" type="video/mp4">
+        </video>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -48,10 +51,21 @@ get_header();
                     $title = get_sub_field('zagolovok_zapisi');
                     $image = get_sub_field('kartinka_zapisi');
                     $content = get_sub_field('opisanie_zapisi');
+                    $link = get_sub_field('ssylka_na_video');
                     ?>
                     <div class="event__item">
                         <div class="left" data-aos="fade-right">
                             <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                            <?php
+                            if($link){
+                                ?>
+                                <div class="button-block">
+                                    <div class="play__film--video fresco" href="<?php echo $link;?>"></div>
+                                </div>
+                                <?php
+                            }
+                            ?>
+
                         </div>
                         <div class="right" data-aos="fade-left">
                             <h4><?php echo $title;?></h4>

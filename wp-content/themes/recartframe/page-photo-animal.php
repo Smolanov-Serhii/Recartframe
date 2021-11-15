@@ -23,8 +23,8 @@ $post_id = get_the_ID();
         <div class="row">
             <div class="col-md-12">
                 <div class="main__titles" data-aos="fade-right">
-                    <h1><?php echo the_field('zagolovok_v_shapku', $post_id); ?></h1>
-                    <p><?php echo the_field('podzagolovok_v_shapku', $post_id); ?></p>
+                    <h1 class="<?php echo the_field('vyberite_czvet_zagolovka'); ?>"><?php the_field('zagolovok_v_shapku', $post_id); ?></h1>
+                    <p class="<?php echo the_field('vyberite_czvet_podzagolovka'); ?>"><?php the_field('podzagolovok_v_shapku', $post_id); ?></p>
                 </div>
             </div>
         </div><!-- /.row -->

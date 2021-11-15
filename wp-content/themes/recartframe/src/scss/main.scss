@@ -2844,6 +2844,10 @@ body {
           display: block;
           width: calc(50% - 20px);
           margin-right: 20px;
+          @media all and (max-width: 500px){
+            width: 100%;
+            margin-right: 0;
+          }
           .wpcf7-form-control-wrap{
             width: 100%;
           }
@@ -5585,6 +5589,10 @@ body {
     position: static!important;
     left: 0;
     margin-top: 58px;
+    cursor: pointer;
+    @media all and (max-width: 500px){
+      width: 100% !important;
+    }
   }
   .first__block{
     height: auto;
@@ -5637,6 +5645,14 @@ body {
   max-width: 1430px;
   padding: 0 100px;
   margin: auto;
+  @media all and (max-width: 768px){
+    padding: 0 15px;
+  }
+  @media all and (max-width: 500px){
+    .col-md-12{
+      padding: 0 25px;
+    }
+  }
   &__list{
     display: flex;
     flex-wrap: wrap;
@@ -5650,6 +5666,7 @@ body {
     flex-direction: column;
     @media all and (max-width: 768px){
       width: 100%;
+      margin-right: 0;
     }
     &-title{
       font-size: 18px;
@@ -5673,8 +5690,12 @@ body {
     width: 100%;
     align-items: flex-start;
     margin-bottom: 22px;
+    cursor: pointer;
     &:last-child{
       margin-bottom: 0;
+    }
+    @media all and (max-width: 768px){
+      padding-left: 30px;
     }
     input{
       font-size: 18px;

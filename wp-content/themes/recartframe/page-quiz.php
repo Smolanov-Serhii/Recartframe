@@ -17,9 +17,9 @@ $post_id = get_the_ID();
             </div>
         </div>
     </div>
-    <section class="first__block first__block--rent first__block--presenter first__block--videos" href="#second__block"
+    <section class="container first__block first__block--rent first__block--presenter first__block--videos" href="#second__block"
              id="first__block">
-        <div class="container">
+        <div class="">
             <div class="row">
                 <div class="col-md-12">
                     <div class="main__titles" data-aos="fade-right">
@@ -30,7 +30,7 @@ $post_id = get_the_ID();
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /section -->
-    <section class="quizz aos" data-aos="fade-right">
+    <section class="container quizz aos" data-aos="fade-right">
         <div class="quizz__container">
             <div class="row">
                 <div class="col-md-12">
@@ -74,21 +74,24 @@ $post_id = get_the_ID();
             </div><!-- /.row -->
         </div>
     </section>
-    <section class="first__block first__block--rent first__block--presenter first__block--videos form__order--quizz">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="main__titles aos" data-aos="fade-right">
-                        <p><?php echo the_field('nadpis_kontaktnye_dannye', $post_id); ?></p>
+    <section class="container first__block first__block--rent first__block--presenter first__block--videos form__order--quizz">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main__titles aos" data-aos="fade-right">
+                            <p><?php echo the_field('nadpis_kontaktnye_dannye', $post_id); ?></p>
+                        </div>
                     </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+            <div class="col-md-12">
+                <div class="form__wrap aos" data-aos="fade-right">
+                    <?php echo do_shortcode('[contact-form-7 id="2700" title="Форма Квиз"]')?>
                 </div>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div class="">
-            <div class="form__wrap aos" data-aos="fade-right">
-                <?php echo do_shortcode('[contact-form-7 id="2700" title="Форма Квиз"]')?>
             </div>
         </div>
+
     </section>
 
 <?php

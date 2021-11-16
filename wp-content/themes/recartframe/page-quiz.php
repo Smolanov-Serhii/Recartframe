@@ -42,7 +42,7 @@ $post_id = get_the_ID();
                                 $question = get_sub_field('vopros_dlya_gruppy');
                                 ?>
                                 <div class="quizz__item">
-                                    <h3 class="quizz__item-title"><?php echo $counter . '. '; echo $question;?> <span class="important">*</span></h3>
+                                    <h3 class="quizz__item-title"><p><?php echo $counter . '. '; echo $question;?></p> <span class="important">*</span></h3>
                                     <?php
                                     if( have_rows('perechen_voprosov') ):
                                         $counterinner = 1;
@@ -66,7 +66,7 @@ $post_id = get_the_ID();
                         endif;
                         ?>
                         <div class="quizz__item">
-                            <h3 class="quizz__item-title"><?php echo $counter . ". "; echo the_field('zagolovok_dlya_polya_fideo_i_foto_ssylok', $post_id); ?></h3>
+                            <h3 class="quizz__item-title"><p><?php echo $counter . ". "; echo the_field('zagolovok_dlya_polya_fideo_i_foto_ssylok', $post_id); ?></p></h3>
                             <textarea class="quizz-textarea-item"></textarea>
                         </div>
                     </div>
@@ -93,7 +93,31 @@ $post_id = get_the_ID();
         </div>
 
     </section>
+    <script>
+        jQuery(document).ready(function($) {
+            $('.js-send-custom-quizz').on('click', function() {
+                let answers = "";
+                $('#answers-block').val("");
+                $( '.quizz__item' ).each(function( index ) {
+                    let title = $(this).find('.quizz__item-title p').html();
+                    let answer = $(this).find('input:checked').val();
+                    let textarea = $(this).find('textarea').val();
+                    if(!textarea){
+                        textarea = "Ссылки не указаны";
+                    }
+                    answers = answers + title;
+                    if(answer){
+                        answers = answers + " - " + answer + "\n";
+                    } else {
+                        answers = answers + " - " + textarea + "\n";
+                    }
+                });
+                $('#answers-block').val(answers);
+                $('#quizz-send').trigger('click');
+            });
 
+        });
+    </script>
 <?php
 get_footer();
 ?>

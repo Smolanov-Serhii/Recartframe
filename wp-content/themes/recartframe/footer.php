@@ -112,9 +112,12 @@
             $('.hidden-area .current-page input').val('');
             $('.hidden-area .current-item input').val('');
             $('.hidden-area .current-price input').val('');
+            $('#answers-block').val("");
+            $('#wpcf7-f2700-o1 input').val("");
             setTimeout(function (){
                 $('#success-send').removeClass('active-popup');
             }, 2000);
+
         }, false );
 
     });

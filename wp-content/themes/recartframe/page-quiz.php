@@ -66,7 +66,7 @@ $post_id = get_the_ID();
                         endif;
                         ?>
                         <div class="quizz__item">
-                            <h3 class="quizz__item-title"><p><?php echo $counter . ". "; echo the_field('zagolovok_dlya_polya_fideo_i_foto_ssylok', $post_id); ?></p></h3>
+                            <h3 class="quizz__item-title"><p class="non-marker"><?php echo $counter . ". "; echo the_field('zagolovok_dlya_polya_fideo_i_foto_ssylok', $post_id); ?></p></h3>
                             <textarea class="quizz-textarea-item"></textarea>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ $post_id = get_the_ID();
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 form-col-md-12">
                         <div class="main__titles aos" data-aos="fade-right">
                             <p><?php echo the_field('nadpis_kontaktnye_dannye', $post_id); ?></p>
                         </div>

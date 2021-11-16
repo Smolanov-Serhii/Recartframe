@@ -200,7 +200,7 @@ input[type="date"] {
       display: block;
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid #e6e6e6;
+      border: 2px solid #e6e6e6;
       height: 50px;
       padding-left: 15px;
       margin-bottom: 30px;
@@ -1605,7 +1605,7 @@ header {
             display: block;
             width: 100%;
             box-sizing: border-box;
-            border: 1px solid #e6e6e6;
+            border: 2px solid #e6e6e6;
             height: 50px;
             @extend .transition;
             padding-left: 15px;
@@ -2685,6 +2685,9 @@ body {
 }
 .form__order--quizz{
   padding-bottom: 250px;
+  @media screen and (max-width: 500px) {
+    padding-bottom: 110px;
+  }
   p{
     margin-bottom: 70px;
     margin-top: 0;
@@ -2824,7 +2827,7 @@ body {
             display: block;
             width: 100%;
             box-sizing: border-box;
-            border: 1px solid #e6e6e6;
+            border: 2px solid #e6e6e6;
             height: 50px;
             @extend .transition;
             padding-left: 15px;
@@ -3522,7 +3525,7 @@ body {
         textarea {
           width: 100%;
           height: 270px;
-          border: 1px solid #e6e6e6;
+          border: 2px solid #e6e6e6;
           //margin-bottom: 50px;
           margin-bottom: 22px;
           @extend .transition;
@@ -3788,7 +3791,7 @@ body {
       }
 
       .inner {
-        border: 1px solid #e6e6e6;
+        border: 2px solid #e6e6e6;
         padding: 60px 35px;
         text-align: center;
         margin-bottom: 30px;
@@ -5585,6 +5588,14 @@ body {
 }
 @import 'media.scss';
 .page-template-page-quiz-php{
+  .form-col-md-12{
+    @media all and (max-width: 500px){
+      padding: 0 15px;
+      p{
+        margin-top: 0!important;
+      }
+    }
+  }
   .js-send-custom-quizz{
     position: static!important;
     left: 0;
@@ -5606,7 +5617,6 @@ body {
       left: 0;
       margin-left: 170px;
       margin-right: 170px;
-
       top: 0;
       margin-top: 10vh;
       position: relative;
@@ -5618,6 +5628,9 @@ body {
       @media all and (max-width: 1550px){
         margin-left: 0;
         margin-right: 0;
+      }
+      @media all and (max-width: 500px){
+        margin-top: 55px;
       }
       h1{
         @media all and (max-width: 1550px){
@@ -5639,10 +5652,16 @@ body {
           font-size: 40px!important;
         }
         @media all and (max-width: 450px){
-          font-size: 30px!important;
+          font-size: 28px!important;
         }
       }
-
+      p{
+        @media all and (max-width: 500px){
+          font-size: 22px!important;
+          line-height: 30px;
+          margin-top: 60px;
+        }
+      }
     }
   }
 }
@@ -5662,6 +5681,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 152px;
+    @media all and (max-width: 500px){
+      margin-bottom: 90px;
+    }
   }
   &__item{
     width: calc(50% - 20px);
@@ -5673,13 +5695,36 @@ body {
       width: 100%;
       margin-right: 0;
     }
+    @media all and (max-width: 500px){
+      margin-top: 50px;
+    }
     &-title{
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 45px;
       line-height: 100%;
+      @media all and (max-width: 500px){
+        margin-bottom: 50px;
+      }
+      p{
+        display: inline-block;
+        @media all and (max-width: 500px){
+          font-size: 22px;
+          line-height: 30px;
+        }
+        &:after{
+          color: #e42a2b;
+          content: " *";
+        }
+        &.non-marker{
+          &:after{
+            display: none;
+          }
+        }
+      }
       span{
         color: #e42a2b;
+        display: none;
       }
     }
     textarea{
@@ -5688,6 +5733,9 @@ body {
       border: 2px solid #e6e6e6;
       padding: 20px;
       resize: none;
+      @media all and (max-width: 500px){
+        min-height: 226px;
+      }
     }
   }
   &__row{
@@ -5696,11 +5744,18 @@ body {
     align-items: flex-start;
     margin-bottom: 22px;
     cursor: pointer;
+    @media all and (max-width: 500px){
+      font-size: 18px;
+      font-weight: 600;
+    }
     &:last-child{
       margin-bottom: 0;
     }
     @media all and (max-width: 768px){
       padding-left: 30px;
+    }
+    @media all and (max-width: 500px){
+      padding-left: 0;
     }
     input{
       font-size: 18px;
@@ -5721,6 +5776,9 @@ body {
       justify-content: center;
       margin-right: 24px;
       margin-top: -4px;
+      @media all and (max-width: 500px){
+        margin-top: -6px;
+      }
       &:before{
         content: "";
         display: block;

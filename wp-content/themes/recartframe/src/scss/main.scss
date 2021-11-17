@@ -5565,27 +5565,31 @@ body {
   color: #e42a2b!important;
 }
 .red-stroke{
-  color: #e42a2b!important;
-  -webkit-text-stroke: 1px #fff;
+  color: transparent!important;
+  -webkit-text-stroke: 1px #e42a2b;
 }
 .black{
   color: rgba(0,0,0,.99) !important;
+}
+.black-stroke{
+  color: transparent!important;
+  -webkit-text-stroke: 1px rgba(0,0,0,.99);
 }
 .white{
   color: white!important;
 }
 .white-stroke{
-  color: white!important;
-  -webkit-text-stroke: 1px #e42a2b;
-}
-.black-stroke{
-  color: rgba(0,0,0,.99) !important;
-  -webkit-text-stroke: 1px #fff;
-}
-.transparent-stroke{
   color: transparent!important;
-  -webkit-text-stroke: 1px #fff;
+  -webkit-text-stroke: 1px #FFFFFF;
 }
+//.black-stroke{
+//  color: rgba(0,0,0,.99) !important;
+//  -webkit-text-stroke: 1px #fff;
+//}
+//.transparent-stroke{
+//  color: transparent!important;
+//  -webkit-text-stroke: 1px #fff;
+//}
 @import 'media.scss';
 .page-template-page-quiz-php{
   .form-col-md-12{

@@ -42,88 +42,31 @@ get_header();
             <div class="row">
                 <div class="col-md-12">
                     <div class="cats__wrap" data-aos="fade-up">
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">01</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc1.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('svadebnaya_fotosemka_ssylka', 75); ?>"><?php echo the_field('svadebnaya_fotosemka', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">02</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc2.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('studijnaya_fotosemka_ssylka', 75); ?>"><?php echo the_field('studijnaya_fotosemka', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">03</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc3.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('detskaya_fotosemka_ssylka', 75); ?>"><?php echo the_field('detskaya_fotosemka', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">04</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc4.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('semejnaya_fotosemka_ssylka', 75); ?>"><?php echo the_field('semejnaya_fotosemka', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">05</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc5.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('komercheskaya_fotosemka_sslyka', 75); ?>"><?php echo the_field('komercheskaya_fotosemka', 75); ?></a>
-                            </h4>
-                        </div>
-                        <!--              <div class="item">-->
-                        <!--                <div class="top">-->
-                        <!--                  <div class="number">06</div>-->
-                        <!--                  <img src="-->
-                        <?php //echo get_template_directory_uri() ?><!--/dist/img/pc6.png" alt="image">-->
-                        <!--                </div>-->
-                        <!--                <h4><a href="-->
-                        <?php //echo the_field('predmetnaya_fotosessiya_ssylka', 75);?><!--">-->
-                        <?php //echo the_field('predmetnaya_fotosessiya', 75);?><!--</a></h4>-->
-                        <!--              </div>-->
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">06</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc7.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('fotosemka_dlya_menyu_sslyka', 75); ?>"><?php echo the_field('fotosemka_dlya_menyu', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">07</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc9.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('zhivotnye_i_landshaft_ssylka', 75); ?>"><?php echo the_field('zhivotnye_i_landshaft', 75); ?></a>
-                            </h4>
-                        </div>
-                        <div class="item">
-                            <div class="top">
-                                <div class="number">08</div>
-                                <img src="<?php echo get_template_directory_uri() ?>/dist/img/pc10.png" alt="image">
-                            </div>
-                            <h4>
-                                <a href="<?php echo the_field('aerofotosemka_dronom_ssylka', 75); ?>"><?php echo the_field('aerofotosemka_dronom', 75); ?></a>
-                            </h4>
-                        </div>
+                        <?php
+                        if( have_rows('perechen_kategorij', $post_id) ):
+                            $counter = 1;
+                            while( have_rows('perechen_kategorij', $post_id) ) : the_row();
+                                $title = get_sub_field('nazvanie_kategorii');
+                                $image = get_sub_field('ikonka_kategorii');
+                                $lnk = get_sub_field('ssylka_na_kategoriyu');
+                                $marker = get_sub_field('skryt');
+                                if($marker != "true"){
+                                    ?>
+                                    <div class="item">
+                                        <div class="top">
+                                            <div class="number"><?php echo $counter;?></div>
+                                            <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
+                                        </div>
+                                        <h4>
+                                            <a href="<?php echo $lnk;?>"><?php echo $title;?></a>
+                                        </h4>
+                                    </div>
+                                    <?php
+                                    $counter ++;
+                                }
+                            endwhile;
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ $post_id = get_the_ID();
         </div>
     </div>
     <section class="first__block first__block--rent first__block--presenter first__block--videos">
-        <img src="<?php echo the_field('kartinka_v_shapku', 330); ?>" alt="<?php echo the_field('zagolovok_shapki', $post_id); ?>" class="main__banner">
+        <img src="<?php echo the_field('kartinka_v_shapku', $post_id); ?>" alt="<?php echo the_field('zagolovok_shapki', $post_id); ?>" class="main__banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

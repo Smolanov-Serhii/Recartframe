@@ -139,7 +139,7 @@ get_header();
             $('.slider-single').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                arrows: false,
+                arrows: true,
                 fade: false,
                 adaptiveHeight: true,
                 infinite: false,
@@ -147,7 +147,9 @@ get_header();
                 speed: 400,
                 cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
             });
+            $('.slider-single').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 
+            });
             $('.slider-nav')
                 .on('init', function(event, slick) {
                     $('.slider-nav .slick-slide.slick-current').addClass('is-active');

@@ -4840,11 +4840,50 @@ body {
   .photo__slider {
     max-height: 950px;
     position: relative;
-
     img {
       max-height: 950px;
       width: auto;
       margin: auto;
+    }
+    .slick-prev{
+      position: absolute;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      opacity: 0;
+      cursor: none;
+      &:hover{
+        cursor: url(../img/arrow-left.png) 45 45, pointer;
+        &.slick-disabled{
+          cursor: none;
+        }
+      }
+      @media all and (max-width: 1024px){
+        pointer-events: none;
+        display: none;
+      }
+    }
+    .slick-next{
+      position: absolute;
+      z-index: 50;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      opacity: 0;
+      cursor: none;
+      &:hover{
+        cursor: url(../img/arrow-right.png) 45 45, pointer;
+        &.slick-disabled{
+          cursor: none;
+        }
+      }
+      @media all and (max-width: 1024px){
+        pointer-events: none;
+        display: none;
+      }
     }
   }
 

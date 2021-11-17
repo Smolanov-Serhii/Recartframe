@@ -15,37 +15,38 @@ get_header();
       <div class="row">
         <div class="col-md-12">
           <div class="services__lists" data-aos="fade-up">
-            <?php
-
-            ?>
-            <div class="list">
-              <div class="number">01</div>
-              <h4><a href="<?php echo the_field('ssylka_na_straniczu_fotosmka');?>"><?php the_field('zagolovok_fotosmka');?></a></h4>
-              <ul>
-                  <?php the_field('spisok_podstranicz_fotosyomka');?>
-              </ul>
-            </div>
-            <div class="list">
-              <div class="number">02</div>
-              <h4><a href="<?php echo the_field('ssylka_na_straniczu_videosemka');?>"><?php the_field('zagolovok_videosemka');?></a></h4>
-              <ul>
-                  <?php the_field('spisok_podstranicz_videosyomka');?>
-              </ul>
-            </div>
-            <div class="list">
-              <div class="number">03</div>
-                <h4><a href="<?php echo the_field('ssylka_na_straniczu_dop_uslugi');?>"><?php the_field('zagolovok_dop_uslugi');?></a></h4>
-                <ul>
-                    <?php the_field('spisok_podstranicz_dop_uslugi');?>
-                </ul>
-            </div>
-            <div class="list">
-              <div class="number">04</div>
-                <h4><a href="<?php echo the_field('ssylka_na_straniczu_svetomuzyka');?>"><?php the_field('zagolovok_svetomuzyka');?></a></h4>
-              <ul>
-                  <?php the_field('spisok_podstranicz_svetomuzyka');?>
-              </ul>
-            </div>
+              <?php
+              if( have_rows('perechen_uslug') ):
+                  $counter = 1;
+                  while( have_rows('perechen_uslug') ) : the_row();
+                      $itemname = get_sub_field('zagolovok_gruppy_uslug');
+                      $itemlnk = get_sub_field('ssylka_na_zagolovok');
+                      ?>
+                      <div class="list">
+                          <div class="number">0<?php echo $counter;?></div>
+                          <h4><a href="<?php echo $itemlnk;?>"><?php echo $itemname;?></a></h4>
+                          <ul>
+                          <?php
+                          if( have_rows('perechenb_uslug_v_gruppe') ):
+                              while( have_rows('perechenb_uslug_v_gruppe') ) : the_row();
+                                  $value = get_sub_field('naimenovanie_uslugi');
+                                  $valuelink = get_sub_field('naimenovanie_uslugi_ssylka');
+                                  $marker = get_sub_field('otobrazhat');
+                                  if($marker != "false"){
+                                      ?>
+                                      <li><a href="<?php echo $valuelink;?>"><?php echo $value;?></a></li>
+                                      <?php
+                                  }
+                              endwhile;
+                          endif;
+                          ?>
+                          </ul>
+                      </div>
+                      <?php
+                      $counter ++;
+                  endwhile;
+              endif;
+              ?>
           </div>
         </div>
       </div>

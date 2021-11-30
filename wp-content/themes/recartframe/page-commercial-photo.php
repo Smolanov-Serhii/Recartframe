@@ -36,8 +36,8 @@ $post_id = get_the_ID();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle"><?php echo the_field('zagolovok_studijnaya_fotosemka', 321); ?></p>
-                        <h4 class="block__title"><?php echo the_field('podzagolovok_studijnaya_fotosemka', 321); ?></h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_studijnaya_fotosemka', $post_id); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_studijnaya_fotosemka', $post_id); ?></h4>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,8 @@ $post_id = get_the_ID();
             <div class="row">
                 <div class="col-md-12">
                     <div class="block__titles--wrap" data-aos="fade-up">
-                        <p class="uppertitle"><?php echo the_field('zagolovok_etapy_fotosemki', 321); ?></p>
-                        <h4 class="block__title"><?php echo the_field('podzagolovok_etapy_fotosemki', 321); ?></h4>
+                        <p class="uppertitle"><?php echo the_field('zagolovok_etapy_fotosemki', $post_id); ?></p>
+                        <h4 class="block__title"><?php echo the_field('podzagolovok_etapy_fotosemki', $post_id); ?></h4>
                     </div>
                     <div class="work__steps--wrap">
                         <div class="left" data-aos="fade-right">

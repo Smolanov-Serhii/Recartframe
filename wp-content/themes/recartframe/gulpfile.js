@@ -15,7 +15,7 @@ const browserSync = require('browser-sync').create();
 //Для препроцессоров стилей
 const sourcemaps = require('gulp-sourcemaps');
 //Sass препроцессор
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 
 
 //Порядок подключения файлов со стилями

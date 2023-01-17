@@ -119,7 +119,7 @@ $post_id = get_the_ID();
         </div>
     </div>
     <section class="work__steps">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/img/steps-bg.jpg" alt="image" class="steps__bg">
+<!--        <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/img/steps-bg.jpg" alt="image" class="steps__bg">-->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

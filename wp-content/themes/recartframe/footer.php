@@ -87,7 +87,7 @@
 </body>
 </html>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="<?php echo get_template_directory_uri() . '/src/js/aos.js'?>"></script>
 <?php wp_footer(); ?>
 
 <script>
@@ -95,7 +95,7 @@
         //Block show animation
         AOS.init({
             duration: 1000,
-            // anchorPlacement: 'top-bottom',
+            anchorPlacement: 'top',
             easing: 'ease-in-out-sine',
             offset: 50,
             once: true,

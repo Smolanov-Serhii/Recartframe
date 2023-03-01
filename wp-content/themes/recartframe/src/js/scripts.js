@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
 
+
+
     function QuantityNum(){
         if ($('.quantity__wrap').length){
 

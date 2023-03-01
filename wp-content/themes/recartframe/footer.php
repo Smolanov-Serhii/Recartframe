@@ -95,9 +95,9 @@
         //Block show animation
         AOS.init({
             duration: 1000,
-            anchorPlacement: 'top-bottom',
+            // anchorPlacement: 'top-bottom',
             easing: 'ease-in-out-sine',
-            offset: 200,
+            offset: 50,
             once: true,
             disable: function () {
                 var maxWidth = 768;

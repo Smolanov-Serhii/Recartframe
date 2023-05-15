@@ -6,9 +6,25 @@
 ?>
 <?php
 get_header();
+$post_id = get_the_ID();
 ?>
     <section class="first__block first__block--rent first__block--about" href="#second__block" id="first__block">
-        <img src="<?php echo the_field('kartinka_v_shapku_straniczy', 18); ?>" alt="image" class="main__banner">
+        <?
+        if ( get_field('kartinka_v_shapku_straniczy', $post_id)){
+            ?>
+            <img src="<?php echo the_field('kartinka_v_shapku_straniczy', $post_id); ?>" alt="image" class="main__banner">
+            <?php
+        }
+        if ( get_field('video_v_shapku_straniczy')){
+            ?>
+            <div class="main__banner">
+                <video autoplay muted loop class="main__banner--video">
+                    <source src="<?php the_field('video_v_shapku_straniczy', $post_id) ?>" type="video/mp4">
+                </video>
+            </div>
+            <?php
+        }
+        ?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

@@ -924,6 +924,10 @@ header {
     @media all and (max-width: 500px){
       width: calc(100% - 90px);
     }
+    &--video{
+      width: auto;
+      height: 100%;
+    }
   }
 
   .main__banner--image {

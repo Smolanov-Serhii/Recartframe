@@ -753,20 +753,8 @@ function my_translatable_acf_fields($field){
     }
     return $field;
 }
-
-add_filter('pre_site_transient_update_core',create_function('$a', "return null;"));
-wp_clear_scheduled_hook('wp_version_check');
-remove_action( 'load-update-core.php', 'wp_update_plugins' );
-add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-wp_clear_scheduled_hook( 'wp_update_plugins' );
-remove_action('load-update-core.php','wp_update_themes');
-add_filter('pre_site_transient_update_themes',create_function('$a', "return null;"));
-wp_clear_scheduled_hook('wp_update_themes');
-
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 7;' ), 20 );
-
 remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0);
-
 add_filter( 'woocommerce_available_payment_gateways', 'woocommerce_available_payment_gateways' );
 function woocommerce_available_payment_gateways( $available_gateways ) {
     if (! is_checkout() ) return $available_gateways;  // stop doing anything if we're not on checkout page.

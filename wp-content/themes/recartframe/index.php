@@ -6,6 +6,7 @@
 ?>
 <?php
 get_header();
+$post_id = get_the_ID();
 ?>
 
 <section class="first__block" id="first__block" href="#second__block">

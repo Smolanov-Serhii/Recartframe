@@ -967,3 +967,8 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+.page-template-contacts .first__block .main__banner .main__banner--video{
+	width: 100%;
+	height: 100%;
+}
+

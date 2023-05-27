@@ -9,7 +9,7 @@ get_header();
 $post_id = get_the_ID();
 ?>
     <section class="first__block first__block--rent first__block--about" href="#second__block" id="first__block">
-        <?
+        <?php
         if ( get_field('kartinka_v_shapku_straniczy', $post_id)){
             ?>
             <img src="<?php echo the_field('kartinka_v_shapku_straniczy', $post_id); ?>" alt="image" class="main__banner">

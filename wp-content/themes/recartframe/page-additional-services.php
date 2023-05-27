@@ -33,20 +33,23 @@ get_header();
                         $content = get_sub_field('opisanie_tipa_uslugi');
                         $link = get_sub_field('ssylka_na_knopku_uslugi');
                         $podrobnee = get_field('podrobnee', 'options');
-                        ?>
-                        <div class="service__item">
-                            <div class="left" data-aos="fade-right">
-                                <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
-                            </div>
-                            <div class="right" data-aos="fade-left">
-                                <h4><?php echo $title;?></h4>
-                                <div class="description">
-                                    <?php echo $content;?>
+                        $marker = get_sub_field('pokazat_na_stranicze');
+                        if ($marker == 'yes'){
+                            ?>
+                            <div class="service__item">
+                                <div class="left" data-aos="fade-right">
+                                    <img src="<?php echo $image;?>" alt="<?php echo $title;?>">
                                 </div>
-                                <a href="<?php echo $link;?>" class="more__button"><?php echo $podrobnee;?></a>
+                                <div class="right" data-aos="fade-left">
+                                    <h4><?php echo $title;?></h4>
+                                    <div class="description">
+                                        <?php echo $content;?>
+                                    </div>
+                                    <a href="<?php echo $link;?>" class="more__button"><?php echo $podrobnee;?></a>
+                                </div>
                             </div>
-                        </div>
-                        <?php
+                            <?php
+                        }
                     endwhile;
                 else :
                 endif;

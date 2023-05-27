@@ -45,7 +45,14 @@ get_header();
                                     <div class="description">
                                         <?php echo $content;?>
                                     </div>
-                                    <a href="<?php echo $link;?>" class="more__button"><?php echo $podrobnee;?></a>
+                                    <?php
+                                        if ($link){
+                                            ?>
+                                                <a href="<?php echo $link;?>" class="more__button"><?php echo $podrobnee;?></a>
+                                            <?php
+                                        }
+                                    ?>
+
                                 </div>
                             </div>
                             <?php

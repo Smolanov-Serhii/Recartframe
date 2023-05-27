@@ -10,13 +10,13 @@ $post_id = get_the_ID();
 ?>
 
   <section class="first__block first__block--rent first__block--presenter first__block--videos first__block--contacts" id="first__block" href="#second__block">
-      <?
-      if ( get_field('kartinka_v_shapku', $post_id)){
+      <?php
+      if( get_field('kartinka_v_shapku', $post_id)){
           ?>
           <img src="<?php echo the_field('kartinka_v_shapku', $post_id); ?>" alt="<?php the_title();?>" class="main__banner">
           <?php
       }
-        if ( get_field('video_v_shapku')){
+        if( get_field('video_v_shapku', $post_id)){
             ?>
             <div class="main__banner">
                 <video autoplay muted loop class="main__banner--video">

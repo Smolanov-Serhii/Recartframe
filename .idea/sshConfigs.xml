@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="home663355165.1and1-data.host" id="9a58b8e4-cad5-4e83-95b4-5e620c1bdbe8" port="22" nameFormat="DESCRIPTIVE" username="u87808509" />
+      <sshConfig authType="PASSWORD" host="lx22.hoststar.hosting" id="9a58b8e4-cad5-4e83-95b4-5e620c1bdbe8" port="5544" nameFormat="DESCRIPTIVE" username="smolanov_sergey.recartframe.com" />
     </configs>
   </component>
 </project>

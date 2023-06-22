@@ -446,6 +446,75 @@ input[type="date"] {
 }
 
 .rent-form {
+  &__duplicate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    &-item{
+      width: 47%;
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid #e6e6e6;
+      height: 70px;
+      padding: 0 15px;
+      margin-bottom: 0;
+      align-items: center;
+      @media all and (max-width: 1240px) {
+        width: 100%;
+      }
+      @media all and (max-width: 768px) {
+        *{
+          font-size: 14px;
+        }
+      }
+      .titles{
+        margin-right: 20px;
+      }
+      .right{
+        display: flex;
+        align-items: center;
+      }
+      .price{
+        font-weight: bolder;
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+      .dulplicate-input{
+        &.selected{
+          span:before{
+            opacity: 1;
+          }
+        }
+        input{
+          font-size: 18px;
+          margin-top: 6px;
+          display: none;
+        }
+        span{
+          width: 28px;
+          height: 28px;
+          border: 2px solid #e6e6e6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: -4px;
+          @media all and (max-width: 500px){
+            margin-top: -6px;
+          }
+          &:before{
+            content: "";
+            display: block;
+            width: 14px;
+            height: 14px;
+            background-color: #e42a2b;
+            opacity: 0;
+            @extend .transition;
+          }
+        }
+      }
+    }
+  }
   br {
     display: none !important;
   }

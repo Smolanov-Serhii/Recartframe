@@ -75,7 +75,7 @@ $post_id = get_the_ID();
                                     </div>
                                     <div class="right">
                                         <div class="price"><?php echo $price; ?> / <?php echo $timeunit; ?></div>
-                                        <div class="button rent__order--button">
+                                        <div class="button rent__order--button" data-duplicate="<?php echo 'item-' . $post_id; ?>">
                                             <span class="unactive"><?php echo the_field('nadpis_vybrat', 'option'); ?></span>
                                             <span class="active"><?php echo the_field('nadpis_vybrano', 'option'); ?></span>
                                         </div>
@@ -206,6 +206,14 @@ $post_id = get_the_ID();
                     });
                     $('.rent__order--button').on('click', function () {
                         $(this).toggleClass('selected');
+                        let DataId = $(this).data('duplicate');
+                        $(".dulplicate-input[data-duplicate='" + DataId + "']").toggleClass('selected');
+                    });
+                    $('.dulplicate-input').on('click', function () {
+                        let DataId = $(this).data('duplicate');
+                        $(this).toggleClass('selected');
+                        console.log(DataId)
+                        $(".rent__order--button[data-duplicate='" + DataId + "']").toggleClass('selected');
                     });
                     $('.js-send-custom-rent').on('click', function () {
                         $('#zakaz-box').val(' ');
@@ -231,6 +239,35 @@ $post_id = get_the_ID();
                         <h4 class="block__title"><?php echo the_field('zagolovok_formy_zakaza',96)?></h4>
                     </div>
                     <div class="form__wrap rent-form" data-aos="fade-up">
+                        <div class="rent-form__duplicate">
+                            <?php
+                            $args = array(
+                                'post_type' => 'rent',
+                                'showposts' => "-1", //сколько показать статей
+                                'orderby' => "menu_order", //сортировка по дате
+                                'caller_get_posts' => 1);
+                            $my_query = new wp_query($args);
+                            if ($my_query->have_posts()) {
+                                while ($my_query->have_posts()) {
+                                    $my_query->the_post();
+                                    $post_id = get_the_ID();
+                                    $price = get_field('czena_tovara', $post_id);
+                                    ?>
+                                    <div class="rent-form__duplicate-item" data-cont="<?php echo 'item-' . $post_id; ?>">
+                                        <div class="titles">
+                                            <h4><?php the_title(); ?></h4>
+                                        </div>
+                                        <div class="right">
+                                            <div class="price"><?php echo $price; ?> / <?php echo $timeunit; ?></div>
+                                            <label class="dulplicate-input" data-duplicate="<?php echo 'item-' . $post_id; ?>">
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                <?php }
+                            }
+                            wp_reset_query(); ?>
+                        </div>
                         <?php echo do_shortcode('[contact-form-7 id="1725" title="Форма аренды"]')?>
                     </div>
                 </div>

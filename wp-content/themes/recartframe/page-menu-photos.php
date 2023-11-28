@@ -82,7 +82,6 @@ get_header();
     </section>
 
     <section class="work__steps">
-<!--        <img src="--><?php //echo get_template_directory_uri() ?><!--/dist/img/steps-bg.jpg" alt="image" class="steps__bg">-->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -138,6 +137,7 @@ get_header();
                 <div class="col-md-12">
                     <div class="form__wrap" data-aos="fade-up">
                         <?php echo do_shortcode( '[contact-form-7 id="181" title="Контактная форма 1"]' ); ?>
+                        <a href="<?php the_field('vyberite_straniczu_s_brifom', $post_id)?>" class="brief__button"><?php echo the_field('nadpis_zapolnit_brif','options')?></a>
                     </div>
                 </div>
             </div>

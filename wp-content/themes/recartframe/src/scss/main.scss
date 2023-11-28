@@ -3715,6 +3715,15 @@ body {
     right: 0;
     top: 800px;
   }
+  &-360{
+    &:before{
+      background: transparent url('../img/360.png') center no-repeat;
+      z-index: 99;
+      top: 50%;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
 }
 
 

@@ -17,18 +17,31 @@ $post_id = get_the_ID();
             </div>
         </div>
     </div>
-    <section class="first__block first__block--rent first__block--presenter first__block--videos">
-        <img src="<?php echo the_field('kartinka_v_shapku', $post_id); ?>" alt="<?php the_field('zagolovok_v_shapku_reklamnoe_video', $post_id); ?>" class="main__banner">
+    <section class="first__block first__block--rent first__block--presenter first__block--videos first__block-360">
         <?php
-        $vodeoitem = get_field('video_v_shapku', $post_id);
-        if ($vodeoitem){
+        $link360 = get_field('v_shapku_360', $post_id);
+        if ($link360){
             ?>
-            <video autoplay muted loop class="main__banner main__banner--video">
-                <source src="<?php echo $vodeoitem; ?>" type="video/mp4">
-            </video>
+            <iframe class="main__banner" src="<?php echo $link360;?>" width="100%" height="100%" style="border: none;"></iframe>
+            <?php
+        } else {
+            ?>
+            <img src="<?php echo the_field('kartinka_v_shapku', $post_id); ?>" alt="<?php the_field('zagolovok_v_shapku_reklamnoe_video', $post_id); ?>" class="main__banner">
+            <?php
+            $vodeoitem = get_field('video_v_shapku', $post_id);
+            if ($vodeoitem){
+                ?>
+                <video autoplay muted loop class="main__banner main__banner--video">
+                    <source src="<?php echo $vodeoitem; ?>" type="video/mp4">
+                </video>
+                <?php
+            }
+            ?>
             <?php
         }
         ?>
+
+
 
         <div class="container">
             <div class="row">

@@ -960,7 +960,35 @@ header {
   height: calc(100vh - 115px);
   position: relative;
   //cursor: url(../img/arrow-down.png) 38 38, pointer;;
-
+  &-360{
+    @media all and (max-width: 1024px){
+      height: auto!important;
+    }
+    iframe{
+      @media all and (max-width: 500px){
+        width: 100%!important;
+      }
+    }
+    .main__titles{
+      @media all and (max-width: 1024px){
+        top: 10vh!important;
+      }
+      @media all and (max-width: 500px){
+        top: 0!important;
+      }
+    }
+    &:after{
+      display: none!important;
+    }
+    .container{
+      pointer-events: none;
+    }
+    .col-md-12{
+      @media all and (max-width: 1024px){
+        height: 500px!important;
+      }
+    }
+  }
   &:after {
     display: block;
     content: '';

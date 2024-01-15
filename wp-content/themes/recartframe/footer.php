@@ -54,7 +54,7 @@
                         <a href="mailto:<?php echo get_theme_mod('e-mail'); ?>" class="email"><?php echo get_theme_mod('e-mail'); ?></a>
                         <a href="tel:<?php echo get_theme_mod('phone_1'); ?>" class="phone"><?php echo get_theme_mod('phone_1'); ?></a>
                         <a href="tel:<?php echo get_theme_mod('phone_2'); ?>" class="phone"><?php echo get_theme_mod('phone_2'); ?></a>
-                        <a href="#<?php echo get_theme_mod('phone_3'); ?>" class="phone"><?php the_field('vatsap_vajber','options');?>: <?php echo get_theme_mod('phone_3'); ?></a>
+                        <a href="#<?php echo get_theme_mod('phone_3'); ?>" class="phone"><?php the_field('vatsap_vajber','options');?><?php echo get_theme_mod('phone_3'); ?></a>
                         <div class="footer__social">
                             <a href="<?php echo get_theme_mod('instagram'); ?>" class="instagram"></a>
                             <a href="<?php echo get_theme_mod('youtube'); ?>" class="youtube"></a>

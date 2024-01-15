@@ -35,7 +35,7 @@ $post_id = get_the_ID();
               <a href="tel:<?php echo get_theme_mod('phone_1'); ?>"><?php echo get_theme_mod('phone_1'); ?></a>
               <a href="tel:<?php echo get_theme_mod('phone_2'); ?>"><?php echo get_theme_mod('phone_2'); ?></a>
               <a href="tel:<?php echo get_theme_mod('phone_3'); ?>"><?php echo get_theme_mod('phone_3'); ?></a>
-              <p>(<?php the_field('vatsap_vajber','options');?>)</p>
+              <p><?php the_field('vatsap_vajber','options');?></p>
             </div>
             <a href="mailto:<?php echo get_theme_mod('e-mail'); ?>" class="email"><?php echo get_theme_mod('e-mail'); ?></a>
           </div>

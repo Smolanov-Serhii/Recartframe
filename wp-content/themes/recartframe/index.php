@@ -6,13 +6,24 @@
 ?>
 <?php
 get_header();
-$post_id = get_the_ID();
 ?>
 
 <section class="first__block" id="first__block" href="#second__block">
     <img src="<?php echo the_field('kartinka_v_shapku_glavnoj'); ?>" alt="<?php the_field('zagolovok_dlya_verhnego_banera'); ?>" class="main__banner main__banner--image">
-    <video autoplay muted loop class="main__banner main__banner--video">
-        <source src="<?php the_field('video_v_shapku_glavnoj'); ?>" type="video/mp4">
+    <video autoplay muted loop class="main__banner main__banner--video" poster="<?php echo the_field('kartinka_v_shapku_glavnoj'); ?>">
+        <?php
+        if ( wp_is_mobile() ) {
+            ?>
+            <source src="<?php the_field('video_v_shapku_glavnoj_mobile'); ?>" type="video/mp4">
+            <?php
+        } else {
+            ?>
+            <source src="<?php the_field('video_v_shapku_glavnoj'); ?>" type="video/mp4">
+            <?php
+        }
+        ?>
+
+
     </video>
     <div class="container">
         <div class="row">
